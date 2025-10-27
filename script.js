@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const cardapio = [
@@ -37,8 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
         { nome: "Ovo", descricao: "Adicional de Ovo", preco: 2.50, categoria: "Adicionais" },
         { nome: "Frango", descricao: "Adicional de Frango", preco: 4.00, categoria: "Adicionais" },
         { nome: "Batata palha", descricao: "Adicional de Batata palha", preco: 2.00, categoria: "Adicionais" },
+
         // Bebidas
-{ nome: "ACEROLA", descricao: "Suco de Acerola", volumes: [
+        { nome: "ACEROLA", descricao: "Suco de Acerola", volumes: [
             { tamanho: "300ml", preco: 8.00 },
             { tamanho: "500ml", preco: 11.00 },
             { tamanho: "700ml", preco: 16.00 }
@@ -59,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { tamanho: "700ml", preco: 16.00 }
         ], categoria: "Bebidas" },
 
-        // Refrigerantes (agrupados por tipo)
+        // Refrigerantes
         { nome: "COCA COLA", descricao: "Refrigerante Coca Cola", volumes: [
             { tamanho: "350ml", preco: 5.50 },
             { tamanho: "2 litros", preco: 16.00 }
@@ -76,10 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
             { tamanho: "350ml", preco: 5.50 },
             { tamanho: "2 litros", preco: 13.50 }
         ], categoria: "Bebidas" }
-    
-
-
-        
     ];
 
 
@@ -153,10 +151,6 @@ function abrirModalBebida(item) {
 
     modal.style.display = "flex";
 }
-// Cancelar
-document.getElementById("cancelarBebida").addEventListener("click", () => {
-    document.getElementById("modalBebidas").style.display = "none";
-});
 
 // Confirmar
 document.getElementById("confirmarBebida").addEventListener("click", () => {
@@ -181,6 +175,20 @@ document.getElementById("cancelarAdicionais").addEventListener("click", () => {
 document.getElementById("cancelarPorcao").addEventListener("click", () => {
     fecharModal("modalPorcoes");
 });
+// Cancelar bebidas
+document.getElementById("cancelarBebida").addEventListener("click", () => {
+    document.getElementById("modalBebidas").style.display = "none";
+});
+
+
+const opcoes = document.getElementById("opcoesBebida");
+opcoes.addEventListener("change", (e) => {
+    if (e.target.name === "volumeBebida") {
+        const index = e.target.value;
+        const item = cardapio.find(i => i.nome === document.getElementById("nomeBebida").textContent);
+        document.getElementById("precoBebida").textContent = item.volumes[index].preco.toFixed(2);
+    }
+});
 
 
     // Função para abrir modal de lanches com adicionais
@@ -199,6 +207,8 @@ document.getElementById("cancelarPorcao").addEventListener("click", () => {
 
         modal.style.display = "flex";
     }
+
+
 
     // Função para abrir modal de porções
     function abrirModalPorcoes(item) {
