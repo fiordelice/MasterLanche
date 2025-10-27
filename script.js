@@ -100,11 +100,59 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    window.adicionarCarrinho = function(nome, preco) {
-        carrinho.push({ nome, preco });
-        atualizarCarrinho();
-        mostrarAlerta('Item adicionado ao carrinho!', 'add');
-    };
+   let lancheSelecionado = null; // guarda o lanche atual antes de abrir o modal
+
+window.adicionarCarrinho = function(nome, preco) {
+  lancheSelecionado = { nome, preco };
+  abrirModalAdicionais();
+};
+
+// Abrir o modal e listar os adicionais
+function abrirModalAdicionais() {
+  const modal = document.getElementById("modalAdicionais");
+  const form = document.getElementById("formAdicionais");
+
+  // Filtra apenas os itens da categoria "Adicionais"
+  const adicionais = cardapio.filter(item => item.categoria === "Adicionais");
+
+  form.innerHTML = adicionais.map(add => `
+    <label>
+      <input type="checkbox" value="${add.nome}" data-preco="${add.preco}">
+      ${add.nome} — R$ ${add.preco.toFixed(2)}
+    </label>
+  `).join('');
+
+  modal.style.display = "flex";
+}
+
+// Fechar o modal
+function fecharModal() {
+  document.getElementById("modalAdicionais").style.display = "none";
+}
+
+// Botão cancelar
+document.getElementById("cancelarAdicionais").addEventListener("click", fecharModal);
+
+// Confirmar e adicionar ao carrinho
+document.getElementById("confirmarAdicionais").addEventListener("click", () => {
+  const checkboxes = document.querySelectorAll('#formAdicionais input[type="checkbox"]:checked');
+  let totalAdicionais = 0;
+  let nomesAdicionais = [];
+
+  checkboxes.forEach(chk => {
+    totalAdicionais += parseFloat(chk.dataset.preco);
+    nomesAdicionais.push(chk.value);
+  });
+
+  const totalItem = lancheSelecionado.preco + totalAdicionais;
+  const descricao = nomesAdicionais.length > 0 ? ` + (${nomesAdicionais.join(", ")})` : "";
+
+  carrinho.push({ nome: lancheSelecionado.nome + descricao, preco: totalItem });
+  atualizarCarrinho();
+  mostrarAlerta('Item adicionado com adicionais!', 'add');
+  fecharModal();
+});
+
 
     function removerCarrinho(nome) {
         carrinho = carrinho.filter(item => item.nome !== nome);
@@ -148,22 +196,9 @@ document.addEventListener('DOMContentLoaded', () => {
         window.open(url, '_blank');
     });
 
-    const scrollBtn = document.getElementById("scrollBtn");
+   
 
-function atualizarBotao() {
-  const scrollTop = window.scrollY;
-  const alturaTotal = document.body.scrollHeight - window.innerHeight;
 
-  if (scrollTop < alturaTotal - 50) {
-    // Usuário está no topo → botão desce
-    scrollBtn.textContent = "↓";
-    scrollBtn.onclick = () => window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-  } else {
-    // Usuário está no final → botão sobe
-    scrollBtn.textContent = "↑";
-    scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-}
 
 window.addEventListener("scroll", atualizarBotao);
 window.addEventListener("load", atualizarBotao);
