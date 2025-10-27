@@ -44,7 +44,7 @@ main {
 /* Carrinho ocupa menos espaço */
 #carrinho {
   flex: 1;
-  min-width: 250px;
+  min-width: 260px;
   border: 1px solid #ccc;
   padding: 1rem;
   border-radius: 8px;
