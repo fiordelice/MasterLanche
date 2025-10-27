@@ -156,11 +156,11 @@ function atualizarBotao() {
 
   if (scrollTop < alturaTotal - 50) {
     // Usuário está no topo → botão desce
-    scrollBtn.textContent = "⬇";
+    scrollBtn.textContent = "↓";
     scrollBtn.onclick = () => window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
   } else {
     // Usuário está no final → botão sobe
-    scrollBtn.textContent = "⬆";
+    scrollBtn.textContent = "↑";
     scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
   }
 }
