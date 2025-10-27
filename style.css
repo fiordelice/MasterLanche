@@ -132,8 +132,8 @@ main {
   position: fixed;
   bottom: 70px; /* botão do WhatsApp fica mais abaixo */
   right: 20px;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   background-color: #25D366;
   border-radius: 50%;
   display: flex;
@@ -417,6 +417,7 @@ main {
 
 #mensagem-alerta.add::before {
   content: "✅"; 
+  color: #27ae60;
 }
 
 #mensagem-alerta.remove {
@@ -425,6 +426,7 @@ main {
 
 #mensagem-alerta.remove::before {
   content: "❌"; 
+  color: red;
 }
 
 @media (max-width: 480px) {
