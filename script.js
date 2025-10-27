@@ -376,32 +376,81 @@ document.getElementById("formPagamento").addEventListener("change", (e) => {
 });
 
 // Confirmar pagamento e enviar para o WhatsApp
+// Interações com as opções de pagamento
+document.getElementById("formPagamento").addEventListener("change", (e) => {
+  const div = document.getElementById("detalhesPagamento");
+  const total = carrinho.reduce((acc, item) => acc + item.preco, 0).toFixed(2);
+  div.innerHTML = "";
+
+  if (e.target.value === "Pix") {
+    div.innerHTML = `
+      <p><strong>Valor a pagar:</strong> R$ ${total}</p>
+      <p>Chave Pix (copie e pague):</p>
+      <input type="text" readonly value="5518991418453" style="width:100%; text-align:center; font-weight:bold;">
+    `;
+  } else if (e.target.value === "Dinheiro") {
+    div.innerHTML = `
+      <label>Precisa de troco?</label><br>
+      <input type="text" id="troco" placeholder="Troco para quanto?" style="width:100%;">
+    `;
+  }
+});
+
+// Confirmar pagamento
 document.getElementById("confirmarPagamento").addEventListener("click", () => {
   const forma = document.querySelector('input[name="pagamento"]:checked');
   if (!forma) return mostrarAlerta("Selecione uma forma de pagamento!", "alert");
 
-  const total = carrinho.reduce((acc, item) => acc + item.preco, 0);
-  let infoPagamento = `Forma de pagamento: ${forma.value}`;
+  if (forma.value === "Cartão") {
+    modalPagamento.style.display = "none";
+    document.getElementById("modalCartao").style.display = "flex";
+    return;
+  }
 
-  if (forma.value === "Pix") {
+  finalizarPedido(forma.value);
+});
+
+// Cancelar pagamento
+document.getElementById("cancelarPagamento").addEventListener("click", () => {
+  modalPagamento.style.display = "none";
+});
+
+// Funções do modal de cartão
+document.getElementById("confirmarCartao").addEventListener("click", () => {
+  const tipo = document.querySelector('input[name="tipoCartao"]:checked');
+  if (!tipo) return mostrarAlerta("Escolha crédito ou débito!", "alert");
+
+  document.getElementById("modalCartao").style.display = "none";
+  finalizarPedido("Cartão", tipo.value);
+});
+
+document.getElementById("cancelarCartao").addEventListener("click", () => {
+  document.getElementById("modalCartao").style.display = "none";
+  modalPagamento.style.display = "flex";
+});
+
+// Função final que monta o pedido e envia pro WhatsApp
+function finalizarPedido(formaPagamento, tipoCartao = "") {
+  const total = carrinho.reduce((acc, item) => acc + item.preco, 0);
+  let infoPagamento = `Forma de pagamento: ${formaPagamento}`;
+
+  if (formaPagamento === "Pix") {
     infoPagamento += `\nValor: R$ ${total.toFixed(2)}\nChave Pix: 5518991418453`;
-  } else if (forma.value === "Cartão") {
-    const tipo = document.querySelector('input[name="tipoCartao"]:checked');
-    if (!tipo) return mostrarAlerta("Selecione crédito ou débito!", "alert");
-    infoPagamento += ` (${tipo.value})`;
-  } else if (forma.value === "Dinheiro") {
-    const troco = document.getElementById("troco").value.trim();
+  } else if (formaPagamento === "Cartão") {
+    infoPagamento += ` (${tipoCartao})`;
+  } else if (formaPagamento === "Dinheiro") {
+    const troco = document.getElementById("troco")?.value.trim();
     infoPagamento += troco ? `\nTroco para: R$ ${troco}` : "\nSem troco";
   }
 
   const texto = carrinho.map(item => `- ${item.nome}: R$ ${item.preco.toFixed(2)}`).join('\n');
   const mensagem = `Olá! Gostaria de fazer um pedido:\n${texto}\n*Total: R$ ${total.toFixed(2)}*\n\n${infoPagamento}`;
-
   const url = `https://wa.me/5518991418453?text=${encodeURIComponent(mensagem)}`;
-  window.open(url, "_blank");
 
-  modalPagamento.style.display = "none";
-});
+  window.open(url, "_blank");
+  mostrarAlerta("Pedido finalizado! Obrigado 😄", "add");
+}
+
 const modal = document.getElementById('modalPorcoes');
 const closeBtn = document.querySelector('.close');
 const cancelar = document.getElementById('cancelarPorcao');
