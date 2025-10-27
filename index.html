@@ -78,30 +78,14 @@
   </div>
 </div>
 <div id="modalBebidas" class="modal">
-  <div class="modal-conteudo">
-    <h2 id="nomeBebida"></h2>
-    <div id="opcoesBebida"></div> <!-- aqui vão os radio buttons -->
-    <p>Preço: R$ <span id="precoBebida"></span></p>
-    <button id="confirmarBebida">Adicionar ao carrinho</button>
-    <button onclick="fecharModal('modalBebidas')">Cancelar</button>
-  </div>
-</div>
-
-<!-- Modal Bebidas -->
-<div id="modalBebidas" class="modal">
-  <div class="modal-content">
-    <h3 id="nomeBebida"></h3>
-    <p id="descricaoBebida"></p>
-    
-    <div id="opcoesBebida">
-      <!-- Aqui serão colocados os volumes dinamicamente -->
+    <div class="modal-content">
+        <h3 id="nomeBebida"></h3>
+        <p id="descricaoBebida"></p>
+        <div id="opcoesBebida"></div>
+        <p>Preço: R$ <span id="precoBebida"></span></p>
+        <button id="confirmarBebida">Adicionar</button>
+        <button id="cancelarBebida">Cancelar</button>
     </div>
-
-    <p>Preço selecionado: R$ <span id="precoBebida"></span></p>
-
-    <button id="confirmarBebida">Adicionar</button>
-    <button id="cancelarBebida">Cancelar</button>
-  </div>
 </div>
 
 
@@ -126,4 +110,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
