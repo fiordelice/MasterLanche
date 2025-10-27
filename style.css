@@ -940,11 +940,12 @@ button:hover {
 /* Cada card */
 .card {
     background-color: #fff;
+    border: 3px solid #a07e28;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     padding: 10px;
-    flex: 1 1 250px;          /* flexível: cresce e encolhe, base 250px */
-    max-width: 300px;         /* limite máximo de largura */
+    flex: 1 1 230px;          /* flexível: cresce e encolhe, base 250px */
+    max-width: 380px;         /* limite máximo de largura */
     box-sizing: border-box;
     text-align: center;
 }
