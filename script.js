@@ -283,24 +283,31 @@ opcoes.addEventListener("change", (e) => {
     });
 
     // Atualizar carrinho
-    function atualizarCarrinho() {
-        listaCarrinho.innerHTML = '';
-        let total = 0;
-        carrinho.forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
-            const removerBtn = document.createElement('button');
-            removerBtn.textContent = 'Remover';
-            removerBtn.onclick = () => {
-                carrinho = carrinho.filter(i => i !== item);
-                atualizarCarrinho();
-            };
-            li.appendChild(removerBtn);
-            listaCarrinho.appendChild(li);
-            total += item.preco;
-        });
-        totalSpan.textContent = `Total: R$ ${total.toFixed(2)}`;
-    }
+function atualizarCarrinho() {
+    listaCarrinho.innerHTML = '';
+    let total = 0;
+
+    carrinho.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
+
+        const removerBtn = document.createElement('button');
+        removerBtn.textContent = 'Remover';
+
+        removerBtn.onclick = () => {
+            carrinho = carrinho.filter(i => i !== item);
+            atualizarCarrinho();
+            mostrarAlerta(`${item.nome} removido do carrinho`, 'remove');
+        };
+
+        li.appendChild(removerBtn);
+        listaCarrinho.appendChild(li);
+        total += item.preco;
+    });
+
+    totalSpan.textContent = `Total: R$ ${total.toFixed(2)}`;
+}
+
 
     // Alertas
     function mostrarAlerta(mensagem, tipo) {
