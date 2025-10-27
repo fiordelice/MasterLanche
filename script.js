@@ -343,41 +343,36 @@ document.getElementById("cancelarPagamento").addEventListener("click", () => {
 });
 
 // Abrir modal ao clicar em finalizar
-// --- Substitua/cole esta parte EM VEZ da lógica anterior de "finalizar" ---
 finalizarBtn.addEventListener('click', (e) => {
     e.preventDefault();
     if (!carrinho || carrinho.length === 0) {
         return mostrarAlerta("Adicione itens ao carrinho primeiro!", "alert");
     }
 
-    // Remove modal anterior se existir (evita duplicar)
+    // Remove modal anterior
     const existing = document.getElementById('modalPagamentoPro');
     if (existing) existing.remove();
 
-    // --- Criar modal profissional ---
+    // --- Modal Forma de Pagamento ---
     const modal = document.createElement('div');
     modal.id = 'modalPagamentoPro';
     modal.className = 'modal';
     modal.style.display = 'flex';
     modal.innerHTML = `
       <div class="modal-content" role="dialog" aria-modal="true" style="max-width:500px; width:95%; padding:18px; border-radius:10px;">
-        <h3 style="margin:0 0 10px;">Forma de Pagamento</h3>
-
-        <label for="selectPagamentoPro" style="display:block; margin-bottom:8px;">Escolha:</label>
+        <h3>Forma de Pagamento</h3>
         <select id="selectPagamentoPro" style="width:100%; padding:8px; margin-bottom:12px; border-radius:6px;">
           <option value="">Selecione...</option>
           <option value="pix">Pix</option>
           <option value="dinheiro">Dinheiro</option>
           <option value="cartao">Cartão</option>
         </select>
-
         <div id="detalhesPagamentoPro" style="min-height:80px; margin-bottom:12px;"></div>
-
         <div style="display:flex; gap:10px;">
-          <button id="confirmarFinalizacaoPro" disabled style="flex:1; padding:10px; border-radius:8px; border:none; background:#b5b5b5; color:#fff; cursor:not-allowed;">
-            Finalizar Pedido
+          <button id="confirmarPagamentoPro" disabled style="flex:1; padding:10px; border-radius:8px; border:none; background:#b5b5b5; color:#fff; cursor:not-allowed;">
+            Próximo
           </button>
-          <button id="cancelarFinalizacaoPro" style="flex:1; padding:10px; border-radius:8px; border:1px solid #ccc; background:#fff; color:#333;">
+          <button id="cancelarPagamentoPro" style="flex:1; padding:10px; border-radius:8px; border:1px solid #ccc; background:#fff; color:#333;">
             Cancelar
           </button>
         </div>
@@ -387,172 +382,114 @@ finalizarBtn.addEventListener('click', (e) => {
 
     const select = document.getElementById('selectPagamentoPro');
     const detalhes = document.getElementById('detalhesPagamentoPro');
-    const btnConfirm = document.getElementById('confirmarFinalizacaoPro');
-    const btnCancel = document.getElementById('cancelarFinalizacaoPro');
-
-    // formatador simples para R$
-    const fmt = (num) => Number(num).toFixed(2).replace('.', ',');
-
-    // calcula total mostrado no modal
+    const btnNext = document.getElementById('confirmarPagamentoPro');
+    const btnCancel = document.getElementById('cancelarPagamentoPro');
     const total = carrinho.reduce((acc, item) => acc + item.preco, 0);
 
-    // helper para habilitar/desabilitar confirm
-    function setConfirmEnabled(enabled) {
-        btnConfirm.disabled = !enabled;
-        if (enabled) {
-            btnConfirm.style.background = '#25d366'; // verde whatsapp
-            btnConfirm.style.cursor = 'pointer';
-        } else {
-            btnConfirm.style.background = '#b5b5b5';
-            btnConfirm.style.cursor = 'not-allowed';
-        }
+    function fmt(num) {
+        return Number(num).toFixed(2).replace('.', ',');
     }
 
-    // Quando muda seleção principal
+    function setNextEnabled(enabled) {
+        btnNext.disabled = !enabled;
+        btnNext.style.background = enabled ? '#25d366' : '#b5b5b5';
+        btnNext.style.cursor = enabled ? 'pointer' : 'not-allowed';
+    }
+
     select.addEventListener('change', () => {
         detalhes.innerHTML = '';
-        setConfirmEnabled(false);
+        setNextEnabled(false);
 
         if (select.value === 'pix') {
             detalhes.innerHTML = `
-              <p style="margin:6px 0;"><strong>Total:</strong> R$ ${fmt(total)}</p>
-              <p style="margin:6px 0;">Copie a chave PIX para efetuar o pagamento:</p>
-              <div style="display:flex; gap:8px; align-items:center;">
-                <input id="pixKeyPro" value="5518991418453" readonly style="flex:1; padding:8px; border-radius:6px; border:1px solid #ddd; text-align:center; font-weight:600;">
-                <button id="copyPixPro" style="padding:8px 10px; border-radius:6px; border:none; background:#007bff; color:#fff; cursor:pointer;">Copiar</button>
-              </div>
-              <p style="font-size:13px; color:#666; margin-top:8px;">Depois de copiar, confirme para enviar o pedido com as informações.</p>
+                <p><strong>Total:</strong> R$ ${fmt(total)}</p>
+                <p>Copie a chave PIX:</p>
+                <input id="pixKeyPro" value="5518991418453" readonly style="width:100%; padding:8px; margin-bottom:6px; border-radius:6px; border:1px solid #ddd; text-align:center;">
             `;
-            // copy functionality
-            document.getElementById('copyPixPro').addEventListener('click', async () => {
-                const key = document.getElementById('pixKeyPro').value;
-                try {
-                    await navigator.clipboard.writeText(key);
-                    mostrarAlerta('Chave PIX copiada!', 'add');
-                } catch (err) {
-                    // fallback
-                    const inp = document.getElementById('pixKeyPro');
-                    inp.select();
-                    document.execCommand('copy');
-                    mostrarAlerta('Chave PIX copiada!', 'add');
-                }
-            });
-            setConfirmEnabled(true);
-
+            setNextEnabled(true);
         } else if (select.value === 'dinheiro') {
             detalhes.innerHTML = `
-              <p style="margin:6px 0;"><strong>Total:</strong> R$ ${fmt(total)}</p>
-              <div style="margin-top:6px;">
-                <label style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
-                  <input type="radio" name="trocoPrecisaPro" value="nao" checked> Não preciso de troco
-                </label>
-                <label style="display:flex; align-items:center; gap:8px;">
-                  <input type="radio" name="trocoPrecisaPro" value="sim"> Preciso de troco
-                </label>
-              </div>
-              <div id="trocoAreaPro" style="margin-top:8px; display:none;">
-                <label style="display:block; margin-bottom:6px;">Troco para quanto? (valor que você dará)</label>
-                <input id="trocoValorPro" type="text" placeholder="Ex: 50.00" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ddd;">
-                <p style="font-size:13px; color:#666; margin-top:6px;">Informe o VALOR que você entregará (ex: 50.00). Se vazio, será enviado como "Sem troco".</p>
-              </div>
+                <p><strong>Total:</strong> R$ ${fmt(total)}</p>
+                <label><input type="radio" name="trocoPrecisaPro" value="nao" checked> Não preciso de troco</label>
+                <label><input type="radio" name="trocoPrecisaPro" value="sim"> Preciso de troco</label>
+                <div id="trocoAreaPro" style="display:none; margin-top:6px;">
+                    <label>Troco para quanto?</label>
+                    <input id="trocoValorPro" type="text" placeholder="Ex: 50.00" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ddd;">
+                </div>
             `;
-
             const radios = detalhes.querySelectorAll('input[name="trocoPrecisaPro"]');
             const trocoArea = document.getElementById('trocoAreaPro');
             radios.forEach(r => r.addEventListener('change', () => {
-                if (r.value === 'sim' && r.checked) {
-                    trocoArea.style.display = 'block';
-                } else if (r.value === 'nao' && r.checked) {
-                    trocoArea.style.display = 'none';
-                }
+                trocoArea.style.display = r.value === 'sim' ? 'block' : 'none';
             }));
-
-            // confirm can be pressed even if no troco (user chose "nao"), so enable
-            setConfirmEnabled(true);
-
+            setNextEnabled(true);
         } else if (select.value === 'cartao') {
             detalhes.innerHTML = `
-              <p style="margin:6px 0;"><strong>Total:</strong> R$ ${fmt(total)}</p>
-              <label style="display:block; margin-top:8px; margin-bottom:6px;">Escolha o tipo de cartão:</label>
-              <select id="tipoCartaoPro" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ddd;">
-                <option value="">Selecione...</option>
-                <option value="Crédito">Crédito</option>
-                <option value="Débito">Débito</option>
-              </select>
-              <p style="font-size:13px; color:#666; margin-top:8px;">O pagamento será processado na entrega.</p>
+                <p><strong>Total:</strong> R$ ${fmt(total)}</p>
+                <label>Tipo de cartão:</label>
+                <select id="tipoCartaoPro" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ddd;">
+                  <option value="">Selecione...</option>
+                  <option value="Crédito">Crédito</option>
+                  <option value="Débito">Débito</option>
+                </select>
             `;
-            // desabilita até o usuário escolher
-            setConfirmEnabled(false);
+            setNextEnabled(false);
             const tipo = document.getElementById('tipoCartaoPro');
-            tipo.addEventListener('change', () => {
-                setConfirmEnabled(tipo.value !== '');
-            });
-        } else {
-            detalhes.innerHTML = '';
-            setConfirmEnabled(false);
+            tipo.addEventListener('change', () => setNextEnabled(tipo.value !== ''));
         }
     });
 
-    // cancelar
-    btnCancel.addEventListener('click', () => {
-        modal.remove();
-    });
+    btnCancel.addEventListener('click', () => modal.remove());
 
-    // confirmar finalizacao
-    btnConfirm.addEventListener('click', () => {
-        if (btnConfirm.disabled) return;
-
+    btnNext.addEventListener('click', () => {
         const forma = select.value;
-        const totalNum = carrinho.reduce((acc, item) => acc + item.preco, 0);
         let infoPagamento = `Forma de pagamento: ${forma.charAt(0).toUpperCase() + forma.slice(1)}`;
-
-        if (forma === 'pix') {
-            infoPagamento += `\nValor: R$ ${fmt(totalNum)}\nChave Pix: 5518991418453`;
-        } else if (forma === 'dinheiro') {
+        if (forma === 'pix') infoPagamento += `\nValor: R$ ${fmt(total)}\nChave Pix: 5518991418453`;
+        if (forma === 'dinheiro') {
             const trocoRadio = document.querySelector('input[name="trocoPrecisaPro"]:checked').value;
             if (trocoRadio === 'sim') {
                 const raw = document.getElementById('trocoValorPro').value.trim().replace(',', '.');
                 const num = parseFloat(raw);
-                if (!isNaN(num) && num > 0) {
-                    infoPagamento += `\nTroco para: R$ ${fmt(num)}`; // valor que o cliente dará
-                } else {
-                    // Se cliente marcou que precisa mas não informou valor válido, mostra alerta
-                    mostrarAlerta("Informe o valor do troco corretamente ou escolha 'Não preciso de troco'.", "alert");
-                    return;
-                }
-            } else {
-                infoPagamento += `\nSem troco`;
-            }
-        } else if (forma === 'cartao') {
-            const tipo = document.getElementById('tipoCartaoPro').value;
-            if (!tipo) {
-                mostrarAlerta("Escolha crédito ou débito!", "alert");
-                return;
-            }
-            infoPagamento += ` (${tipo})`;
+                if (isNaN(num) || num <= 0) return mostrarAlerta("Informe o valor do troco corretamente", "alert");
+                infoPagamento += `\nTroco para: R$ ${fmt(num)}`;
+            } else infoPagamento += `\nSem troco`;
         }
+        if (forma === 'cartao') infoPagamento += ` (${document.getElementById('tipoCartaoPro').value})`;
 
-        // montar texto do pedido
-        const texto = carrinho.map(item => `- ${item.nome}: R$ ${Number(item.preco).toFixed(2)}`).join('\n');
-        const mensagem = `Olá! Gostaria de fazer um pedido:\n${texto}\n*Total: R$ ${totalNum.toFixed(2)}*\n\n${infoPagamento}`;
+        // --- Modal Endereço ---
+        modal.innerHTML = `
+            <div class="modal-content" style="max-width:500px; width:95%; padding:18px; border-radius:10px;">
+                <h3>Endereço de Entrega</h3>
+                <label>Rua: <input id="ruaEntrega" type="text" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ddd;"></label>
+                <label>Bairro: <input id="bairroEntrega" type="text" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ddd;"></label>
+                <label>Número: <input id="numeroEntrega" type="text" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ddd;"></label>
+                <div style="display:flex; gap:10px; margin-top:12px;">
+                    <button id="confirmarEndereco" style="flex:1; padding:10px; border-radius:8px; border:none; background:#25d366; color:#fff;">Finalizar Pedido</button>
+                    <button id="cancelarEndereco" style="flex:1; padding:10px; border-radius:8px; border:1px solid #ccc; background:#fff;">Cancelar</button>
+                </div>
+            </div>
+        `;
 
-        const numeroLoja = "5518991418453"; // seu número com DDI+DDD
-        const url = `https://wa.me/${numeroLoja}?text=${encodeURIComponent(mensagem)}`;
+        document.getElementById('cancelarEndereco').addEventListener('click', () => modal.remove());
+        document.getElementById('confirmarEndereco').addEventListener('click', () => {
+            const rua = document.getElementById('ruaEntrega').value.trim();
+            const bairro = document.getElementById('bairroEntrega').value.trim();
+            const numero = document.getElementById('numeroEntrega').value.trim();
+            if (!rua || !bairro || !numero) return mostrarAlerta("Preencha todos os campos do endereço", "alert");
 
-        // abrir whatsapp e limpar
-        window.open(url, "_blank");
-        mostrarAlerta("Pedido finalizado! Obrigado 😊", "add");
-        carrinho = [];
-        atualizarCarrinho();
+            const texto = carrinho.map(item => `- ${item.nome}: R$ ${Number(item.preco).toFixed(2)}`).join('\n');
+            const mensagem = `Olá! Gostaria de fazer um pedido:\n${texto}\n*Total: R$ ${total.toFixed(2)}*\n\n${infoPagamento}\n\nEndereço:\nRua: ${rua}\nBairro: ${bairro}\nNúmero: ${numero}`;
 
-        // remove modal
-        modal.remove();
+            const numeroLoja = "5518991418453";
+            const url = `https://wa.me/${numeroLoja}?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, "_blank");
+            mostrarAlerta("Pedido finalizado! Obrigado 😊", "add");
+            carrinho = [];
+            atualizarCarrinho();
+            modal.remove();
+        });
     });
-
-    // abre modal já com foco no select
-    select.focus();
 });
-// --- fim do bloco de finalizar ---
 
 
 const modal = document.getElementById('modalPorcoes');
