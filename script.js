@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
 
     const cardapio = [
@@ -107,8 +106,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         filtrados.forEach(item => {
             const precoExibir = item.categoria === "Porções"
-    ? `Meia: R$ ${item.precoMeia.toFixed(2)} / Grande: R$ ${item.precoGrande.toFixed(2)}`
-    : item.volumes
+        ? `Meia: R$ ${item.precoMeia.toFixed(2)} / Grande: R$ ${item.precoGrande.toFixed(2)}`
+        : item.volumes
         ? item.volumes.map(v => `${v.tamanho}: R$ ${v.preco.toFixed(2)}`).join(' / ')
         : `R$ ${item.preco.toFixed(2)}`;
 
@@ -123,72 +122,72 @@ document.addEventListener('DOMContentLoaded', () => {
             cardapioSection.appendChild(card);
         });
     }
-function abrirModalBebida(item) {
-    const modal = document.getElementById("modalBebidas");
-    const opcoes = document.getElementById("opcoesBebida");
+    function abrirModalBebida(item) {
+        const modal = document.getElementById("modalBebidas");
+        const opcoes = document.getElementById("opcoesBebida");
 
-    document.getElementById("nomeBebida").textContent = item.nome;
-    document.getElementById("descricaoBebida").textContent = item.descricao;
+        document.getElementById("nomeBebida").textContent = item.nome;
+        document.getElementById("descricaoBebida").textContent = item.descricao;
 
-    // Criar opções de volumes
-    opcoes.innerHTML = item.volumes.map((v, index) => `
-        <label>
-            <input type="radio" name="volumeBebida" value="${index}" ${index === 0 ? 'checked' : ''}>
-            ${v.tamanho} — R$ ${v.preco.toFixed(2)}
-        </label>
-    `).join('');
+        // Criar opções de volumes
+        opcoes.innerHTML = item.volumes.map((v, index) => `
+            <label>
+                <input type="radio" name="volumeBebida" value="${index}" ${index === 0 ? 'checked' : ''}>
+                ${v.tamanho} — R$ ${v.preco.toFixed(2)}
+            </label>
+        `).join('');
 
-    // Exibir preço inicial
-    document.getElementById("precoBebida").textContent = item.volumes[0].preco.toFixed(2);
+        // Exibir preço inicial
+        document.getElementById("precoBebida").textContent = item.volumes[0].preco.toFixed(2);
 
-    // Atualizar preço ao mudar de volume
-    document.querySelectorAll('input[name="volumeBebida"]').forEach(input => {
-        input.addEventListener('change', () => {
-            const selected = item.volumes[input.value];
-            document.getElementById("precoBebida").textContent = selected.preco.toFixed(2);
+        // Atualizar preço ao mudar de volume
+        document.querySelectorAll('input[name="volumeBebida"]').forEach(input => {
+            input.addEventListener('change', () => {
+                const selected = item.volumes[input.value];
+                document.getElementById("precoBebida").textContent = selected.preco.toFixed(2);
+            });
         });
+
+        modal.style.display = "flex";
+    }
+
+    // Confirmar
+    document.getElementById("confirmarBebida").addEventListener("click", () => {
+        const modal = document.getElementById("modalBebidas");
+        const item = cardapio.find(i => i.nome === document.getElementById("nomeBebida").textContent);
+        const selectedIndex = document.querySelector('input[name="volumeBebida"]:checked').value;
+        const volumeSelecionado = item.volumes[selectedIndex];
+
+        carrinho.push({ nome: `${item.nome} (${volumeSelecionado.tamanho})`, preco: volumeSelecionado.preco });
+        atualizarCarrinho();
+        mostrarAlerta('Bebida adicionada ao carrinho!', 'add'); 
+
+        modal.style.display = "none";
     });
 
-    modal.style.display = "flex";
-}
-
-// Confirmar
-document.getElementById("confirmarBebida").addEventListener("click", () => {
-    const modal = document.getElementById("modalBebidas");
-    const item = cardapio.find(i => i.nome === document.getElementById("nomeBebida").textContent);
-    const selectedIndex = document.querySelector('input[name="volumeBebida"]:checked').value;
-    const volumeSelecionado = item.volumes[selectedIndex];
-
-    carrinho.push({ nome: `${item.nome} (${volumeSelecionado.tamanho})`, preco: volumeSelecionado.preco });
-    atualizarCarrinho();
-    mostrarAlerta('Bebida adicionada ao carrinho!', 'add');  mostrarAlerta
-
-    modal.style.display = "none";
-});
-
     // Cancelar adicionais
-document.getElementById("cancelarAdicionais").addEventListener("click", () => {
-    fecharModal("modalAdicionais");
-});
+    document.getElementById("cancelarAdicionais").addEventListener("click", () => {
+        fecharModal("modalAdicionais");
+    });
 
-// Cancelar porções
-document.getElementById("cancelarPorcao").addEventListener("click", () => {
-    fecharModal("modalPorcoes");
-});
-// Cancelar bebidas
-document.getElementById("cancelarBebida").addEventListener("click", () => {
-    document.getElementById("modalBebidas").style.display = "none";
-});
+    // Cancelar porções
+    document.getElementById("cancelarPorcao").addEventListener("click", () => {
+        fecharModal("modalPorcoes");
+    });
+    // Cancelar bebidas
+    document.getElementById("cancelarBebida").addEventListener("click", () => {
+        document.getElementById("modalBebidas").style.display = "none";
+    });
 
 
-const opcoes = document.getElementById("opcoesBebida");
-opcoes.addEventListener("change", (e) => {
-    if (e.target.name === "volumeBebida") {
-        const index = e.target.value;
-        const item = cardapio.find(i => i.nome === document.getElementById("nomeBebida").textContent);
-        document.getElementById("precoBebida").textContent = item.volumes[index].preco.toFixed(2);
-    }
-});
+    const opcoes = document.getElementById("opcoesBebida");
+    opcoes.addEventListener("change", (e) => {
+        if (e.target.name === "volumeBebida") {
+            const index = e.target.value;
+            const item = cardapio.find(i => i.nome === document.getElementById("nomeBebida").textContent);
+            document.getElementById("precoBebida").textContent = item.volumes[index].preco.toFixed(2);
+        }
+    });
 
 
     // Função para abrir modal de lanches com adicionais
@@ -234,22 +233,22 @@ opcoes.addEventListener("change", (e) => {
     }
 
     // Adicionar ao carrinho
-  window.adicionarCarrinho = function (nome, categoria) {
-    const item = cardapio.find(i => i.nome === nome);
+    window.adicionarCarrinho = function (nome, categoria) {
+        const item = cardapio.find(i => i.nome === nome);
 
-    if (categoria === "Lanches") {
-        lancheSelecionado = item;
-        abrirModalAdicionais();
-    } else if (categoria === "Porções") {
-        abrirModalPorcoes(item);
-    } else if (categoria === "Bebidas") {
-        abrirModalBebida(item);
-    } else {
-        carrinho.push({ nome: item.nome, preco: item.preco });
-        atualizarCarrinho();
-        mostrarAlerta('Item adicionado!', 'add');
-    }
-};
+        if (categoria === "Lanches") {
+            lancheSelecionado = item;
+            abrirModalAdicionais();
+        } else if (categoria === "Porções") {
+            abrirModalPorcoes(item);
+        } else if (categoria === "Bebidas") {
+            abrirModalBebida(item);
+        } else {
+            carrinho.push({ nome: item.nome, preco: item.preco });
+            atualizarCarrinho();
+            mostrarAlerta('Item adicionado!', 'add');
+        }
+    };
 
     // Confirmar adicionais
     document.getElementById("confirmarAdicionais").addEventListener("click", () => {
@@ -283,30 +282,30 @@ opcoes.addEventListener("change", (e) => {
     });
 
     // Atualizar carrinho
-function atualizarCarrinho() {
-    listaCarrinho.innerHTML = '';
-    let total = 0;
+    function atualizarCarrinho() {
+        listaCarrinho.innerHTML = '';
+        let total = 0;
 
-    carrinho.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
+        carrinho.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
 
-        const removerBtn = document.createElement('button');
-        removerBtn.textContent = 'Remover';
+            const removerBtn = document.createElement('button');
+            removerBtn.textContent = 'Remover';
 
-        removerBtn.onclick = () => {
-            carrinho = carrinho.filter(i => i !== item);
-            atualizarCarrinho();
-            mostrarAlerta(`${item.nome} removido do carrinho`, 'remove');
-        };
+            removerBtn.onclick = () => {
+                carrinho = carrinho.filter(i => i !== item);
+                atualizarCarrinho();
+                mostrarAlerta(`${item.nome} removido do carrinho`, 'remove');
+            };
 
-        li.appendChild(removerBtn);
-        listaCarrinho.appendChild(li);
-        total += item.preco;
-    });
+            li.appendChild(removerBtn);
+            listaCarrinho.appendChild(li);
+            total += item.preco;
+        });
 
-    totalSpan.textContent = `Total: R$ ${total.toFixed(2)}`;
-}
+        totalSpan.textContent = `Total: R$ ${total.toFixed(2)}`;
+    }
 
 
     // Alertas
@@ -316,159 +315,170 @@ function atualizarCarrinho() {
         setTimeout(() => alerta.className = 'mensagem-alerta', 3000);
     }
 
-  // Modal de pagamento
-const modalPagamento = document.createElement("div");
-modalPagamento.className = "modal";
-modalPagamento.innerHTML = `
-  <div class="modal-content">
-    <h3>Forma de Pagamento</h3>
-    <form id="formPagamento">
-      <label><input type="radio" name="pagamento" value="Pix"> Pix</label><br>
-      <label><input type="radio" name="pagamento" value="Cartão"> Cartão</label><br>
-      <label><input type="radio" name="pagamento" value="Dinheiro"> Dinheiro</label><br>
-      <div id="detalhesPagamento" style="margin-top:10px;"></div>
-    </form>
-    <div class="modal-buttons">
-      <button id="confirmarPagamento" type="button">Confirmar Pagamento</button>
-      <button id="cancelarPagamento" type="button">Cancelar</button>
-    </div>
-  </div>
-`;
-document.body.appendChild(modalPagamento);
-
-// Cancelar pagamento
-document.getElementById("cancelarPagamento").addEventListener("click", () => {
-  modalPagamento.style.display = "none";
-});
-
-// Abrir modal ao clicar em finalizar
-finalizarBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (carrinho.length === 0) {
-    return mostrarAlerta("Adicione itens ao carrinho primeiro!", "alert");
-  }
-  modalPagamento.style.display = "flex";
-});
-
-// Interações com as opções de pagamento
-document.getElementById("formPagamento").addEventListener("change", (e) => {
-  const div = document.getElementById("detalhesPagamento");
-  const total = carrinho.reduce((acc, item) => acc + item.preco, 0).toFixed(2);
-  div.innerHTML = "";
-
-  if (e.target.value === "Pix") {
-    div.innerHTML = `
-      <p><strong>Valor a pagar:</strong> R$ ${total}</p>
-      <p>Chave Pix (copie e pague):</p>
-      <input type="text" readonly value="5518991418453" style="width:100%; text-align:center; font-weight:bold;">
+    // Modal de pagamento
+    const modalPagamento = document.createElement("div");
+    modalPagamento.className = "modal";
+    modalPagamento.innerHTML = `
+        <div class="modal-content">
+            <h3>Forma de Pagamento</h3>
+            <form id="formPagamento">
+                <label><input type="radio" name="pagamento" value="Pix"> Pix</label><br>
+                <label><input type="radio" name="pagamento" value="Cartão"> Cartão</label><br>
+                <label><input type="radio" name="pagamento" value="Dinheiro"> Dinheiro</label><br>
+                <div id="detalhesPagamento" style="margin-top:10px;"></div>
+            </form>
+            <div class="modal-buttons">
+                <button id="confirmarPagamento" type="button">Confirmar Pagamento</button>
+                <button id="cancelarPagamento" type="button">Cancelar</button>
+            </div>
+        </div>
     `;
-  } else if (e.target.value === "Cartão") {
-    div.innerHTML = `
-      <label><input type="radio" name="tipoCartao" value="Crédito"> Crédito</label><br>
-      <label><input type="radio" name="tipoCartao" value="Débito"> Débito</label>
+    document.body.appendChild(modalPagamento);
+
+    // Modal para Cartão (adicionado para suportar a lógica)
+    const modalCartao = document.createElement("div");
+    modalCartao.className = "modal";
+    modalCartao.id = "modalCartao";
+    modalCartao.innerHTML = `
+        <div class="modal-content">
+            <h3>Cartão</h3>
+            <form id="formCartao">
+                <label><input type="radio" name="tipoCartao" value="Crédito"> Crédito</label><br>
+                <label><input type="radio" name="tipoCartao" value="Débito"> Débito</label><br>
+            </form>
+            <div class="modal-buttons">
+                <button id="confirmarCartao" type="button">Confirmar</button>
+                <button id="cancelarCartao" type="button">Voltar</button>
+            </div>
+        </div>
     `;
-  } else if (e.target.value === "Dinheiro") {
-    div.innerHTML = `
-      <label>Precisa de troco?</label><br>
-      <input type="text" id="troco" placeholder="Troco para quanto?" style="width:100%;">
-    `;
-  }
-});
+    document.body.appendChild(modalCartao);
+    
+    // Cancelar pagamento
+    document.getElementById("cancelarPagamento").addEventListener("click", () => {
+        modalPagamento.style.display = "none";
+    });
 
-// Confirmar pagamento e enviar para o WhatsApp
-// Interações com as opções de pagamento
-document.getElementById("formPagamento").addEventListener("change", (e) => {
-  const div = document.getElementById("detalhesPagamento");
-  const total = carrinho.reduce((acc, item) => acc + item.preco, 0).toFixed(2);
-  div.innerHTML = "";
+    // Abrir modal ao clicar em finalizar
+    finalizarBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (carrinho.length === 0) {
+            return mostrarAlerta("Adicione itens ao carrinho primeiro!", "alert");
+        }
+        // Reseta o estado do formulário de pagamento
+        document.getElementById("formPagamento").reset();
+        document.getElementById("detalhesPagamento").innerHTML = "";
+        modalPagamento.style.display = "flex";
+    });
 
-  if (e.target.value === "Pix") {
-    div.innerHTML = `
-      <p><strong>Valor a pagar:</strong> R$ ${total}</p>
-      <p>Chave Pix (copie e pague):</p>
-      <input type="text" readonly value="5518991418453" style="width:100%; text-align:center; font-weight:bold;">
-    `;
-  } else if (e.target.value === "Dinheiro") {
-    div.innerHTML = `
-      <label>Precisa de troco?</label><br>
-      <input type="text" id="troco" placeholder="Troco para quanto?" style="width:100%;">
-    `;
-  }
-});
+    // Interações com as opções de pagamento (Atualizado)
+    document.getElementById("formPagamento").addEventListener("change", (e) => {
+        const div = document.getElementById("detalhesPagamento");
+        const total = carrinho.reduce((acc, item) => acc + item.preco, 0).toFixed(2);
+        div.innerHTML = "";
 
-// Confirmar pagamento
-document.getElementById("confirmarPagamento").addEventListener("click", () => {
-  const forma = document.querySelector('input[name="pagamento"]:checked');
-  if (!forma) return mostrarAlerta("Selecione uma forma de pagamento!", "alert");
+        if (e.target.value === "Pix") {
+            div.innerHTML = `
+                <p><strong>Valor a pagar:</strong> R$ ${total}</p>
+                <p>Chave Pix (copie e pague):</p>
+                <input type="text" readonly value="5518991418453" style="width:100%; text-align:center; font-weight:bold;">
+            `;
+        } else if (e.target.value === "Dinheiro") {
+            div.innerHTML = `
+                <label>Precisa de troco?</label><br>
+                <input type="text" id="troco" placeholder="Troco para quanto?" style="width:100%;">
+            `;
+        }
+    });
 
-  if (forma.value === "Cartão") {
-    modalPagamento.style.display = "none";
-    document.getElementById("modalCartao").style.display = "flex";
-    return;
-  }
+    // Confirmar pagamento (Atualizado para capturar o troco)
+    document.getElementById("confirmarPagamento").addEventListener("click", () => {
+        const forma = document.querySelector('input[name="pagamento"]:checked');
+        if (!forma) return mostrarAlerta("Selecione uma forma de pagamento!", "alert");
 
-  finalizarPedido(forma.value);
-});
+        if (forma.value === "Cartão") {
+            modalPagamento.style.display = "none";
+            document.getElementById("modalCartao").style.display = "flex";
+            return;
+        }
 
-// Cancelar pagamento
-document.getElementById("cancelarPagamento").addEventListener("click", () => {
-  modalPagamento.style.display = "none";
-});
+        // CAPTURA DO TROCO ANTES DE FECHAR O MODAL
+        let trocoValor = "";
+        if (forma.value === "Dinheiro") {
+            const trocoInput = document.getElementById("troco");
+            if (trocoInput) {
+                trocoValor = trocoInput.value.trim();
+            }
+        }
+        
+        modalPagamento.style.display = "none";
+        // Chama finalizarPedido, passando o valor do troco
+        finalizarPedido(forma.value, "", trocoValor);
+    });
 
-// Funções do modal de cartão
-document.getElementById("confirmarCartao").addEventListener("click", () => {
-  const tipo = document.querySelector('input[name="tipoCartao"]:checked');
-  if (!tipo) return mostrarAlerta("Escolha crédito ou débito!", "alert");
+    // Funções do modal de cartão
+    document.getElementById("confirmarCartao").addEventListener("click", () => {
+        const tipo = document.querySelector('input[name="tipoCartao"]:checked');
+        if (!tipo) return mostrarAlerta("Escolha crédito ou débito!", "alert");
 
-  document.getElementById("modalCartao").style.display = "none";
-  finalizarPedido("Cartão", tipo.value);
-});
+        document.getElementById("modalCartao").style.display = "none";
+        finalizarPedido("Cartão", tipo.value);
+    });
 
-document.getElementById("cancelarCartao").addEventListener("click", () => {
-  document.getElementById("modalCartao").style.display = "none";
-  modalPagamento.style.display = "flex";
-});
+    document.getElementById("cancelarCartao").addEventListener("click", () => {
+        document.getElementById("modalCartao").style.display = "none";
+        modalPagamento.style.display = "flex";
+    });
 
-// Função final que monta o pedido e envia pro WhatsApp
-function finalizarPedido(formaPagamento, tipoCartao = "") {
-  const total = carrinho.reduce((acc, item) => acc + item.preco, 0);
-  let infoPagamento = `Forma de pagamento: ${formaPagamento}`;
+    // Função final que monta o pedido e envia pro WhatsApp (Atualizada para aceitar o troco)
+    function finalizarPedido(formaPagamento, tipoCartao = "", trocoNecessario = "") { // NOVO PARÂMETRO
+        const total = carrinho.reduce((acc, item) => acc + item.preco, 0);
+        let infoPagamento = `Forma de pagamento: ${formaPagamento}`;
 
-  if (formaPagamento === "Pix") {
-    infoPagamento += `\nValor: R$ ${total.toFixed(2)}\nChave Pix: 5518991418453`;
-  } else if (formaPagamento === "Cartão") {
-    infoPagamento += ` (${tipoCartao})`;
-  } else if (formaPagamento === "Dinheiro") {
-    const troco = document.getElementById("troco")?.value.trim();
-    infoPagamento += troco ? `\nTroco para: R$ ${troco}` : "\nSem troco";
-  }
+        if (formaPagamento === "Pix") {
+            infoPagamento += `\nValor: R$ ${total.toFixed(2)}\nChave Pix: 5518991418453`;
+        } else if (formaPagamento === "Cartão") {
+            infoPagamento += ` (${tipoCartao})`;
+        } else if (formaPagamento === "Dinheiro") {
+            // Usa o valor do novo parâmetro
+            infoPagamento += trocoNecessario ? `\nTroco para: R$ ${trocoNecessario}` : "\nSem troco";
+        }
 
-  const texto = carrinho.map(item => `- ${item.nome}: R$ ${item.preco.toFixed(2)}`).join('\n');
-  const mensagem = `Olá! Gostaria de fazer um pedido:\n${texto}\n*Total: R$ ${total.toFixed(2)}*\n\n${infoPagamento}`;
-  const url = `https://wa.me/5518991418453?text=${encodeURIComponent(mensagem)}`;
+        const texto = carrinho.map(item => `- ${item.nome}: R$ ${item.preco.toFixed(2)}`).join('\n');
+        const mensagem = `Olá! Gostaria de fazer um pedido:\n${texto}\n*Total: R$ ${total.toFixed(2)}*\n\n${infoPagamento}`;
+        const url = `https://wa.me/5518991418453?text=${encodeURIComponent(mensagem)}`;
 
-  window.open(url, "_blank");
-  mostrarAlerta("Pedido finalizado! Obrigado 😄", "add");
-}
+        window.open(url, "_blank");
+        mostrarAlerta("Pedido finalizado! Obrigado 😄", "add");
+        
+        // Limpar carrinho após o pedido (opcional, mas recomendado)
+        carrinho = [];
+        atualizarCarrinho();
+    }
 
-const modal = document.getElementById('modalPorcoes');
-const closeBtn = document.querySelector('.close');
-const cancelar = document.getElementById('cancelarPorcao');
+    const modal = document.getElementById('modalPorcoes');
+    const closeBtn = document.querySelector('.close'); // Verifique se esta classe existe no seu HTML
+    const cancelar = document.getElementById('cancelarPorcao');
 
-// Abrir o modal
-function abrirModalPorcao(nome) {
-  document.getElementById('nomePorcao').textContent = nome;
-  modal.style.display = 'flex';
-}
+    // Abrir o modal (função não usada, mas mantida)
+    function abrirModalPorcao(nome) {
+        document.getElementById('nomePorcao').textContent = nome;
+        modal.style.display = 'flex';
+    }
 
-// Fechar modal
-closeBtn.onclick = () => modal.style.display = 'none';
-cancelar.onclick = () => modal.style.display = 'none';
+    // Fechar modal
+    if (closeBtn) closeBtn.onclick = () => modal.style.display = 'none';
+    if (cancelar) cancelar.onclick = () => modal.style.display = 'none';
 
-// Fechar clicando fora
-window.onclick = (e) => {
-  if (e.target === modal) modal.style.display = 'none';
-};
+    // Fechar clicando fora
+    window.onclick = (e) => {
+        if (e.target === modal) modal.style.display = 'none';
+        // Adicionado para fechar outros modais ao clicar fora
+        if (e.target.id === 'modalAdicionais') fecharModal('modalAdicionais');
+        if (e.target.id === 'modalBebidas') fecharModal('modalBebidas');
+        if (e.target === modalPagamento) modalPagamento.style.display = 'none';
+        if (e.target === modalCartao) modalCartao.style.display = 'none';
+    };
 
 
     // Eventos
