@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -125,6 +126,26 @@
     </div>
   </div>
 </div>
+
+<div id="modalPagamento" class="modal">
+  <div class="modal-content">
+    <h3>Forma de Pagamento</h3>
+    <form id="formPagamento">
+      <label><input type="radio" name="pagamento" value="Pix"> Pix</label><br>
+      <label><input type="radio" name="pagamento" value="Cartão"> Cartão</label><br>
+      <label><input type="radio" name="pagamento" value="Dinheiro"> Dinheiro</label><br>
+      <div id="detalhesPagamento" style="margin-top:10px;">
+        <label>Troco para quanto?</label><br>
+        <input type="text" id="troco" placeholder="Troco para quanto? (Ex: 50.00)" style="width:100%;">
+      </div>
+    </form>
+    <div class="modal-buttons">
+      <button id="confirmarPagamento" type="button">Confirmar Pagamento</button>
+      <button id="cancelarPagamento" type="button">Cancelar</button>
+    </div>
+  </div>
+</div>
+
 <!-- Modal Cartão -->
 <div id="modalCartao" class="modal">
   <div class="modal-content">
