@@ -37,30 +37,49 @@ document.addEventListener('DOMContentLoaded', () => {
         { nome: "Ovo", descricao: "Adicional de Ovo", preco: 2.50, categoria: "Adicionais" },
         { nome: "Frango", descricao: "Adicional de Frango", preco: 4.00, categoria: "Adicionais" },
         { nome: "Batata palha", descricao: "Adicional de Batata palha", preco: 2.00, categoria: "Adicionais" },
+        // Bebidas
+{ nome: "ACEROLA", descricao: "Suco de Acerola", volumes: [
+            { tamanho: "300ml", preco: 8.00 },
+            { tamanho: "500ml", preco: 11.00 },
+            { tamanho: "700ml", preco: 16.00 }
+        ], categoria: "Bebidas" },
+        { nome: "ACEROLA C/ LARANJA", descricao: "Suco de Acerola com Laranja", volumes: [
+            { tamanho: "300ml", preco: 8.00 },
+            { tamanho: "500ml", preco: 11.00 },
+            { tamanho: "700ml", preco: 16.00 }
+        ], categoria: "Bebidas" },
+        { nome: "ABACAXI C/ HORTELÃ", descricao: "Suco de Abacaxi com Hortelã", volumes: [
+            { tamanho: "300ml", preco: 8.00 },
+            { tamanho: "500ml", preco: 11.00 },
+            { tamanho: "700ml", preco: 16.00 }
+        ], categoria: "Bebidas" },
+        { nome: "LARANJA", descricao: "Suco de Laranja", volumes: [
+            { tamanho: "300ml", preco: 8.00 },
+            { tamanho: "500ml", preco: 11.00 },
+            { tamanho: "700ml", preco: 16.00 }
+        ], categoria: "Bebidas" },
 
-        // Sucos (preços por volume)
-        { nome: "ACEROLA (300ml)", descricao: "Suco de Acerola (300ml)", preco: 8.00, categoria: "Bebidas" },
-        { nome: "ACEROLA (500ml)", descricao: "Suco de Acerola (500ml)", preco: 11.00, categoria: "Bebidas" },
-        { nome: "ACEROLA (700ml)", descricao: "Suco de Acerola (700ml)", preco: 16.00, categoria: "Bebidas" },
-        { nome: "ACEROLA C/ LARANJA (300ml)", descricao: "Suco de Acerola com Laranja (300ml)", preco: 8.00, categoria: "Bebidas" },
-        { nome: "ACEROLA C/ LARANJA (500ml)", descricao: "Suco de Acerola com Laranja (500ml)", preco: 11.00, categoria: "Bebidas" },
-        { nome: "ACEROLA C/ LARANJA (700ml)", descricao: "Suco de Acerola com Laranja (700ml)", preco: 16.00, categoria: "Bebidas" },
-        { nome: "ABACAXI C/ HORTELÃ (300ml)", descricao: "Suco de Abacaxi com Hortelã (300ml)", preco: 8.00, categoria: "Bebidas" },
-        { nome: "ABACAXI C/ HORTELÃ (500ml)", descricao: "Suco de Abacaxi com Hortelã (500ml)", preco: 11.00, categoria: "Bebidas" },
-        { nome: "ABACAXI C/ HORTELÃ (700ml)", descricao: "Suco de Abacaxi com Hortelã (700ml)", preco: 16.00, categoria: "Bebidas" },
-        { nome: "LARANJA (300ml)", descricao: "Suco de Laranja (300ml)", preco: 8.00, categoria: "Bebidas" },
-        { nome: "LARANJA (500ml)", descricao: "Suco de Laranja (500ml)", preco: 11.00, categoria: "Bebidas" },
-        { nome: "LARANJA (700ml)", descricao: "Suco de Laranja (700ml)", preco: 16.00, categoria: "Bebidas" },
+        // Refrigerantes (agrupados por tipo)
+        { nome: "COCA COLA", descricao: "Refrigerante Coca Cola", volumes: [
+            { tamanho: "350ml", preco: 5.50 },
+            { tamanho: "2 litros", preco: 16.00 }
+        ], categoria: "Bebidas" },
+        { nome: "FANTA", descricao: "Refrigerante Fanta", volumes: [
+            { tamanho: "350ml", preco: 5.50 },
+            { tamanho: "2 litros", preco: 13.00 }
+        ], categoria: "Bebidas" },
+        { nome: "ANTÁRTICA", descricao: "Refrigerante Antártica", volumes: [
+            { tamanho: "350ml", preco: 5.50 },
+            { tamanho: "2 litros", preco: 13.50 }
+        ], categoria: "Bebidas" },
+        { nome: "SPRITE", descricao: "Refrigerante Sprite", volumes: [
+            { tamanho: "350ml", preco: 5.50 },
+            { tamanho: "2 litros", preco: 13.50 }
+        ], categoria: "Bebidas" }
+    
 
-        // Refrigerantes
-        { nome: "COCA COLA (350ml)", descricao: "Coca Cola (Lata/Pequena)", preco: 5.50, categoria: "Bebidas" },
-        { nome: "COCA COLA (2 litros)", descricao: "Coca Cola (Garrafa 2 Litros)", preco: 16.00, categoria: "Bebidas" },
-        { nome: "FANTA (350ml)", descricao: "Fanta (Lata/Pequena)", preco: 5.50, categoria: "Bebidas" },
-        { nome: "FANTA (2 litros)", descricao: "Fanta (Garrafa 2 Litros)", preco: 13.00, categoria: "Bebidas" },
-        { nome: "ANTÁRTICA (350ml)", descricao: "Antártica (Lata/Pequena)", preco: 5.50, categoria: "Bebidas" },
-        { nome: "ANTÁRTICA (2 litros)", descricao: "Antártica (Garrafa 2 Litros)", preco: 13.50, categoria: "Bebidas" },
-        { nome: "SPRITE (350ml)", descricao: "Sprite (Lata/Pequena)", preco: 5.50, categoria: "Bebidas" },
-        { nome: "SPRITE (2 litros)", descricao: "Sprite (Garrafa 2 Litros)", preco: 13.50, categoria: "Bebidas" }
+
+        
     ];
 
 
@@ -90,8 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         filtrados.forEach(item => {
             const precoExibir = item.categoria === "Porções"
-                ? `Meia: R$ ${item.precoMeia.toFixed(2)} / Grande: R$ ${item.precoGrande.toFixed(2)}`
-                : `R$ ${item.preco.toFixed(2)}`;
+    ? `Meia: R$ ${item.precoMeia.toFixed(2)} / Grande: R$ ${item.precoGrande.toFixed(2)}`
+    : item.volumes
+        ? item.volumes.map(v => `${v.tamanho}: R$ ${v.preco.toFixed(2)}`).join(' / ')
+        : `R$ ${item.preco.toFixed(2)}`;
 
             const card = document.createElement('div');
             card.className = 'card';
@@ -104,6 +125,52 @@ document.addEventListener('DOMContentLoaded', () => {
             cardapioSection.appendChild(card);
         });
     }
+function abrirModalBebida(item) {
+    const modal = document.getElementById("modalBebidas");
+    const opcoes = document.getElementById("opcoesBebida");
+
+    document.getElementById("nomeBebida").textContent = item.nome;
+    document.getElementById("descricaoBebida").textContent = item.descricao;
+
+    // Criar opções de volumes
+    opcoes.innerHTML = item.volumes.map((v, index) => `
+        <label>
+            <input type="radio" name="volumeBebida" value="${index}" ${index === 0 ? 'checked' : ''}>
+            ${v.tamanho} — R$ ${v.preco.toFixed(2)}
+        </label>
+    `).join('');
+
+    // Exibir preço inicial
+    document.getElementById("precoBebida").textContent = item.volumes[0].preco.toFixed(2);
+
+    // Atualizar preço ao mudar de volume
+    document.querySelectorAll('input[name="volumeBebida"]').forEach(input => {
+        input.addEventListener('change', () => {
+            const selected = item.volumes[input.value];
+            document.getElementById("precoBebida").textContent = selected.preco.toFixed(2);
+        });
+    });
+
+    modal.style.display = "flex";
+}
+// Cancelar
+document.getElementById("cancelarBebida").addEventListener("click", () => {
+    document.getElementById("modalBebidas").style.display = "none";
+});
+
+// Confirmar
+document.getElementById("confirmarBebida").addEventListener("click", () => {
+    const modal = document.getElementById("modalBebidas");
+    const item = cardapio.find(i => i.nome === document.getElementById("nomeBebida").textContent);
+    const selectedIndex = document.querySelector('input[name="volumeBebida"]:checked').value;
+    const volumeSelecionado = item.volumes[selectedIndex];
+
+    carrinho.push({ nome: `${item.nome} (${volumeSelecionado.tamanho})`, preco: volumeSelecionado.preco });
+    atualizarCarrinho();
+    mostrarAlerta('Bebida adicionada ao carrinho!', 'add');
+
+    modal.style.display = "none";
+});
 
     // Cancelar adicionais
 document.getElementById("cancelarAdicionais").addEventListener("click", () => {
@@ -157,20 +224,22 @@ document.getElementById("cancelarPorcao").addEventListener("click", () => {
     }
 
     // Adicionar ao carrinho
-    window.adicionarCarrinho = function (nome, categoria) {
-        const item = cardapio.find(i => i.nome === nome);
+  window.adicionarCarrinho = function (nome, categoria) {
+    const item = cardapio.find(i => i.nome === nome);
 
-        if (categoria === "Lanches") {
-            lancheSelecionado = item;
-            abrirModalAdicionais();
-        } else if (categoria === "Porções") {
-            abrirModalPorcoes(item);
-        } else {
-            carrinho.push({ nome: item.nome, preco: item.preco });
-            atualizarCarrinho();
-            mostrarAlerta('Item adicionado!', 'add');
-        }
-    };
+    if (categoria === "Lanches") {
+        lancheSelecionado = item;
+        abrirModalAdicionais();
+    } else if (categoria === "Porções") {
+        abrirModalPorcoes(item);
+    } else if (categoria === "Bebidas") {
+        abrirModalBebida(item);
+    } else {
+        carrinho.push({ nome: item.nome, preco: item.preco });
+        atualizarCarrinho();
+        mostrarAlerta('Item adicionado!', 'add');
+    }
+};
 
     // Confirmar adicionais
     document.getElementById("confirmarAdicionais").addEventListener("click", () => {
@@ -230,16 +299,28 @@ document.getElementById("cancelarPorcao").addEventListener("click", () => {
         setTimeout(() => alerta.className = 'mensagem-alerta', 3000);
     }
 
-    // Finalizar pedido WhatsApp
-    finalizarBtn.addEventListener('click', () => {
-        if (carrinho.length === 0) return mostrarAlerta('Adicione itens ao carrinho primeiro!', 'alert');
+   // Finalizar pedido WhatsApp
+finalizarBtn.addEventListener('click', () => {
+    if (carrinho.length === 0) {
+        return mostrarAlerta('Adicione itens ao carrinho primeiro!', 'alert');
+    }
 
-        const texto = carrinho.map(item => `- ${item.nome}: R$ ${item.preco.toFixed(2)}`).join('\n');
-        const total = carrinho.reduce((acc, item) => acc + item.preco, 0);
-        const mensagem = `Olá! Gostaria de fazer um pedido:\n${texto}\n*Total: R$ ${total.toFixed(2)}*`;
-        const url = `https://wa.me/5518991418453?text=${encodeURIComponent(mensagem)}`;
-        window.open(url, '_blank');
-    });
+    const texto = carrinho.map(item => {
+        // Se o item tiver parênteses, indicamos que é um adicional ou tamanho
+        if (item.nome.includes('(')) {
+            return `- ${item.nome}: R$ ${item.preco.toFixed(2)}`;
+        }
+        return `- ${item.nome}: R$ ${item.preco.toFixed(2)}`;
+    }).join('\n');
+
+    const total = carrinho.reduce((acc, item) => acc + item.preco, 0);
+
+    const mensagem = `Olá! Gostaria de fazer um pedido:\n${texto}\n*Total: R$ ${total.toFixed(2)}*\n\nObs: Itens com parênteses indicam adicionais, tamanho de porção ou volume da bebida.`;
+
+    const url = `https://wa.me/5518991418453?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, '_blank');
+});
+
 
     // Eventos
     buscaInput.addEventListener('input', exibirCardapio);
