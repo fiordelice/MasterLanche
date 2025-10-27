@@ -30,9 +30,85 @@ img:hover {
   margin: 0 auto;
   padding: 1rem;
 }
+main {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* Cardápio ocupa mais espaço */
+#cardapio {
+  flex: 3;
+}
+
+/* Carrinho ocupa menos espaço */
+#carrinho {
+  flex: 1;
+  min-width: 250px;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Para telas pequenas, o layout vira coluna */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+
+  #carrinho {
+    order: -1; /* opcional: faz o carrinho aparecer antes do cardápio */
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+.whatsapp-float {
+  text-decoration: none; /* remove o sublinhado */
+  color: white;           /* mantém o ícone branco */
+  /* restante do CSS */
+  position: fixed;
+  bottom: 62px;
+  right: 10px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: transform 0.3s;
+  font-size: 28px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.2);
+}
+#scrollBtn {
+  position: fixed;
+  bottom:740px;
+  right: 5px;
+  background-color: #a07e28;
+  color: white;
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+#scrollBtn:hover {
+  transform: scale(1.1);
+  background-color: #8e6d22;
+}
 
 .navbar {
-  border: 2px solid #a07e28;
+border-bottom: 2px solid #a07e28;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -106,11 +182,13 @@ img:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border: 3px solid #a07e28;
 }
 .card h3 {
   margin: 0.5rem 0;
 }
 .card button {
+ color: white;
   margin-top: auto;
   padding: 0.75rem;
   background-color: #a07e28;
@@ -124,22 +202,83 @@ img:hover {
   background-color: #a07e28;
 }
 .footer {
-  background-color: #222; /* cor de fundo escura */
-  color: #fff; /* cor do texto branca */
-  text-align: center; /* centraliza o texto */
-  padding: 15px 0; /* espaçamento interno */
-  font-family: 'Arial', sans-serif;
-  font-size: 14px;
-  margin-top: 30px;
-  border-top: 2px solid #a07e28; /* detalhe de destaque */
+  background: linear-gradient(180deg, #1a1a1a 0%, #111 100%);
+  color: #f2f2f2;
+  text-align: center;
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
+  border-top: 2px solid #a07e28;
+  margin-top: 60px;
+  box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.5);
 }
 
-.footer p {
-  margin: 0; /* remove margin padrão */
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
 }
-strong {
-    color: #a07e28;
+
+.footer-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #a07e28;
+  margin-bottom: 5px;
+  text-transform: uppercase;
 }
+
+.footer-text {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.footer-divider {
+  width: 60px;
+  height: 2px;
+  background-color: #a07e28;
+  margin: 10px auto 20px;
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+.footer:hover .footer-divider {
+  width: 90px;
+}
+
+.footer-credit {
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+.footer-credit strong {
+  color: #f5c542;
+}
+
+.footer .dev {
+  color: #f4d03f;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.footer .dev:hover {
+  color: #fff;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .footer {
+    padding: 30px 10px;
+  }
+
+  .footer-title {
+    font-size: 1.4rem;
+  }
+
+  .footer-text, .footer-credit {
+    font-size: 0.85rem;
+  }
+}
+
 #carrinho {
   margin: 0 auto;
   background: #fff;
