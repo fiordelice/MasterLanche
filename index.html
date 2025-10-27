@@ -58,13 +58,43 @@
   </div>
 </div>
 
+<div id="modalPorcoes" class="modal">
+  <div class="modal-content">
+    <h3>Escolha o tamanho da porção</h3>
+    <p id="nomePorcao"></p>
+    <div>
+      <label>
+        <input type="radio" name="tamanhoPorcao" value="Meia">
+        Meia
+      </label>
+      <label>
+        <input type="radio" name="tamanhoPorcao" value="Grande">
+        Grande
+      </label>
+    </div>
+    <p>Preço: R$ <span id="precoPorcao">0.00</span></p>
+    <button id="confirmarPorcao">Confirmar</button>
+    <button id="cancelarPorcao">Cancelar</button>
+  </div>
+</div>
+<div id="modalBebidas" class="modal">
+  <div class="modal-conteudo">
+    <h2 id="nomeBebida"></h2>
+    <div id="opcoesBebida"></div> <!-- aqui vão os radio buttons -->
+    <p>Preço: R$ <span id="precoBebida"></span></p>
+    <button id="confirmarBebida">Adicionar ao carrinho</button>
+    <button onclick="fecharModal('modalBebidas')">Cancelar</button>
+  </div>
+</div>
+
+
   <footer class="footer">
     <div class="footer-content">
       <h3 class="footer-title">Rei dos Lanches</h3>
       <p class="footer-text">Sabor, qualidade e tradição em cada mordida.</p>
       <div class="footer-divider"></div>
       <p class="footer-credit">
-        © 2025 <strong>Rei dos Lanches</strong> — Desenvolvido por 
+        © 2025 <strong>𝐑𝐞𝐢 𝐝𝐨𝐬 𝐋𝐚𝐧𝐜𝐡𝐞𝐬</strong> — Desenvolvido por 
         <span class="dev">Gabriella Fiordelice</span>
       </p>
     </div>
