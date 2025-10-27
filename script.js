@@ -196,9 +196,22 @@ document.getElementById("confirmarAdicionais").addEventListener("click", () => {
         window.open(url, '_blank');
     });
 
-   
+    const scrollBtn = document.getElementById("scrollBtn");
 
+function atualizarBotao() {
+  const scrollTop = window.scrollY;
+  const alturaTotal = document.body.scrollHeight - window.innerHeight;
 
+  if (scrollTop < alturaTotal - 50) {
+    // Usuário está no topo → botão desce
+    scrollBtn.textContent = "↓";
+    scrollBtn.onclick = () => window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+  } else {
+    // Usuário está no final → botão sobe
+    scrollBtn.textContent = "↑";
+    scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+}
 
 window.addEventListener("scroll", atualizarBotao);
 window.addEventListener("load", atualizarBotao);
