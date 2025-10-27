@@ -663,7 +663,7 @@ button:hover {
 /* Caixa principal */
 .modal-content {
   background: #fff8e1;
-  border: 3px solid #d32f2f;
+  border: 3px solid #a07e28;
   border-radius: 20px;
   padding: 25px;
   width: 100%;
@@ -798,7 +798,88 @@ button:hover {
     padding: 8px 12px;
   }
 }
+/* Estilo geral para todos os botões dentro das modais */
+#modalPorcoes button,
+#modalBebidas button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  color: white;
+  transition: background-color 0.3s ease;
+}
 
+/* Botão de confirmar (verde) */
+#modalPorcoes #confirmarPorcao,
+#modalBebidas #confirmarBebida {
+  background-color: #4CAF50; /* verde */
+}
+
+#modalPorcoes #confirmarPorcao:hover,
+#modalBebidas #confirmarBebida:hover {
+  background-color: #45a049; /* verde mais escuro */
+}
+
+/* Botão de remover/cancelar (vermelho) */
+#modalPorcoes #cancelarPorcao,
+#modalBebidas #cancelarBebida {
+  background-color: #f44336; /* vermelho */
+}
+
+#modalPorcoes #cancelarPorcao:hover,
+#modalBebidas #cancelarBebida:hover {
+  background-color: #d32f2f; /* vermelho mais escuro */
+}
+
+/* Estilo geral do modal */
+#modalAdicionais .modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  border: 3px solid #a07e28; /* cor da borda do modal (verde, por exemplo) */
+  width: 400px;
+  max-width: 90%;
+  margin: 100px auto;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Container dos botões */
+#modalAdicionais .modal-buttons {
+  margin-top: 15px;
+  text-align: right;
+}
+
+/* Estilo geral para os botões do modal */
+#modalAdicionais button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+/* Botão de confirmar (verde) */
+#modalAdicionais #confirmarAdicionais {
+  background-color: #4CAF50;
+}
+
+#modalAdicionais #confirmarAdicionais:hover {
+  background-color: #45a049;
+}
+
+/* Botão de cancelar (vermelho) */
+#modalAdicionais #cancelarAdicionais {
+  background-color: #f44336;
+}
+
+#modalAdicionais #cancelarAdicionais:hover {
+  background-color: #d32f2f;
+}
 
 #filtros input,
 #filtros select {
@@ -810,4 +891,3 @@ button:hover {
   min-width: 100px !important;
   max-width: 200px !important;
 }
-
