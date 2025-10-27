@@ -161,7 +161,7 @@ document.getElementById("confirmarBebida").addEventListener("click", () => {
 
     carrinho.push({ nome: `${item.nome} (${volumeSelecionado.tamanho})`, preco: volumeSelecionado.preco });
     atualizarCarrinho();
-    mostrarAlerta('Bebida adicionada ao carrinho!', 'add');
+    mostrarAlerta('Bebida adicionada ao carrinho!', 'add');  mostrarAlerta
 
     modal.style.display = "none";
 });
@@ -267,7 +267,7 @@ opcoes.addEventListener("change", (e) => {
 
         carrinho.push({ nome: lancheSelecionado.nome + descricao, preco: totalItem });
         atualizarCarrinho();
-        mostrarAlerta('Item adicionado com adicionais!', 'add');
+        mostrarAlerta('Item adicionado no carrinho!', 'add');
         fecharModal("modalAdicionais");
     });
 
