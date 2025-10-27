@@ -1,9 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+
     const cardapio = [
         // Lanches
-        { nome: "X-BURGUER", descricao: "Pão de hambúrguer, hambúrguer de carne, presunto, mussarela e tomate.", preco: 25.00, categoria: "Lanches" },
-        { nome: "X- BACON", descricao: "Pão de hambúrguer, hambúrguer de carne, bacon, presunto, mussarela e tomate.", preco: 28.00, categoria: "Lanches" },
+       { 
+        nome: "X-BURGUER", 
+        descricao: "Pão de hambúrguer, hambúrguer de carne, presunto, mussarela e tomate.", 
+        preco: 25.00, 
+        categoria: "Lanches",
+      
+    },
+          { 
+        nome: "X- BACON", 
+        descricao: "Pão de hambúrguer, hambúrguer de carne, bacon, presunto, mussarela e tomate.", 
+        preco: 28.00, 
+        categoria: "Lanches",
+        img: "bacon.jpg"
+    },
         { nome: "X- BACON-CHEEDAR", descricao: "Pão de hambúrguer, hambúrguer de carne, bacon, cheedar, presunto, mussarela e tomate.", preco: 30.00, categoria: "Lanches" },
         { nome: "X- BACON-CALABRESA", descricao: "Pão de hambúrguer, hambúrguer de carne, calabresa, presunto, mussarela e tomate.", preco: 35.00, categoria: "Lanches" },
         { nome: "X- EGG", descricao: "Pão de hambúrguer, hambúrguer de carne, ovo, presunto, mussarela e tomate.", preco: 26.00, categoria: "Lanches" },
@@ -12,13 +25,20 @@ document.addEventListener('DOMContentLoaded', () => {
         { nome: "X-FRANGO-CATUPIRY", descricao: "Pão de hambúrguer, filé de frango, catupiry, mussarela, tomate e alface.", preco: 30.00, categoria: "Lanches" },
         { nome: "X-FRANGO BACON", descricao: "Pão de hambúrguer, filé de frango, bacon, mussarela, tomate e alface.", preco: 30.00, categoria: "Lanches" },
         { nome: "X-FRANGO CALABRESA", descricao: "Pão de hambúrguer, filé de frango, calabresa, mussarela, tomate e alface.", preco: 30.00, categoria: "Lanches" },
-        { nome: "X-TUDO", descricao: "Pão de hambúrguer, hambúrguer de carne, bacon, calabresa, ovo, presunto, mussarela, tomate e alface.", preco: 36.00, categoria: "Lanches" },
+        { nome: "X-TUDO", 
+            descricao: "Pão de hambúrguer, hambúrguer de carne, bacon, calabresa, ovo, presunto, mussarela, tomate e alface.",
+             preco: 36.00,
+              categoria: "Lanches",
+               img: "tudo.jpg"},
         { nome: "X-FILE TUDO", descricao: "Pão de hambúrguer, bife de carne, bacon, calabresa, ovo, presunto, mussarela, tomate e alface.", preco: 40.00, categoria: "Lanches" },
         { nome: "BAURU", descricao: "Pão francês, presunto, mussarela e tomate.", preco: 18.00, categoria: "Lanches" },
         { nome: "MISTO", descricao: "Pão francês, presunto, mussarela.", preco: 18.00, categoria: "Lanches" },
         { nome: "PAULISTA", descricao: "Pão francês, bife de carne, mussarela e tomate.", preco: 36.00, categoria: "Lanches" },
         { nome: "AMERICANO", descricao: "Pão francês, bife de carne, presunto, mussarela, tomate e alface.", preco: 38.00, categoria: "Lanches" },
-        { nome: "X-SALADA", descricao: "Pão de hambúrguer, hambúrguer, presunto, mussarela, tomate e alface.", preco: 25.00, categoria: "Lanches" },
+        { nome: "X-SALADA",
+             descricao: "Pão de hambúrguer, hambúrguer, presunto, mussarela, tomate e alface.",
+              preco: 25.00, categoria: "Lanches",
+              img: "salada.jpg"},
 
         // Maionese
         { nome: "MAIONESE VERDE", descricao: "Temperada com ervas frescas e um sabor especial que combina perfeitamente com nossos lanches.", preco: 3.00, categoria: "Adicionais" },
@@ -92,36 +112,44 @@ document.addEventListener('DOMContentLoaded', () => {
     let lancheSelecionado = null;
     let porcaoSelecionada = null;
 
+
     function exibirCardapio() {
-        const busca = buscaInput.value.toLowerCase();
-        const categoria = categoriaSelect.value;
+    const busca = buscaInput.value.toLowerCase().trim();
+    const categoria = categoriaSelect.value.toLowerCase();
 
-        const filtrados = cardapio.filter(item =>
-            (categoria === 'todos' || item.categoria === categoria) &&
-            item.nome.toLowerCase().includes(busca) &&
-            item.categoria !== "Adicionais" // adicionais não aparecem no card
-        );
+    const filtrados = cardapio.filter(item => 
+        (categoria === 'todos' || item.categoria.toLowerCase() === categoria) &&
+        item.nome.toLowerCase().includes(busca)
+    );
 
-        cardapioSection.innerHTML = '';
+    cardapioSection.innerHTML = '';
 
-        filtrados.forEach(item => {
-            const precoExibir = item.categoria === "Porções"
-    ? `Meia: R$ ${item.precoMeia.toFixed(2)} / Grande: R$ ${item.precoGrande.toFixed(2)}`
-    : item.volumes
-        ? item.volumes.map(v => `${v.tamanho}: R$ ${v.preco.toFixed(2)}`).join(' / ')
-        : `R$ ${item.preco.toFixed(2)}`;
+    filtrados.forEach(item => {
+        let precoExibir = '';
 
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.innerHTML = `
-                <h3>${item.nome}</h3>
-                <p>${item.descricao}</p>
-                <p><strong>${precoExibir}</strong></p>
-                <button onclick="adicionarCarrinho('${item.nome}', '${item.categoria}')">Adicionar</button>
-            `;
-            cardapioSection.appendChild(card);
-        });
-    }
+        if(item.categoria === 'Porções') {
+            precoExibir = `Meia: R$ ${item.precoMeia.toFixed(2)} / Grande: R$ ${item.precoGrande.toFixed(2)}`;
+        } else if(item.volumes) {
+            precoExibir = item.volumes.map(v => `${v.tamanho}: R$ ${v.preco.toFixed(2)}`).join(' / ');
+        } else if(item.preco !== undefined) {
+            precoExibir = `R$ ${item.preco.toFixed(2)}`;
+        } else {
+            precoExibir = 'R$ 0,00';
+        }
+
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            ${item.img ? `<img src="${item.img}" alt="${item.nome}">` : ''}
+            <h3>${item.nome}</h3>
+            <p>${item.descricao}</p>
+            <p><strong>${precoExibir}</strong></p>
+            <button onclick="adicionarCarrinho('${item.nome}', '${item.categoria}')">Adicionar</button>
+        `;
+        cardapioSection.appendChild(card);
+    });
+}
+
 function abrirModalBebida(item) {
     const modal = document.getElementById("modalBebidas");
     const opcoes = document.getElementById("opcoesBebida");
@@ -404,7 +432,7 @@ finalizarBtn.addEventListener('click', (e) => {
             detalhes.innerHTML = `
                 <p><strong>Total:</strong> R$ ${fmt(total)}</p>
                 <p>Copie a chave PIX:</p>
-                <input id="pixKeyPro" value="63083827000126" readonly style="width:100%; padding:8px; margin-bottom:6px; border-radius:6px; border:1px solid #ddd; text-align:center;">
+                <input id="pixKeyPro" value="5518991418453" readonly style="width:100%; padding:8px; margin-bottom:6px; border-radius:6px; border:1px solid #ddd; text-align:center;">
             `;
             setNextEnabled(true);
         } else if (select.value === 'dinheiro') {
@@ -564,6 +592,32 @@ function mostrarAlertaHorario(mensagem) {
     setTimeout(() => alertaHorario.remove(), 3000);
 }
 
+function mostrarCardapio(itens) {
+  const cardapioEl = document.getElementById("cardapio");
+  cardapioEl.innerHTML = ""; // limpa antes de adicionar
+
+  itens.forEach(item => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    
+    card.innerHTML = `
+      ${item.img ? `<img src="${item.img}" alt="${item.nome}">` : ''}
+      <h3>${item.nome}</h3>
+      <p>${item.descricao}</p>
+      <p>R$ ${item.preco.toFixed(2)}</p>
+      <button onclick="adicionarCarrinho('${item.nome}')">Adicionar</button>
+    `;
+
+    cardapioEl.appendChild(card);
+  });
+}
+function abrirModalPorcoes(item) {
+    porcaoSelecionada = item;
+    const modal = document.getElementById("modalPorcoes");
+    document.getElementById("nomePorcaoModal").textContent = item.nome;
+    document.getElementById("precoPorcao").textContent = item.precoMeia.toFixed(2);
+    modal.style.display = "flex";
+}
 
     // Eventos
     buscaInput.addEventListener('input', exibirCardapio);
@@ -571,6 +625,5 @@ function mostrarAlertaHorario(mensagem) {
 
     exibirCardapio();
 });
-
 
 
