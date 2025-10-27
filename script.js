@@ -216,6 +216,73 @@ function atualizarBotao() {
 window.addEventListener("scroll", atualizarBotao);
 window.addEventListener("load", atualizarBotao);
 
+function exibirCardapio() {
+    const busca = buscaInput.value.toLowerCase();
+    const categoria = categoriaSelect.value;
+
+    const filtrados = cardapio.filter(item =>
+        (categoria === 'todos' || item.categoria === categoria) &&
+        item.nome.toLowerCase().includes(busca)
+    );
+
+    cardapioSection.innerHTML = '';
+
+    filtrados.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <h3>${item.nome}</h3>
+            <p>${item.descricao}</p>
+            <p><strong>R$ ${item.preco.toFixed(2)}</strong></p>
+            <button onclick="adicionarCarrinho('${item.nome}', ${item.preco}, '${item.categoria}')">
+                Adicionar
+            </button>
+        `;
+        cardapioSection.appendChild(card);
+    });
+}
+
+// Função para adicionar itens ao carrinho
+window.adicionarCarrinho = function(nome, preco, categoria) {
+    lancheSelecionado = { nome, preco, categoria };
+
+    if(categoria === "Lanches") {
+        // Só abre modal se for lanche
+        abrirModalAdicionais();
+    } else {
+        // Adiciona direto ao carrinho para bebidas, porções e adicionais
+        carrinho.push({ nome, preco });
+        atualizarCarrinho();
+        mostrarAlerta('Item adicionado!', 'add');
+    }
+};
+function exibirCardapio() {
+    const busca = buscaInput.value.toLowerCase();
+    const categoria = categoriaSelect.value;
+
+    const filtrados = cardapio.filter(item =>
+        (categoria === 'todos' || item.categoria === categoria) &&
+        item.categoria !== 'Adicionais' && // <-- ignora itens da categoria Adicionais
+        item.nome.toLowerCase().includes(busca)
+    );
+
+    cardapioSection.innerHTML = '';
+
+    filtrados.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <h3>${item.nome}</h3>
+            <p>${item.descricao}</p>
+            <p><strong>R$ ${item.preco.toFixed(2)}</strong></p>
+            <button onclick="adicionarCarrinho('${item.nome}', ${item.preco}, '${item.categoria}')">
+                Adicionar
+            </button>
+        `;
+        cardapioSection.appendChild(card);
+    });
+}
+
 
     // Eventos de filtro
     buscaInput.addEventListener('input', exibirCardapio);
