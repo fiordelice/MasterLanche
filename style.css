@@ -960,7 +960,12 @@ button:hover {
     margin-bottom: 10px;
 }
 
-
+/* Ajuste para telas pequenas (celular) */
+@media (max-width: 600px) {
+    .card img {
+        height: 150px; /* altura menor no celular */
+    }
+}
 /* Botão */
 .card button {
     padding: 8px 12px;
