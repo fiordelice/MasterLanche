@@ -87,7 +87,7 @@ main {
 }
 #scrollBtn {
   position: fixed;
-  bottom: 20px;
+  bottom: 750px;
   right: 20px;
   background-color: #a07e28;
   color: white;
