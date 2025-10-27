@@ -404,7 +404,7 @@ finalizarBtn.addEventListener('click', (e) => {
             detalhes.innerHTML = `
                 <p><strong>Total:</strong> R$ ${fmt(total)}</p>
                 <p>Copie a chave PIX:</p>
-                <input id="pixKeyPro" value="5518991418453" readonly style="width:100%; padding:8px; margin-bottom:6px; border-radius:6px; border:1px solid #ddd; text-align:center;">
+                <input id="pixKeyPro" value="63083827000126" readonly style="width:100%; padding:8px; margin-bottom:6px; border-radius:6px; border:1px solid #ddd; text-align:center;">
             `;
             setNextEnabled(true);
         } else if (select.value === 'dinheiro') {
@@ -571,5 +571,6 @@ function mostrarAlertaHorario(mensagem) {
 
     exibirCardapio();
 });
+
 
 
