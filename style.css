@@ -62,44 +62,21 @@ main {
     margin-bottom: 1rem;
   }
 }
-.whatsapp-float {
-  text-decoration: none; /* remove o sublinhado */
-  color: white;           /* mantém o ícone branco */
-  /* restante do CSS */
-  position: fixed;
-  bottom: 62px;
-  right: 10px;
-  width: 60px;
-  height: 60px;
-  background-color: #25D366;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  z-index: 1000;
-  transition: transform 0.3s;
-  font-size: 28px;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.2);
-}
 #scrollBtn {
   position: fixed;
-  bottom: 750px;
+  bottom: 100px; /* deixa a seta acima do botão do WhatsApp */
   right: 20px;
   background-color: #a07e28;
   color: white;
   border: 2px solid black;
   border-radius: 50%;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   font-size: 22px;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-  z-index: 1000;
+  z-index: 9999;
 }
 
 #scrollBtn:hover {
@@ -107,6 +84,28 @@ main {
   background-color: #8e6d22;
 }
 
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px; /* botão do WhatsApp fica mais abaixo */
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 28px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  z-index: 9998;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.15);
+}
 
 .navbar {
 border-bottom: 2px solid #a07e28;
