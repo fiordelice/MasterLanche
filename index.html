@@ -4,36 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <title>𝐑𝐞𝐢 𝐝𝐨𝐬 𝐋𝐚𝐧𝐜𝐡𝐞𝐬</title>
   <link rel="stylesheet" href="style.css" />
-  
 </head>
 <body>
-    <nav class="navbar">
-        <div class="navbar-esquerda"></div>
-        <img src="logo.jpg" alt="logo">
-        <div class="navbar-centro"><h1>𝐑𝐞𝐢 𝐝𝐨𝐬 𝐋𝐚𝐧𝐜𝐡𝐞𝐬</h1></div>
-        <div class="navbar-direita">   
-        </div>
-      </nav>
-      
+  <nav class="navbar">
+    <div class="navbar-esquerda"></div>
+    <img src="logo.jpg" alt="logo">
+    <div class="navbar-centro">
+      <h1>𝐑𝐞𝐢 𝐝𝐨𝐬 𝐋𝐚𝐧𝐜𝐡𝐞𝐬</h1>
+      <p class="horario-funcionamento"><i class="fa-regular fa-clock"></i> Aberto de 18:30 às 00:00</p>
+    </div>
+    <div class="navbar-direita"></div>
+  </nav>
+
   <main>
     <div id="filtros">
-  <input type="text" id="busca" placeholder="Buscar item...">
-  <select id="categoria">
-    <option value="todos">Todas as Categorias</option>
-    <option value="Lanches">Lanches</option>
-    <option value="Adicionais">Adicionais</option>
-    <option value="Porções">Porções</option>
-    <option value="Bebidas">Bebidas</option>
-  </select>
-</div>
-
+      <input type="text" id="busca" placeholder="Buscar item...">
+      <select id="categoria">
+        <option value="todos">Todas as Categorias</option>
+        <option value="Lanches">Lanches</option>
+        <option value="Adicionais">Adicionais</option>
+        <option value="Porções">Porções</option>
+        <option value="Bebidas">Bebidas</option>
+      </select>
     </div>
 
     <section id="cardapio"></section>
- 
 
     <div id="mensagem-alerta" class="mensagem-alerta"></div>
 
@@ -41,28 +40,27 @@
       <h2>Seu Carrinho</h2>
       <ul id="lista-carrinho"></ul>
       <p id="total">Total: R$ 0,00</p>
-    <button id="finalizar">Finalizar Pedido</button>
+      <button id="finalizar">Finalizar Pedido</button>
     </section>
   </main>
-<footer class="footer">
-  <div class="footer-content">
-    <h3 class="footer-title">Rei dos Lanches</h3>
-    <p class="footer-text">Sabor, qualidade e tradição em cada mordida.</p>
-    <div class="footer-divider"></div>
-    <p class="footer-credit">
-      © 2025 <strong>Rei dos Lanches</strong> — Desenvolvido por 
-      <span class="dev">Gabriella Fiordelice</span>
-    </p>
-  </div>
-</footer>
-<button id="scrollBtn">⬇</button>
 
+  <footer class="footer">
+    <div class="footer-content">
+      <h3 class="footer-title">Rei dos Lanches</h3>
+      <p class="footer-text">Sabor, qualidade e tradição em cada mordida.</p>
+      <div class="footer-divider"></div>
+      <p class="footer-credit">
+        © 2025 <strong>Rei dos Lanches</strong> — Desenvolvido por 
+        <span class="dev">Gabriella Fiordelice</span>
+      </p>
+    </div>
+  </footer>
 
-<a href="https://wa.me/+5518991418453" class="whatsapp-float" target="_blank" title="Fale no WhatsApp">
-  <i class="fab fa-whatsapp"></i>
-</a>
+  <button id="scrollBtn">⬇</button>
 
-
+  <a href="https://wa.me/+5518991418453" class="whatsapp-float" target="_blank" title="Fale no WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
   <script src="script.js"></script>
 </body>
