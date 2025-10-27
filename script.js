@@ -511,6 +511,59 @@ window.onclick = (e) => {
   if (e.target === modal) modal.style.display = 'none';
 };
 
+// Função para verificar horário permitido (18:30 às 00:00, horário de Brasília)
+function verificarHorario() {
+    // Obter horário de Brasília
+    const now = new Date();
+    // Horário de Brasília = UTC-3
+    const nowBR = new Date(now.toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }));
+    
+    const hora = nowBR.getHours();
+    const minuto = nowBR.getMinutes();
+
+    // Transformar hora e minuto em decimal para facilitar comparação
+    const horaDecimal = hora + minuto / 60;
+
+    // 18:30 = 18.5, 00:00 = 24 ou 0 (vamos considerar até 23.999)
+    return horaDecimal >= 18.5 && horaDecimal <= 24;
+}
+
+// Modificar a função adicionarCarrinho
+window.adicionarCarrinho = function (nome, categoria) {
+    if (!verificarHorario()) {
+        mostrarAlertaHorario("Só é possível fazer pedidos entre 18:30 e 00:00!");
+        return;
+    }
+
+    const item = cardapio.find(i => i.nome === nome);
+
+    if (!item) {
+        mostrarAlertaHorario("Item não encontrado!");
+        return;
+    }
+
+    if (categoria === "Lanches") {
+        lancheSelecionado = item;
+        abrirModalAdicionais();
+    } else if (categoria === "Porções") {
+        abrirModalPorcoes(item);
+    } else if (categoria === "Bebidas") {
+        abrirModalBebida(item);
+    } else {
+        carrinho.push({ nome: item.nome, preco: item.preco });
+        atualizarCarrinho();
+        mostrarAlertaHorario('Item adicionado!');
+    }
+};
+function mostrarAlertaHorario(mensagem) {
+    const alertaHorario = document.createElement('div');
+    alertaHorario.className = 'alerta-bonito';
+    alertaHorario.innerHTML = `<span></span> ${mensagem}`;
+    document.body.appendChild(alertaHorario);
+
+    setTimeout(() => alertaHorario.remove(), 3000);
+}
+
 
     // Eventos
     buscaInput.addEventListener('input', exibirCardapio);
@@ -518,3 +571,5 @@ window.onclick = (e) => {
 
     exibirCardapio();
 });
+
+
