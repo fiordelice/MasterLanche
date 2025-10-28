@@ -47,22 +47,22 @@ document.addEventListener('DOMContentLoaded', () => {
             { tamanho: "300ml", preco: 8.00 },
             { tamanho: "500ml", preco: 11.00 },
             { tamanho: "700ml", preco: 16.00 }
-        ], categoria: "Bebidas" },
+        ], categoria: "Bebidas", img:"acerola.webp" },
         { nome: "ACEROLA C/ LARANJA", descricao: "Suco de Acerola com Laranja", volumes: [
             { tamanho: "300ml", preco: 8.00 },
             { tamanho: "500ml", preco: 11.00 },
             { tamanho: "700ml", preco: 16.00 }
-        ], categoria: "Bebidas" },
+        ], categoria: "Bebidas", img:"cella.jpg"  },
         { nome: "ABACAXI C/ HORTELÃ", descricao: "Suco de Abacaxi com Hortelã", volumes: [
             { tamanho: "300ml", preco: 8.00 },
             { tamanho: "500ml", preco: 11.00 },
             { tamanho: "700ml", preco: 16.00 }
-        ], categoria: "Bebidas" },
+        ], categoria: "Bebidas", img:"abacaxi.jpg"  },
         { nome: "LARANJA", descricao: "Suco de Laranja", volumes: [
             { tamanho: "300ml", preco: 8.00 },
             { tamanho: "500ml", preco: 11.00 },
             { tamanho: "700ml", preco: 16.00 }
-        ], categoria: "Bebidas" },
+        ], categoria: "Bebidas", img:"laranja.webp"  },
 
         // Refrigerantes
         { nome: "COCA COLA", descricao: "Refrigerante Coca Cola", volumes: [
