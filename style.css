@@ -886,29 +886,29 @@ button:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #a07e28; /* Vermelho chamativo para alerta */
-    color: #fff;
-    padding: 16px 24px;
-    border-radius: 12px;
-    font-size: 28px;
-    font-weight: bold;
+    background: #a07e28; /* Azul escuro elegante */
+    color: #FFFFFF;
+    padding: 18px 28px;
+    border-radius: 16px;
+    font-size: 20px;
+    font-weight: 600;
     text-align: center;
     z-index: 9999;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     animation: alertaAnim 0.3s ease-out;
 }
 
 /* Ícone dentro do alerta */
 .alerta-bonito span {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
 }
 
 /* Animação de entrada */
 @keyframes alertaAnim {
-    0% { transform: translate(-50%, -60%) scale(0.8); opacity: 0; }
+    0% { transform: translate(-50%, -60%) scale(0.85); opacity: 0; }
     50% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
     100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }
@@ -917,18 +917,19 @@ button:hover {
 @media (max-width: 768px) {
     .alerta-bonito {
         width: 80%;
-        font-size: 0.9rem;
-        padding: 14px 20px;
+        font-size: 0.95rem;
+        padding: 16px 24px;
     }
 }
 
 @media (max-width: 480px) {
     .alerta-bonito {
         width: 90%;
-        font-size: 0.85rem;
-        padding: 12px 16px;
+        font-size: 0.9rem;
+        padding: 14px 20px;
     }
 }
+
 
 /* Container do cardápio */
 #cardapio {
