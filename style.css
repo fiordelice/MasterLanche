@@ -276,11 +276,11 @@ main {
 }
 
 .footer-credit strong {
-  color: #f5c542;
+  color: #a07e28;
 }
 
 .footer .dev {
-  color: #f4d03f;
+  color: #a07e28;
   font-weight: 600;
   transition: color 0.3s ease;
 }
@@ -1007,3 +1007,24 @@ button:hover {
   min-width: 100px !important;
   max-width: 200px !important;
 }
+
+img[alt="COCA COLA"],
+img[alt="ANTÁRTICA"] {
+    height: 250px;       /* altura ajustada */
+    object-fit: contain;  /* mostra a imagem inteira */
+}
+
+@media screen and (max-width: 600px) {
+    img[alt="COCA COLA"],
+    img[alt="ANTÁRTICA"] {
+        height: 250px;    /* altura menor no celular */
+    }
+}
+@media screen and (max-width: 600px) {
+
+    img[alt="ANTÁRTICA"] {
+        height: 330px;       /* altura menor */
+        object-fit: contain;  /* mantém imagem inteira */
+    }
+}
+
