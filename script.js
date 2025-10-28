@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-
-  const cardapio = [
+    const cardapio = [
     { nome: "X-BURGUER", descricao: "Pão de hambúrguer, hambúrguer de carne, presunto, mussarela e tomate.", preco: 25.00, categoria: "Lanches", img: "xburguer.jpg" },
     { nome: "X-BACON", descricao: "Pão de hambúrguer, hambúrguer de carne, bacon, presunto, mussarela e tomate.", preco: 28.00, categoria: "Lanches", img: "bacon.jpg" },
     { nome: "X-BACON-CHEEDAR", descricao: "Pão de hambúrguer, hambúrguer de carne, bacon, cheedar, presunto, mussarela e tomate.", preco: 30.00, categoria: "Lanches", img: "bacon-cheedar.jpg" },
@@ -83,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
 
+
     const cardapioSection = document.getElementById('cardapio');
     const buscaInput = document.getElementById('busca');
     const categoriaSelect = document.getElementById('categoria');
@@ -95,44 +95,36 @@ document.addEventListener('DOMContentLoaded', () => {
     let lancheSelecionado = null;
     let porcaoSelecionada = null;
 
-
     function exibirCardapio() {
-    const busca = buscaInput.value.toLowerCase().trim();
-    const categoria = categoriaSelect.value.toLowerCase();
+        const busca = buscaInput.value.toLowerCase();
+        const categoria = categoriaSelect.value;
 
-    const filtrados = cardapio.filter(item => 
-        (categoria === 'todos' || item.categoria.toLowerCase() === categoria) &&
-        item.nome.toLowerCase().includes(busca)
-    );
+        const filtrados = cardapio.filter(item =>
+            (categoria === 'todos' || item.categoria === categoria) &&
+            item.nome.toLowerCase().includes(busca) &&
+            item.categoria !== "Adicionais" // adicionais não aparecem no card
+        );
 
-    cardapioSection.innerHTML = '';
+        cardapioSection.innerHTML = '';
 
-    filtrados.forEach(item => {
-        let precoExibir = '';
+        filtrados.forEach(item => {
+            const precoExibir = item.categoria === "Porções"
+    ? `Meia: R$ ${item.precoMeia.toFixed(2)} / Grande: R$ ${item.precoGrande.toFixed(2)}`
+    : item.volumes
+        ? item.volumes.map(v => `${v.tamanho}: R$ ${v.preco.toFixed(2)}`).join(' / ')
+        : `R$ ${item.preco.toFixed(2)}`;
 
-        if(item.categoria === 'Porções') {
-            precoExibir = `Meia: R$ ${item.precoMeia.toFixed(2)} / Grande: R$ ${item.precoGrande.toFixed(2)}`;
-        } else if(item.volumes) {
-            precoExibir = item.volumes.map(v => `${v.tamanho}: R$ ${v.preco.toFixed(2)}`).join(' / ');
-        } else if(item.preco !== undefined) {
-            precoExibir = `R$ ${item.preco.toFixed(2)}`;
-        } else {
-            precoExibir = 'R$ 0,00';
-        }
-
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
-            ${item.img ? `<img src="${item.img}" alt="${item.nome}">` : ''}
-            <h3>${item.nome}</h3>
-            <p>${item.descricao}</p>
-            <p><strong>${precoExibir}</strong></p>
-            <button onclick="adicionarCarrinho('${item.nome}', '${item.categoria}')">Adicionar</button>
-        `;
-        cardapioSection.appendChild(card);
-    });
-}
-
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <h3>${item.nome}</h3>
+                <p>${item.descricao}</p>
+                <p><strong>${precoExibir}</strong></p>
+                <button onclick="adicionarCarrinho('${item.nome}', '${item.categoria}')">Adicionar</button>
+            `;
+            cardapioSection.appendChild(card);
+        });
+    }
 function abrirModalBebida(item) {
     const modal = document.getElementById("modalBebidas");
     const opcoes = document.getElementById("opcoesBebida");
@@ -415,7 +407,7 @@ finalizarBtn.addEventListener('click', (e) => {
             detalhes.innerHTML = `
                 <p><strong>Total:</strong> R$ ${fmt(total)}</p>
                 <p>Copie a chave PIX:</p>
-                <input id="pixKeyPro" value="5518991418453" readonly style="width:100%; padding:8px; margin-bottom:6px; border-radius:6px; border:1px solid #ddd; text-align:center;">
+                <input id="pixKeyPro" value="63083827000126" readonly style="width:100%; padding:8px; margin-bottom:6px; border-radius:6px; border:1px solid #ddd; text-align:center;">
             `;
             setNextEnabled(true);
         } else if (select.value === 'dinheiro') {
@@ -575,32 +567,6 @@ function mostrarAlertaHorario(mensagem) {
     setTimeout(() => alertaHorario.remove(), 3000);
 }
 
-function mostrarCardapio(itens) {
-  const cardapioEl = document.getElementById("cardapio");
-  cardapioEl.innerHTML = ""; // limpa antes de adicionar
-
-  itens.forEach(item => {
-    const card = document.createElement("div");
-    card.classList.add("card");
-    
-    card.innerHTML = `
-      ${item.img ? `<img src="${item.img}" alt="${item.nome}">` : ''}
-      <h3>${item.nome}</h3>
-      <p>${item.descricao}</p>
-      <p>R$ ${item.preco.toFixed(2)}</p>
-      <button onclick="adicionarCarrinho('${item.nome}')">Adicionar</button>
-    `;
-
-    cardapioEl.appendChild(card);
-  });
-}
-function abrirModalPorcoes(item) {
-    porcaoSelecionada = item;
-    const modal = document.getElementById("modalPorcoes");
-    document.getElementById("nomePorcaoModal").textContent = item.nome;
-    document.getElementById("precoPorcao").textContent = item.precoMeia.toFixed(2);
-    modal.style.display = "flex";
-}
 
     // Eventos
     buscaInput.addEventListener('input', exibirCardapio);
@@ -608,4 +574,5 @@ function abrirModalPorcoes(item) {
 
     exibirCardapio();
 });
+
 
