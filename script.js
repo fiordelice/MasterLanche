@@ -23,9 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Maiones
       
-        { nome: "CALABRESA", descricao: "Porção de Calabresa", precoMeia: 36.20, precoGrande: 48.20, categoria: "Porções" },
-        { nome: "FILÉ MIGNON", descricao: "Porção de Filé Mignon", precoMeia: 65.00, precoGrande: 97.50, categoria: "Porções" },
-        { nome: "PICANHA", descricao: "Porção de Picanha", precoMeia: 65.00, precoGrande: 97.50, categoria: "Porções" },
+     
 
         // Adicionais
         { nome: "Hambúrguer", descricao: "Adicional de Hambúrguer", preco: 8.00, categoria: "Adicionais" },
@@ -39,6 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
         { nome: "MAIONESE VERDE", descricao: "Temperada com ervas frescas e um sabor especial que combina perfeitamente com nossos lanches.", preco: 3.00, categoria: "Adicionais" },
 
         // Porções
+           { nome: "CALABRESA", descricao: "Porção de Calabresa", precoMeia: 36.20, precoGrande: 48.20, categoria: "Porções" },
+        { nome: "FILÉ MIGNON", descricao: "Porção de Filé Mignon", precoMeia: 65.00, precoGrande: 97.50, categoria: "Porções" },
+        { nome: "PICANHA", descricao: "Porção de Picanha", precoMeia: 65.00, precoGrande: 97.50, categoria: "Porções" },
 
         // Bebidas
         { nome: "ACEROLA", descricao: "Suco de Acerola", volumes: [
@@ -607,5 +608,4 @@ function abrirModalPorcoes(item) {
 
     exibirCardapio();
 });
-
 
