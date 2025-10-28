@@ -117,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.createElement('div');
             card.className = 'card';
             card.innerHTML = `
+            <img src="${item.img}" alt="${item.nome}">
                 <h3>${item.nome}</h3>
                 <p>${item.descricao}</p>
                 <p><strong>${precoExibir}</strong></p>
@@ -574,5 +575,6 @@ function mostrarAlertaHorario(mensagem) {
 
     exibirCardapio();
 });
+
 
 
