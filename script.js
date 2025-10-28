@@ -66,19 +66,19 @@ document.addEventListener('DOMContentLoaded', () => {
         { nome: "COCA COLA", descricao: "Refrigerante Coca Cola", volumes: [
             { tamanho: "350ml", preco: 5.50 },
             { tamanho: "2 litros", preco: 16.00 }
-        ], categoria: "Bebidas" },
+        ], categoria: "Bebidas", img: "coca.png" },
         { nome: "FANTA", descricao: "Refrigerante Fanta", volumes: [
             { tamanho: "350ml", preco: 5.50 },
             { tamanho: "2 litros", preco: 13.00 }
-        ], categoria: "Bebidas" },
+        ], categoria: "Bebidas",  img: "fantal.png"},
         { nome: "ANTÁRTICA", descricao: "Refrigerante Antártica", volumes: [
             { tamanho: "350ml", preco: 5.50 },
             { tamanho: "2 litros", preco: 13.50 }
-        ], categoria: "Bebidas" },
+        ], categoria: "Bebidas", img: "guarana.png" },
         { nome: "SPRITE", descricao: "Refrigerante Sprite", volumes: [
             { tamanho: "350ml", preco: 5.50 },
             { tamanho: "2 litros", preco: 13.50 }
-        ], categoria: "Bebidas" }
+        ], categoria: "Bebidas",img: "sprite.png" }
     ];
 
 
@@ -535,7 +535,7 @@ function verificarHorario() {
 // Modificar a função adicionarCarrinho
 window.adicionarCarrinho = function (nome, categoria) {
     if (!verificarHorario()) {
-        mostrarAlertaHorario("Só é possível fazer pedidos entre 18:30 e 00:00!");
+        mostrarAlertaHorario("Informamos que os pedidos só estão disponíveis entre 18h30 e 00h00. Solicitamos que retorne nesse período para realizar seu pedido.");
         return;
     }
 
@@ -575,6 +575,5 @@ function mostrarAlertaHorario(mensagem) {
 
     exibirCardapio();
 });
-
 
 
