@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { nome: "PICANHA", descricao: "Porção de Picanha", precoMeia: 65.00, precoGrande: 97.50, categoria: "Porções", img:"picanha.webp" },
 
         // Bebidas
-          { nome: "ABACAXI", descricao: "Suco de Abacaxi", volumes: [
+          { nome: "ABACAXI C/ HORTELÃ", descricao: "Suco de Abacaxi", volumes: [
             { tamanho: "500ml", preco: 13.00 },
         ], categoria: "Bebidas", img:"abacaxi.jpg"  },
         { nome: "LARANJA", descricao: "Suco de Laranja", volumes: [
@@ -442,7 +442,7 @@ finalizarBtn.addEventListener('click', (e) => {
     btnNext.addEventListener('click', () => {
         const forma = select.value;
         let infoPagamento = `Forma de pagamento: ${forma.charAt(0).toUpperCase() + forma.slice(1)}`;
-        if (forma === 'pix') infoPagamento += `\nValor: R$ ${fmt(total)}\nChave Pix: 5518991418453`;
+        if (forma === 'pix') infoPagamento += `\nValor: R$ ${fmt(total)}\nChave Pix: 18991604747`;
         if (forma === 'dinheiro') {
             const trocoRadio = document.querySelector('input[name="trocoPrecisaPro"]:checked').value;
             if (trocoRadio === 'sim') {
@@ -478,7 +478,7 @@ finalizarBtn.addEventListener('click', (e) => {
             const texto = carrinho.map(item => `- ${item.nome}: R$ ${Number(item.preco).toFixed(2)}`).join('\n');
             const mensagem = `Olá! Gostaria de fazer um pedido:\n${texto}\n*Total: R$ ${total.toFixed(2)}*\n\n${infoPagamento}\n\nEndereço:\nRua: ${rua}\nBairro: ${bairro}\nNúmero: ${numero}`;
 
-            const numeroLoja = "5518991418453";
+            const numeroLoja = "18991604747";
             const url = `https://wa.me/${numeroLoja}?text=${encodeURIComponent(mensagem)}`;
             window.open(url, "_blank");
             mostrarAlerta("Pedido finalizado! Obrigado 😊", "add");
@@ -569,6 +569,4 @@ function mostrarAlertaHorario(mensagem) {
 
     exibirCardapio();
 });
-
-
 
