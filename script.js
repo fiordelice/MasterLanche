@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { nome: "PICANHA", descricao: "Porção de Picanha", precoMeia: 65.00, precoGrande: 97.50, categoria: "Porções", img:"picanha.webp" },
 
         // Bebidas
-          { nome: "ABACAXI C/ HORTELÃ", descricao: "Suco de Abacaxi", volumes: [
+          { nome: "ABACAXI", descricao: "Suco de Abacaxi", volumes: [
             { tamanho: "500ml", preco: 13.00 },
         ], categoria: "Bebidas", img:"abacaxi.jpg"  },
         { nome: "LARANJA", descricao: "Suco de Laranja", volumes: [
@@ -569,4 +569,5 @@ function mostrarAlertaHorario(mensagem) {
 
     exibirCardapio();
 });
+
 
