@@ -43,27 +43,19 @@ document.addEventListener('DOMContentLoaded', () => {
         { nome: "PICANHA", descricao: "Porção de Picanha", precoMeia: 65.00, precoGrande: 97.50, categoria: "Porções", img:"picanha.webp" },
 
         // Bebidas
-        { nome: "ACEROLA", descricao: "Suco de Acerola", volumes: [
-            { tamanho: "300ml", preco: 8.00 },
-            { tamanho: "500ml", preco: 11.00 },
-            { tamanho: "700ml", preco: 16.00 }
-        ], categoria: "Bebidas", img:"acerola.webp" },
-        { nome: "ACEROLA C/ LARANJA", descricao: "Suco de Acerola com Laranja", volumes: [
-            { tamanho: "300ml", preco: 8.00 },
-            { tamanho: "500ml", preco: 11.00 },
-            { tamanho: "700ml", preco: 16.00 }
-        ], categoria: "Bebidas", img:"cella.jpg"  },
-        { nome: "ABACAXI C/ HORTELÃ", descricao: "Suco de Abacaxi com Hortelã", volumes: [
-            { tamanho: "300ml", preco: 8.00 },
-            { tamanho: "500ml", preco: 11.00 },
-            { tamanho: "700ml", preco: 16.00 }
+          { nome: "ABACAXI C/ HORTELÃ", descricao: "Suco de Abacaxi", volumes: [
+            { tamanho: "500ml", preco: 13.00 },
         ], categoria: "Bebidas", img:"abacaxi.jpg"  },
         { nome: "LARANJA", descricao: "Suco de Laranja", volumes: [
-            { tamanho: "300ml", preco: 8.00 },
-            { tamanho: "500ml", preco: 11.00 },
-            { tamanho: "700ml", preco: 16.00 }
+            { tamanho: "500ml", preco: 15.00 },
         ], categoria: "Bebidas", img:"laranja.webp"  },
-
+         { nome: "MARACUJÁ", descricao: "Suco de Maracujá", volumes: [
+            { tamanho: "500ml", preco: 15.00 },
+        ], categoria: "Bebidas", img:"maracuja.jpg"  },
+        { nome: "ACEROLA C/ LARANJA", descricao: "Suco de Acerola com Laranja", volumes: [
+            { tamanho: "500ml", preco: 16.00 },
+        ], categoria: "Bebidas", img:"cella.jpg"  },
+      
         // Refrigerantes
         { nome: "COCA COLA", descricao: "Refrigerante Coca Cola", volumes: [
             { tamanho: "350ml", preco: 5.50 },
