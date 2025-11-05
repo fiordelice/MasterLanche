@@ -21,6 +21,186 @@ img {
   margin-right: 10px;
   
 }
+body {
+  background-color: #333;
+  color: var(--branco-suave);
+}
+
+.navbar {
+  background-color: #1B5E20;
+  color: #fff;
+  border-bottom: 3px solid #a07e28;
+}
+
+.card button {
+  background-color: #4CAF50;
+}
+
+.card button:hover {
+  background-color: #45a049;
+}
+/* === 🌿 TEMA VERDE + BRANCO PURO (SEM DOURADO, COM !important) === */
+
+body {
+  background-color: #FFFFFF !important; /* fundo branco */
+  color: #1B1B1B !important; /* texto escuro */
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background-color: #2E7D32 !important; /* verde principal */
+  color: #FFFFFF !important;
+  border-bottom: 3px solid #1B5E20 !important; /* verde escuro */
+}
+
+.navbar h1 {
+  color: #FFFFFF !important;
+}
+
+/* ===== CARDÁPIO ===== */
+#cardapio {
+  background-color: #FFFFFF !important;
+}
+
+.card {
+  background-color: #FFFFFF !important;
+  color: #1B1B1B !important;
+  border: 2px solid #2E7D32 !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08) !important;
+}
+
+.card h3 {
+  color: #1B5E20 !important;
+}
+
+.card button {
+  background-color: #4CAF50 !important; /* verde padrão */
+  border: none !important;
+  color: #FFFFFF !important;
+  font-weight: bold !important;
+  border-radius: 8px !important;
+  transition: 0.3s !important;
+}
+
+.card button:hover {
+  background-color: #388E3C !important; /* verde escuro */
+}
+
+/* ===== CARRINHO ===== */
+#carrinho {
+  background-color: #F9F9F9 !important;
+  border: 3px solid #2E7D32 !important;
+  color: #1B1B1B !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+}
+
+/* ===== BOTÕES PRINCIPAIS ===== */
+#finalizar,
+#confirmarAdicionais,
+#confirmarPorcao,
+#confirmarBebida {
+  background-color: #4CAF50 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 8px !important;
+}
+
+#finalizar:hover,
+#confirmarAdicionais:hover,
+#confirmarPorcao:hover,
+#confirmarBebida:hover {
+  background-color: #388E3C !important;
+}
+
+/* ===== BOTÕES DE CANCELAR ===== */
+#cancelarAdicionais,
+#cancelarPorcao,
+#cancelarBebida {
+  background-color: #E53935 !important;
+  color: #FFFFFF !important;
+}
+
+/* ===== RODAPÉ ===== */
+.footer {
+  background: linear-gradient(180deg, #2E7D32 0%, #1B5E20 100%) !important;
+  color: #FFFFFF !important;
+  border-top: 3px solid #1B5E20 !important;
+}
+
+.footer-title {
+  color: #FFFFFF !important;
+}
+
+.footer-credit strong,
+.footer .dev {
+  color: #C8E6C9 !important; /* verde clarinho */
+}
+
+.footer .dev:hover {
+  color: #FFFFFF !important;
+}
+
+/* ===== WHATSAPP FLOAT ===== */
+.whatsapp-float {
+  background-color: #4CAF50 !important;
+  color: white !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25) !important;
+}
+
+/* ===== ALERTAS ===== */
+.alerta-bonito {
+  background-color: #2E7D32 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #1B5E20 !important;
+}
+
+#mensagem-alerta.add,
+#mensagem-alerta.remove {
+  background-color: #4CAF50 !important;
+  color: #FFFFFF !important;
+}
+
+/* ===== INPUTS E FILTROS ===== */
+#filtros input,
+#filtros select {
+  border: 1px solid #2E7D32 !important;
+  color: #333 !important;
+  background-color: #FFFFFF !important;
+}
+
+#filtros input:focus,
+#filtros select:focus {
+  border-color: #4CAF50 !important;
+  box-shadow: 0 0 6px rgba(76,175,80,0.4) !important;
+}
+
+/* ===== MODAIS ===== */
+.modal-content {
+  background-color: #FFFFFF !important;
+  border: 3px solid #2E7D32 !important;
+  color: #1B1B1B !important;
+}
+
+.modal-buttons button {
+  background-color: #4CAF50 !important;
+  color: #FFFFFF !important;
+}
+
+.modal-buttons .cancelar {
+  background-color: #E53935 !important;
+  color: #FFFFFF !important;
+}
+
+/* ===== LINKS E TEXTO ===== */
+a {
+  color: #2E7D32 !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: #388E3C !important;
+}
 
 
 .main-content {
@@ -260,7 +440,7 @@ main {
 .footer-divider {
   width: 60px;
   height: 2px;
-  background-color: #a07e28;
+  background-color: #1B5E20;
   margin: 10px auto 20px;
   border-radius: 10px;
   transition: width 0.4s ease;
@@ -1028,4 +1208,3 @@ img[alt="ANTÁRTICA"] {
         object-fit: contain;  /* mantém imagem inteira */
     }
 }
-
