@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <title>𝐌𝐚𝐬𝐭𝐞𝐫 𝐋𝐚𝐧𝐜𝐡𝐞𝐬</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-esquerda"></div>
+    <img src="logo1.jpg" alt="logo">
+    <div class="navbar-centro">
+      <h1>𝐌𝐚𝐬𝐭𝐞𝐫 𝐋𝐚𝐧𝐜𝐡𝐞𝐬</h1>
+      <p class="horario-funcionamento"><i class="fa-regular fa-clock"></i>Aberto das 18h30 às 00h00</p>
+    </div>
+    <div class="navbar-direita"></div>
+  </nav>
+
+  <main>
+    <div id="filtros">
+      <input type="text" id="busca" placeholder="Buscar item...">
+      <select id="categoria">
+        <option value="todos">Todas as Categorias</option>
+        <option value="Lanches">Lanches</option>
+        <option value="Porções">Porções</option>
+        <option value="Bebidas">Bebidas</option>
+         <option value="Combo">Combo Lanches</option>
+      </select>
+    </div>
+
+    <section id="cardapio"></section>
+
+    <div id="mensagem-alerta" class="mensagem-alerta"></div>
+
+    <section id="carrinho">
+      <h2>Seu Carrinho</h2>
+      <ul id="lista-carrinho"></ul>
+      <p id="total">Total: R$ 0,00</p>
+      <button id="finalizar">Finalizar Pedido</button>
+    </section>
+  </main>
+
+
+  <!-- Modal de Adicionais -->
+<div id="modalAdicionais" class="modal">
+  <div class="modal-content">
+    <h2>Escolha os adicionais</h2>
+    <form id="formAdicionais">
+      <!-- opções de adicionais serão geradas via JS -->
+    </form>
+    <div class="modal-buttons">
+      <button id="confirmarAdicionais" type="button">Adicionar</button>
+      <button id="cancelarAdicionais" type="button">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<div id="modalPorcoes" class="modal">
+  <div class="modal-content">
+    <h3>Escolha o tamanho da porção</h3>
+    <p id="nomePorcao"></p>
+    <div>
+      <label>
+        <input type="radio" name="tamanhoPorcao" value="Meia">
+        Meia
+      </label>
+      <label>
+        <input type="radio" name="tamanhoPorcao" value="Grande">
+        Grande
+      </label>
+    </div>
+    <p>Preço: R$ <span id="precoPorcao">0.00</span></p>
+    <button id="confirmarPorcao">Confirmar</button>
+    <button id="cancelarPorcao">Cancelar</button>
+  </div>
+</div>
+<div id="modalBebidas" class="modal">
+    <div class="modal-content">
+        <h3 id="nomeBebida"></h3>
+        <p id="descricaoBebida"></p>
+        <div id="opcoesBebida"></div>
+        <p>Preço: R$ <span id="precoBebida"></span></p>
+        <button id="confirmarBebida">Adicionar</button>
+        <button id="cancelarBebida">Cancelar</button>
+    </div>
+</div>
+
+
+  <footer class="footer">
+    <div class="footer-content">
+      <h3 class="footer-title">𝐌𝐚𝐬𝐭𝐞𝐫 𝐋𝐚𝐧𝐜𝐡𝐞𝐬</h3>
+      <p class="footer-text">Sabor, qualidade e tradição em cada mordida.</p>
+      <div class="footer-divider"></div>
+      <p class="footer-credit">
+        © 2025 <strong>𝐌𝐚𝐬𝐭𝐞𝐫 𝐋𝐚𝐧𝐜𝐡𝐞𝐬</strong> — Desenvolvido por 
+        <span class="dev">Gabriella Fiordelice</span>
+      </p>
+    </div>
+  </footer>
+
+<!-- Modal de Porções -->
+<div id="modalPorcoes" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>🍟 Escolha o tamanho da porção</h3>
+    <p id="nomePorcao">Batata Frita</p>
+
+    <div class="opcoes-porcao">
+      <label>
+        <input type="radio" name="tamanhoPorcao" value="Meia">
+        <span>🥔 Meia</span>
+      </label>
+      <label>
+        <input type="radio" name="tamanhoPorcao" value="Inteira">
+        <span>🍟 Inteira</span>
+      </label>
+    </div>
+
+    <div class="modal-buttons">
+      <button id="confirmarPorcao">Confirmar</button>
+      <button id="cancelarPorcao" class="cancelar">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<div id="modalPagamento" class="modal">
+  <div class="modal-content">
+    <h3>Forma de Pagamento</h3>
+    <form id="formPagamento">
+      <label><input type="radio" name="pagamento" value="Pix"> Pix</label><br>
+      <label><input type="radio" name="pagamento" value="Cartão"> Cartão</label><br>
+      <label><input type="radio" name="pagamento" value="Dinheiro"> Dinheiro</label><br>
+      <div id="detalhesPagamento" style="margin-top:10px;">
+        <label>Troco para quanto?</label><br>
+        <input type="text" id="troco" placeholder="Troco para quanto? (Ex: 50.00)" style="width:100%;">
+      </div>
+    </form>
+    <div class="modal-buttons">
+      <button id="confirmarPagamento" type="button">Confirmar Pagamento</button>
+      <button id="cancelarPagamento" type="button">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Cartão -->
+<div id="modalCartao" class="modal">
+  <div class="modal-content">
+    <h3>Selecione o tipo de cartão</h3>
+    <form id="formCartao">
+      <label><input type="radio" name="tipoCartao" value="Crédito"> Crédito</label><br>
+      <label><input type="radio" name="tipoCartao" value="Débito"> Débito</label>
+    </form>
+    <div class="modal-buttons">
+      <button id="confirmarCartao" type="button">Confirmar</button>
+      <button id="cancelarCartao" type="button">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+  <a href="https://wa.me/+5518991604747" class="whatsapp-float" target="_blank" title="Fale no WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
