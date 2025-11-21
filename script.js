@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { nome: "PICANHA", descricao: "Porção de Picanha", precoMeia: 65.00, precoGrande: 97.50, categoria: "Porções", img:"picanha.webp" },
 
         // Bebidas
-          { nome: "ABACAXI C/ HORTELÃ", descricao: "Suco de Abacaxi", volumes: [
+          { nome: "ABACAXI", descricao: "Suco de Abacaxi", volumes: [
             { tamanho: "500ml", preco: 13.00 },
         ], categoria: "Bebidas", img:"abacaxi.jpg"  },
         { nome: "LARANJA", descricao: "Suco de Laranja", volumes: [
@@ -457,37 +457,135 @@ finalizarBtn.addEventListener('click', (e) => {
         if (forma === 'cartao') infoPagamento += ` (${document.getElementById('tipoCartaoPro').value})`;
 
         // --- Modal Endereço ---
-        modal.innerHTML = `
-            <div class="modal-content" style="max-width:500px; width:95%; padding:18px; border-radius:10px;">
-                <h3>Endereço de Entrega</h3>
-                <label>Rua: <input id="ruaEntrega" type="text" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ddd;"></label>
-                <label>Bairro: <input id="bairroEntrega" type="text" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ddd;"></label>
-                <label>Número: <input id="numeroEntrega" type="text" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ddd;"></label>
-                <div style="display:flex; gap:10px; margin-top:12px;">
-                    <button id="confirmarEndereco" style="flex:1; padding:10px; border-radius:8px; border:none; background:#25d366; color:#fff;">Finalizar Pedido</button>
-                    <button id="cancelarEndereco" style="flex:1; padding:10px; border-radius:8px; border:1px solid #ccc; background:#fff;">Cancelar</button>
-                </div>
-            </div>
-        `;
+     modal.innerHTML = `
+  <div class="modal-content" style="max-width:500px; width:95%; padding:18px; border-radius:10px;">
+    <h3>Entrega ou Retirada</h3>
+
+    <label style="display:block; margin-bottom:8px;">
+      <input type="radio" name="tipoEntrega" value="retirada" checked>
+      Retirar no local (sem taxa)
+    </label>
+
+    <label style="display:block; margin-bottom:15px;">
+      <input type="radio" name="tipoEntrega" value="entrega">
+      Entrega (taxa R$ 5,00)
+    </label>
+
+    <!-- Endereço fixo para retirada -->
+    <div id="enderecoRetirada"
+         style="padding:10px; background:#f5f5f5; border-radius:6px; margin-bottom:15px;">
+      <strong>Retirada no local:</strong><br>
+      Rua Boeing, 756
+    </div>
+
+    <!-- Campos para entrega -->
+    <div id="camposEndereco" style="display:none;">
+      <label>Rua:
+        <input id="ruaEntrega" type="text" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ddd;">
+      </label>
+
+      <label>Bairro:
+        <input id="bairroEntrega" type="text" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ddd;">
+      </label>
+
+      <label>Número:
+        <input id="numeroEntrega" type="text" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ddd;">
+      </label>
+    </div>
+
+    <div style="display:flex; gap:10px; margin-top:20px;">
+      <button id="confirmarEndereco"
+        style="flex:1; padding:10px; border-radius:8px; border:none; background:#25d366; color:#fff;">
+        Próximo
+      </button>
+      <button id="cancelarEndereco"
+        style="flex:1; padding:10px; border-radius:8px; border:1px solid #ccc; background:#fff;">
+        Cancelar
+      </button>
+    </div>
+  </div>
+`;
+const radiosEntrega = document.querySelectorAll('input[name="tipoEntrega"]');
+const camposEndereco = document.getElementById('camposEndereco');
+const enderecoRetirada = document.getElementById('enderecoRetirada');
+
+radiosEntrega.forEach(r => {
+  r.addEventListener('change', () => {
+
+    if (r.value === "entrega") {
+      camposEndereco.style.display = "block";
+      enderecoRetirada.style.display = "none";
+    } else {
+      camposEndereco.style.display = "none";
+      enderecoRetirada.style.display = "block";
+    }
+
+  });
+});
+
 
         document.getElementById('cancelarEndereco').addEventListener('click', () => modal.remove());
-        document.getElementById('confirmarEndereco').addEventListener('click', () => {
-            const rua = document.getElementById('ruaEntrega').value.trim();
-            const bairro = document.getElementById('bairroEntrega').value.trim();
-            const numero = document.getElementById('numeroEntrega').value.trim();
-            if (!rua || !bairro || !numero) return mostrarAlerta("Preencha todos os campos do endereço", "alert");
+       document.getElementById('confirmarEndereco').addEventListener('click', () => {
+    const tipoEntrega = document.querySelector('input[name="tipoEntrega"]:checked').value;
 
-            const texto = carrinho.map(item => `- ${item.nome}: R$ ${Number(item.preco).toFixed(2)}`).join('\n');
-            const mensagem = `Olá! Gostaria de fazer um pedido:\n${texto}\n*Total: R$ ${total.toFixed(2)}*\n\n${infoPagamento}\n\nEndereço:\nRua: ${rua}\nBairro: ${bairro}\nNúmero: ${numero}`;
+    let rua = "";
+    let bairro = "";
+    let numero = "";
+    let taxa = 0;
+    let totalFinal = total;
 
-            const numeroLoja = "18991604747";
-            const url = `https://wa.me/${numeroLoja}?text=${encodeURIComponent(mensagem)}`;
-            window.open(url, "_blank");
-            mostrarAlerta("Pedido finalizado! Obrigado 😊", "add");
-            carrinho = [];
-            atualizarCarrinho();
-            modal.remove();
-        });
+    // ENTREGA
+    if (tipoEntrega === "entrega") {
+        rua = document.getElementById('ruaEntrega').value.trim();
+        bairro = document.getElementById('bairroEntrega').value.trim();
+        numero = document.getElementById('numeroEntrega').value.trim();
+
+        if (!rua || !bairro || !numero) {
+            return mostrarAlerta("Preencha todos os campos do endereço", "alert");
+        }
+
+        taxa = 5;
+        totalFinal += taxa;
+    }
+
+    // TEXTO DO PEDIDO
+    const texto = carrinho.map(item =>
+        `- ${item.nome}: R$ ${Number(item.preco).toFixed(2)}`
+    ).join('\n');
+
+    let mensagem = `Olá! Gostaria de fazer um pedido:
+${texto}
+Taxa de entrega: R$ ${taxa.toFixed(2)}
+*Total final: R$ ${totalFinal.toFixed(2)}*
+
+${infoPagamento}
+`;
+
+    // SE FOR RETIRADA
+    if (tipoEntrega === "retirada") {
+        mensagem += `
+Retirada no local:
+Rua Boeing, 756`;
+    }
+
+    // SE FOR ENTREGA
+    else {
+        mensagem += `
+Endereço para entrega:
+Rua: ${rua}
+Bairro: ${bairro}
+Número: ${numero}`;
+    }
+
+    const numeroLoja = "18991604747";
+    const url = `https://wa.me/${numeroLoja}?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, "_blank");
+
+    mostrarAlerta("Pedido finalizado! Obrigado 😊", "add");
+    carrinho = [];
+    atualizarCarrinho();
+    modal.remove();
+});
     });
 });
 
@@ -511,59 +609,8 @@ window.onclick = (e) => {
   if (e.target === modal) modal.style.display = 'none';
 };
 
-// Função para verificar horário permitido (18:30 às 00:00, horário de Brasília)
-function verificarHorario() {
-    // Obter horário de Brasília
-    const now = new Date();
-    // Horário de Brasília = UTC-3
-    const nowBR = new Date(now.toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }));
-    
-    const hora = nowBR.getHours();
-    const minuto = nowBR.getMinutes();
-
-    // Transformar hora e minuto em decimal para facilitar comparação
-    const horaDecimal = hora + minuto / 60;
-
-    // 18:30 = 18.5, 00:00 = 24 ou 0 (vamos considerar até 23.999)
-    return horaDecimal >= 18.5 && horaDecimal <= 24;
-}
 
 // Modificar a função adicionarCarrinho
-window.adicionarCarrinho = function (nome, categoria) {
-    if (!verificarHorario()) {
-        mostrarAlertaHorario("Informamos que os pedidos só estão disponíveis entre 18h30 e 00h00. Solicitamos que retorne nesse período para realizar seu pedido.");
-        return;
-    }
-
-    const item = cardapio.find(i => i.nome === nome);
-
-    if (!item) {
-        mostrarAlertaHorario("Item não encontrado!");
-        return;
-    }
-
-    if (categoria === "Lanches") {
-        lancheSelecionado = item;
-        abrirModalAdicionais();
-    } else if (categoria === "Porções") {
-        abrirModalPorcoes(item);
-    } else if (categoria === "Bebidas") {
-        abrirModalBebida(item);
-    } else {
-        carrinho.push({ nome: item.nome, preco: item.preco });
-        atualizarCarrinho();
-        mostrarAlertaHorario('Item adicionado!');
-    }
-};
-function mostrarAlertaHorario(mensagem) {
-    const alertaHorario = document.createElement('div');
-    alertaHorario.className = 'alerta-bonito';
-    alertaHorario.innerHTML = `<span></span> ${mensagem}`;
-    document.body.appendChild(alertaHorario);
-
-    setTimeout(() => alertaHorario.remove(), 3000);
-}
-
 
     // Eventos
     buscaInput.addEventListener('input', exibirCardapio);
