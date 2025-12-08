@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
         // Refrigerantes
         { nome: "COCA COLA", descricao: "Refrigerante Coca Cola", volumes: [
-            { tamanho: "350ml", preco: 5.50 },
+            { tamanho: "350ml", preco: 6.00 },
             { tamanho: "2 litros", preco: 16.00 }
         ], categoria: "Bebidas", img: "coca.png" },
         { nome: "FANTA", descricao: "Refrigerante Fanta", volumes: [
@@ -692,6 +692,7 @@ window.onclick = (e) => {
 
     exibirCardapio();
 });
+
 
 
 
