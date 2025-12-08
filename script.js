@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ], categoria: "Bebidas", img:"maracuja.jpg"  },
          { nome: "ACEROLA", descricao: "Suco de Acerola", volumes: [
             { tamanho: "500ml", preco: 10.00 },
-        ], categoria: "Bebidas", img:"maracuja.jpg"  },
+        ], categoria: "Bebidas", },
         { nome: "ACEROLA C/ LARANJA", descricao: "Suco de Acerola com Laranja", volumes: [
             { tamanho: "500ml", preco: 16.00 },
         ], categoria: "Bebidas", img:"cella.jpg"  },
@@ -694,3 +694,4 @@ window.onclick = (e) => {
 
     exibirCardapio();
 });
+
