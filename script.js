@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     img: "default.png"
 },
 {
-    nome: "BATATA INDIVIDUAL 150g ou 350g",
+    nome: "BATATA INDIVIDUAL 150g",
     descricao: "Batata Individual",
     preco: 10.00,
     categoria: "Porções Únicas",
@@ -694,5 +694,6 @@ window.onclick = (e) => {
 
     exibirCardapio();
 });
+
 
 
