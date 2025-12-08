@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 },
 {
     nome: "COMBO DO DIA",
-    descricao: "1 enrolado de presunto, mussarela, tomate e orégano + 1 refrigerante lata 350ml à sua escolha.",
+    descricao: "1 enrolado de presunto, mussarela, tomate e orégano.",
     preco: 10.00,
     categoria: "Salgados"
 },
@@ -694,4 +694,5 @@ window.onclick = (e) => {
 
     exibirCardapio();
 });
+
 
