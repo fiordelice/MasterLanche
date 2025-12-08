@@ -135,11 +135,9 @@ document.addEventListener('DOMContentLoaded', () => {
             { tamanho: "2 litros", preco: 16.00 }
         ], categoria: "Bebidas", img: "coca.png" },
         { nome: "FANTA", descricao: "Refrigerante Fanta", volumes: [
-            { tamanho: "350ml", preco: 5.50 },
             { tamanho: "2 litros", preco: 13.00 }
         ], categoria: "Bebidas",  img: "fantal.png"},
         { nome: "ANTÁRTICA", descricao: "Refrigerante Antártica", volumes: [
-            { tamanho: "350ml", preco: 5.50 },
             { tamanho: "2 litros", preco: 13.50 }
         ], categoria: "Bebidas", img: "guarana.png" },
          { nome: "PESPI", descricao: "Refrigerante Pespi", volumes: [
@@ -694,6 +692,7 @@ window.onclick = (e) => {
 
     exibirCardapio();
 });
+
 
 
 
