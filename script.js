@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 },
 {
-    nome: "COMBO DO DIA",
+    nome: "ENROLADO MASTER",
     descricao: "1 enrolado de presunto, mussarela, tomate e orégano.",
     preco: 10.00,
     categoria: "Salgados"
