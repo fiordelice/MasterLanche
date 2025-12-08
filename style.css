@@ -1,0 +1,1210 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #333;
+  min-height: 100vh;
+  color: #333
+;
+}
+
+img {
+  width: 120px; 
+  height: auto; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  transition: transform 0.3s ease; 
+  margin-right: 10px;
+  
+}
+body {
+  background-color: #333;
+  color: var(--branco-suave);
+}
+
+.navbar {
+  background-color: #1B5E20;
+  color: #fff;
+  border-bottom: 3px solid #a07e28;
+}
+
+.card button {
+  background-color: #4CAF50;
+}
+
+.card button:hover {
+  background-color: #45a049;
+}
+/* === 🌿 TEMA VERDE + BRANCO PURO (SEM DOURADO, COM !important) === */
+
+body {
+  background-color: #FFFFFF !important; /* fundo branco */
+  color: #1B1B1B !important; /* texto escuro */
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background-color: #2E7D32 !important; /* verde principal */
+  color: #FFFFFF !important;
+  border-bottom: 3px solid #1B5E20 !important; /* verde escuro */
+}
+
+.navbar h1 {
+  color: #FFFFFF !important;
+}
+
+/* ===== CARDÁPIO ===== */
+#cardapio {
+  background-color: #FFFFFF !important;
+}
+
+.card {
+  background-color: #FFFFFF !important;
+  color: #1B1B1B !important;
+  border: 2px solid #2E7D32 !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08) !important;
+}
+
+.card h3 {
+  color: #1B5E20 !important;
+}
+
+.card button {
+  background-color: #4CAF50 !important; /* verde padrão */
+  border: none !important;
+  color: #FFFFFF !important;
+  font-weight: bold !important;
+  border-radius: 8px !important;
+  transition: 0.3s !important;
+}
+
+.card button:hover {
+  background-color: #388E3C !important; /* verde escuro */
+}
+
+/* ===== CARRINHO ===== */
+#carrinho {
+  background-color: #F9F9F9 !important;
+  border: 3px solid #2E7D32 !important;
+  color: #1B1B1B !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+}
+
+/* ===== BOTÕES PRINCIPAIS ===== */
+#finalizar,
+#confirmarAdicionais,
+#confirmarPorcao,
+#confirmarBebida {
+  background-color: #4CAF50 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 8px !important;
+}
+
+#finalizar:hover,
+#confirmarAdicionais:hover,
+#confirmarPorcao:hover,
+#confirmarBebida:hover {
+  background-color: #388E3C !important;
+}
+
+/* ===== BOTÕES DE CANCELAR ===== */
+#cancelarAdicionais,
+#cancelarPorcao,
+#cancelarBebida {
+  background-color: #E53935 !important;
+  color: #FFFFFF !important;
+}
+
+/* ===== RODAPÉ ===== */
+.footer {
+  background: linear-gradient(180deg, #2E7D32 0%, #1B5E20 100%) !important;
+  color: #FFFFFF !important;
+  border-top: 3px solid #1B5E20 !important;
+}
+
+.footer-title {
+  color: #FFFFFF !important;
+}
+
+.footer-credit strong,
+.footer .dev {
+  color: #C8E6C9 !important; /* verde clarinho */
+}
+
+.footer .dev:hover {
+  color: #FFFFFF !important;
+}
+
+/* ===== WHATSAPP FLOAT ===== */
+.whatsapp-float {
+  background-color: #4CAF50 !important;
+  color: white !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25) !important;
+}
+
+/* ===== ALERTAS ===== */
+.alerta-bonito {
+  background-color: #2E7D32 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #1B5E20 !important;
+}
+
+#mensagem-alerta.add,
+#mensagem-alerta.remove {
+  background-color: #4CAF50 !important;
+  color: #FFFFFF !important;
+}
+
+/* ===== INPUTS E FILTROS ===== */
+#filtros input,
+#filtros select {
+  border: 1px solid #2E7D32 !important;
+  color: #333 !important;
+  background-color: #FFFFFF !important;
+}
+
+#filtros input:focus,
+#filtros select:focus {
+  border-color: #4CAF50 !important;
+  box-shadow: 0 0 6px rgba(76,175,80,0.4) !important;
+}
+
+/* ===== MODAIS ===== */
+.modal-content {
+  background-color: #FFFFFF !important;
+  border: 3px solid #2E7D32 !important;
+  color: #1B1B1B !important;
+}
+
+.modal-buttons button {
+  background-color: #4CAF50 !important;
+  color: #FFFFFF !important;
+}
+
+.modal-buttons .cancelar {
+  background-color: #E53935 !important;
+  color: #FFFFFF !important;
+}
+
+/* ===== LINKS E TEXTO ===== */
+a {
+  color: #2E7D32 !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: #388E3C !important;
+}
+
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+main {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* Cardápio ocupa mais espaço */
+#cardapio {
+  flex: 3;
+}
+
+/* Carrinho ocupa menos espaço */
+#carrinho {
+  flex: 1;
+  min-width: 260px;
+  border: 1px solid #ccc;
+  border: 3px solid #a07e28;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Para telas pequenas, o layout vira coluna */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+
+  #carrinho {
+    border: 3px solid #a07e28;
+    order: -1; /* opcional: faz o carrinho aparecer antes do cardápio */
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+/* ===== MODAL ===== */
+
+
+@keyframes slideIn {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.modal-content label {
+  display: block;
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 8px 0;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#confirmarAdicionais {
+  background-color: #28a745;
+  color: white;
+}
+
+#cancelarAdicionais {
+  background-color: #dc3545;
+  color: white;
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 70px; /* botão do WhatsApp fica mais abaixo */
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 28px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  z-index: 9998;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.15);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  padding: 10px 20px;
+  color: #a07e28;
+  border-bottom: 3px solid #a07e28;
+}
+
+.navbar img {
+  width: 80px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.navbar-centro {
+  text-align: center;
+}
+
+.navbar-centro h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.horario-funcionamento {
+  font-size: 0.9rem;
+  margin-top: 4px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+
+#filtros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+#filtros input,
+#filtros select {
+  flex: 1 1 150px;   
+  min-width: 120px;
+  max-width: 300px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+#filtros input:focus,
+#filtros select:focus {
+  border-color: #a07e28;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  outline: none;
+}
+
+#cardapio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+}
+.card {
+  background: #fff;
+  padding: 1rem;
+  border: 2px solid black;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 3px solid #a07e28;
+}
+.card h3 {
+  margin: 0.5rem 0;
+}
+.card button {
+ color: white;
+  margin-top: auto;
+  padding: 0.75rem;
+  background-color: #a07e28;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border: 2px solid black;
+}
+.card button:hover {
+  background-color: #a07e28;
+}
+.footer {
+  background: linear-gradient(180deg, #1a1a1a 0%, #111 100%);
+  color: #f2f2f2;
+  text-align: center;
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
+  border-top: 2px solid #a07e28;
+  margin-top: 60px;
+  box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #a07e28;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.footer-text {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.footer-divider {
+  width: 60px;
+  height: 2px;
+  background-color: #1B5E20;
+  margin: 10px auto 20px;
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+.footer:hover .footer-divider {
+  width: 90px;
+}
+
+.footer-credit {
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+.footer-credit strong {
+  color: #a07e28;
+}
+
+.footer .dev {
+  color: #a07e28;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.footer .dev:hover {
+  color: #fff;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .footer {
+    padding: 30px 10px;
+  }
+
+  .footer-title {
+    font-size: 1.4rem;
+  }
+
+  .footer-text, .footer-credit {
+    font-size: 0.85rem;
+  }
+}
+
+#carrinho {
+  margin: 0 auto;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  width: 90%;
+  margin-bottom: 1rem;
+  border: 3px solid #a07e28;
+}
+#lista-carrinho {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+#lista-carrinho li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9f9f9;
+  padding: 0.75rem;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+#lista-carrinho li button {
+  padding: 0.5rem 0.75rem;
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#lista-carrinho li button:hover {
+  background-color: #c0392b;
+}
+#total {
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+#finalizar {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #27ae60;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+
+}
+#finalizar:hover {
+  background-color: #2ecc71;
+}
+
+#mensagem-alerta {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+  background-color: #4caf50; 
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+#mensagem-alerta::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+
+#mensagem-alerta.mostrar {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+#mensagem-alerta.add {
+  background-color: #454545; 
+}
+
+#mensagem-alerta.add::before {
+  content: "✅"; 
+  color: #27ae60;
+}
+
+#mensagem-alerta.remove {
+  background-color: #454545; 
+}
+
+#mensagem-alerta.remove::before {
+  content: "❌"; 
+  color: red;
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.25rem;
+    padding: 0.5rem;
+  }
+  .navbar-esquerda,
+  .navbar-centro,
+  .navbar-direita {
+    width: 100%;
+  }
+  #nome-do-usuario {
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+  }
+  #filtros {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+  #filtros input,
+  #filtros select {
+    width: 100%;
+    max-width: none;
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+  }
+  #cardapio {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .card {
+    padding: 0.75rem;
+  }
+  .card button,
+  #finalizar {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+  }
+  #mensagem-alerta {
+    top: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+  }
+  .navbar-esquerda,
+  .navbar-centro,
+  .navbar-direita {
+    width: 100%;
+  }
+  #filtros {
+    gap: 0.75rem;
+  }
+  #cardapio {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  #cardapio {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  #filtros input,
+  #filtros select {
+    flex: 1 1 180px;
+  }
+}
+   @media (max-width: 480px) {
+    #filtros {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+  
+    #filtros input,
+    #filtros select {
+      width: 80%;           
+      max-width: 300px;     
+      padding: 0.5rem 1rem;  
+      font-size: 0.9rem;     
+      border-radius: 8px;  
+      box-sizing: border-box;
+    }
+  }
+  @media (max-width: 480px) {
+    #filtros input,
+    #filtros select {
+      padding: 0.4rem 1rem;
+      height: 2.2rem;
+      border-radius: 6px;
+      font-size: 0.88rem;
+    }
+  }
+/* Estilo base para todos os modais */
+.modal {
+  display: none; /* escondido por padrão */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* rolagem se necessário */
+  background-color: rgba(0, 0, 0, 0.6); /* fundo semi-transparente */
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Conteúdo do modal */
+.modal-content, .modal-conteudo {
+  background-color: #fff;
+  margin: 5% auto; /* centraliza vertical e horizontal */
+  padding: 1.5rem;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease;
+}
+
+/* Títulos */
+.modal-content h3,
+.modal-conteudo h2 {
+  margin-top: 0;
+  text-align: center;
+  font-size: 1.4rem;
+  color: #222;
+}
+
+/* Parágrafos dentro do modal */
+.modal-content p,
+.modal-conteudo p {
+  font-size: 1rem;
+  text-align: center;
+  margin: 0.8rem 0;
+}
+
+/* Radio buttons */
+.modal-content div,
+#opcoesBebida {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+label {
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+input[type="radio"] {
+  margin-right: 0.4rem;
+}
+
+label:hover {
+  background-color: #f5f5f5;
+  border-color: #888;
+}
+
+/* Botões */
+button {
+  display: inline-block;
+  margin: 0.5rem auto 0 auto;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #ffcc00;
+  color: #222;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background-color: #e6b800;
+}
+
+/* Botão de cancelar */
+#cancelarPorcao,
+.modal-conteudo button[onclick] {
+  background-color: #ccc;
+  color: #222;
+}
+
+#cancelarPorcao:hover,
+.modal-conteudo button[onclick]:hover {
+  background-color: #bbb;
+}
+
+/* Preço em destaque */
+#precoPorcao, #precoBebida {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Animação de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .modal-content, .modal-conteudo {
+    padding: 1rem;
+    width: 95%;
+  }
+
+  label {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Fundo do modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+/* Caixa principal */
+.modal-content {
+  background: #ffffff;
+  border: 3px solid #a07e28;
+  border-radius: 20px;
+  padding: 25px;
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  position: relative;
+  animation: pop 0.3s ease;
+}
+
+/* Título */
+.modal-content h3 {
+  color: black;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+/* Nome da porção */
+.modal-content p {
+  color: #333;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+/* Botão fechar (X) */
+.close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  font-size: 1.5rem;
+  color: #d32f2f;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.close:hover {
+  color: #ffb300;
+}
+
+/* Opções de tamanho */
+.opcoes-porcao {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+/* Label com input visível */
+.opcoes-porcao label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  background: #fff;
+  border: 2px solid #a07e28;
+  border-radius: 12px;
+  padding: 12px 15px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Input de rádio visível e grandinho */
+.opcoes-porcao input[type="radio"] {
+  width: 22px;
+  height: 22px;
+  accent-color: #ffb300; /* cor do botão */
+  cursor: pointer;
+}
+
+/* Quando o input estiver marcado */
+.opcoes-porcao input[type="radio"]:checked + span {
+  font-weight: bold;
+  color: #d32f2f;
+}
+
+/* Texto das opções */
+.opcoes-porcao span {
+  flex: 1;
+  text-align: left;
+}
+
+/* Botões */
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+.modal-buttons button {
+  background: #a07e28;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.modal-buttons .cancelar {
+  background: #ffb300;
+  color: #222;
+
+}
+.modal-buttons .cancelar:hover {
+  background: #a07e28;
+}
+
+/* Animação */
+@keyframes pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsividade */
+@media (max-width: 500px) {
+  .modal-content {
+    padding: 20px;
+    width: 90%;
+  }
+  .opcoes-porcao label {
+    font-size: 1rem;
+    padding: 10px 12px;
+  }
+  .opcoes-porcao input[type="radio"] {
+    width: 20px;
+    height: 20px;
+  }
+  .modal-buttons button {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}
+/* Estilo geral para todos os botões dentro das modais */
+#modalPorcoes button,
+#modalBebidas button {
+  background: green;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+/* Botão de confirmar (verde) */
+#modalPorcoes #confirmarPorcao,
+#modalBebidas #confirmarBebida {
+  background-color: #4CAF50; /* verde */
+}
+
+#modalPorcoes #confirmarPorcao:hover,
+#modalBebidas #confirmarBebida:hover {
+  background-color: #45a049; /* verde mais escuro */
+}
+
+/* Botão de remover/cancelar (vermelho) */
+#modalPorcoes #cancelarPorcao,
+#modalBebidas #cancelarBebida {
+  background-color: #f44336; /* vermelho */
+}
+
+#modalPorcoes #cancelarPorcao:hover,
+#modalBebidas #cancelarBebida:hover {
+  background-color: #d32f2f; /* vermelho mais escuro */
+}
+
+/* Estilo geral do modal */
+#modalAdicionais .modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  border: 3px solid #a07e28; /* cor da borda do modal (verde, por exemplo) */
+  width: 400px;
+  max-width: 90%;
+  margin: 100px auto;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Container dos botões */
+#modalAdicionais .modal-buttons {
+  margin-top: 15px;
+  text-align: right;
+}
+
+/* Estilo geral para os botões do modal */
+#modalAdicionais button {
+  padding: 10px 10px;
+  font-size: 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+/* Botão de confirmar (verde) */
+#modalAdicionais #confirmarAdicionais {
+  background-color: #4CAF50;
+}
+
+#modalAdicionais #confirmarAdicionais:hover {
+  background-color: #45a049;
+}
+
+/* Botão de cancelar (vermelho) */
+#modalAdicionais #cancelarAdicionais {
+  background-color: #f44336;
+}
+
+#modalAdicionais #cancelarAdicionais:hover {
+  background-color: #d32f2f;
+}
+
+
+.alerta-bonito {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #a07e28; /* Azul escuro elegante */
+    color: #FFFFFF;
+    padding: 18px 28px;
+    border-radius: 16px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    z-index: 9999;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: alertaAnim 0.3s ease-out;
+}
+
+/* Ícone dentro do alerta */
+.alerta-bonito span {
+    font-size: 1.5rem;
+}
+
+/* Animação de entrada */
+@keyframes alertaAnim {
+    0% { transform: translate(-50%, -60%) scale(0.85); opacity: 0; }
+    50% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .alerta-bonito {
+        width: 80%;
+        font-size: 0.95rem;
+        padding: 16px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .alerta-bonito {
+        width: 90%;
+        font-size: 0.9rem;
+        padding: 14px 20px;
+    }
+}
+
+
+/* Container do cardápio */
+#cardapio {
+    display: flex;
+    flex-wrap: wrap;           /* quebra linha quando não cabe */
+    gap: 16px;                 /* espaço entre os cards */
+    justify-content: center;   /* centraliza os cards */
+    padding: 10px;
+}
+
+/* Cada card */
+.card {
+    background-color: #fff;
+    border: 3px solid #a07e28;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    padding: 10px;
+    flex: 1 1 230px;          /* flexível: cresce e encolhe, base 250px */
+    max-width: 380px;         /* limite máximo de largura */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Imagem do card */
+.card img {
+    width: 100%;               /* ocupa toda a largura do card */
+    height: 300px;             /* altura fixa para quase quadrado */
+    object-fit: cover;         /* corta partes excedentes mantendo o centro */
+    border-radius: 10px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+/* Botão */
+.card button {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    background-color: #a07e28;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* Texto */
+.card h3 {
+    font-size: 1.1rem;
+    margin: 5px 0;
+}
+
+.card p {
+    font-size: 0.9rem;
+    margin: 4px 0;
+}
+#modalAdicionais {
+  display: none; /* começa oculto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+
+#filtros input,
+#filtros select {
+  padding: 0.4rem 0.75rem !important;
+  max-height: 2rem !important;
+  font-size: 0.9rem !important;
+  border-radius: 6px !important;
+  flex: 1 1 120px !important;
+  min-width: 100px !important;
+  max-width: 200px !important;
+}
+
+img[alt="COCA COLA"],
+img[alt="ANTÁRTICA"] {
+    height: 250px;       /* altura ajustada */
+    object-fit: contain;  /* mostra a imagem inteira */
+}
+
+@media screen and (max-width: 600px) {
+    img[alt="COCA COLA"],
+    img[alt="ANTÁRTICA"] {
+        height: 250px;    /* altura menor no celular */
+    }
+}
+@media screen and (max-width: 600px) {
+
+    img[alt="ANTÁRTICA"] {
+        height: 330px;       /* altura menor */
+        object-fit: contain;  /* mantém imagem inteira */
+    }
+}
