@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const cardapio = [
     { nome: "X-BURGUER", descricao: "Pão de hambúrguer, hambúrguer de carne, presunto, mussarela e tomate.", preco: 23.00, categoria: "Lanches",img:"burguer.jpg" },
-    { nome: "X-BACON", descricao: "Pão de hambúrguer, hambúrguer de carne, bacon, presunto, mussarela e tomate.", preco: 26.00, categoria: "Lanches",img:"bacon.jpg" },
+    { nome: "X-BACON", descricao: "Pão de hambúrguer, hambúrguer de carne, bacon, presunto, mussarela e tomate.", preco: 26.00, categoria: "Lanches",img:"bbacon.jpg" },
     { nome: "X-BACON-CHEEDAR", descricao: "Pão de hambúrguer, hambúrguer de carne, bacon, cheedar, presunto, mussarela e tomate.", preco: 28.00, categoria: "Lanches",img:"che.jpg" },
     { nome: "X-BACON-CALABRESA", descricao: "Pão de hambúrguer, hambúrguer de carne, calabresa, presunto, bacon, mussarela e tomate.", preco: 33.00, categoria: "Lanches",img:"calabresabacon.jpg"  },
     { nome: "X-EGG", descricao: "Pão de hambúrguer, hambúrguer de carne, ovo, presunto, mussarela e tomate.", preco: 24.00, categoria: "Lanches",  img:"egg.jpg"},
@@ -20,12 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
     { nome: "PAULISTA", descricao: "Pão francês, bife de carne, mussarela e tomate.", preco: 35.00, categoria: "Lanches", },
     { nome: "AMERICANO", descricao: "Pão francês, bife de carne, presunto, mussarela, tomate e alface.", preco: 37.00, categoria: "Lanches", },
     { nome: "X-SALADA", descricao: "Pão de hambúrguer, hambúrguer, presunto, mussarela, tomate e alface.", preco: 23.00, categoria: "Lanches", img:"salada.jpg" },
-    { nome: "CEBOLA SUPREME", descricao: "pão de brioche com gergelim, bacon, smash burg 100g, molho caseiro, aneis de cebola, mussarela, cebola roxa, molho barbecue e tomate.", preco: 26.00, categoria: "Lanches", },
+    { nome: "CEBOLA SUPREME", descricao: "pão de brioche com gergelim, bacon, smash burg 100g, molho caseiro, aneis de cebola, mussarela, cebola roxa, molho barbecue e tomate.", preco: 26.00, categoria: "Lanches",img:"supreme.jpg" },
 
 
         // Maiones
-        { nome: "COMBO CASAL", descricao: "2x burguer, 2 batatas 150g, 2 sprite lata 350ml.", preco: 75.00, categoria: "Combo",img:"combo casal.jpg" },
-        { nome: "COMBO TOP BACON", descricao: "1x bacon, 1 batata 150g, 1coca-coca lata 350ml.", preco: 40.00, categoria: "Combo", img:"cambo top.jpg"},
+        { nome: "COMBO CASAL", descricao: "2x burguer, 2 batatas 150g, 2 sprite lata 350ml.", preco: 75.00, categoria: "Combo",img:"casal.jpg" },
+        { nome: "COMBO TOP BACON", descricao: "1x bacon, 1 batata 150g, 1coca-coca lata 350ml.", preco: 40.00, categoria: "Combo", img:"topbacon.jpg"},
         { nome: "COMBO KIDS", descricao: "1xbuguer, pão com gergelin,hambrguer 120g,presunto,mussarela, 1 suco capo, 120g de batata e um sonho de valsa.", preco: 36.00, categoria: "Lanches", img:"Com kids.jpg" },
         { nome: "COMBO MASTER", descricao: "2 x-salada,batata com cheedar e bacon,nuggets e aneis de cebola.", preco: 85.00, categoria: "Lanches", },
         { nome: "COMBO FAMÍLIA", descricao: "3 x-salada,1 batata 350g, 6 nuggets mini chicken tradicional, 1 coca-cola 2l.", preco: 123.00, categoria: "Lanches", },
@@ -37,10 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
     descricao: "1 enrolado de presunto, mussarela, tomate e orégano + 1 refrigerante lata 350ml (Coca-Cola, Pepsi ou Sprite).",
     preco: 13.00,
     categoria: "Salgados",
+    img:"combo dia.jpg"
 
 },
 {
-    nome: "ENROLADO MASTER",
+    nome: "MASTER LANCHE",
     descricao: "1 enrolado de presunto, mussarela, tomate e orégano.",
     preco: 10.00,
     categoria: "Salgados"
@@ -124,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ], categoria: "Bebidas", img:"maracuja.jpg"  },
          { nome: "ACEROLA", descricao: "Suco de Acerola", volumes: [
             { tamanho: "500ml", preco: 10.00 },
-        ], categoria: "Bebidas", },
+        ], categoria: "Bebidas",  },
         { nome: "ACEROLA C/ LARANJA", descricao: "Suco de Acerola com Laranja", volumes: [
             { tamanho: "500ml", preco: 16.00 },
         ], categoria: "Bebidas", img:"cella.jpg"  },
@@ -692,8 +693,3 @@ window.onclick = (e) => {
 
     exibirCardapio();
 });
-
-
-
-
-
