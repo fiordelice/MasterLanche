@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { nome: "X-FRANGO BACON", descricao: "Pão de hambúrguer, filé de frango, bacon, mussarela, tomate e alface.", preco: 28.00, categoria: "Lanches", },
     { nome: "X-FRANGO CALABRESA", descricao: "Pão de hambúrguer, filé de frango, calabresa, mussarela, tomate e alface.", preco: 28.00, categoria: "Lanches", },
     { nome: "X-TUDO", descricao: "Pão de hambúrguer, hambúrguer de carne, bacon, calabresa, ovo, presunto, mussarela, tomate e alface.", preco: 35.00, categoria: "Lanches", img:"tudo.jpg" },
-    { nome: "X-FILE TUDO", descricao: "Pão de hambúrguer, bife de carne, bacon, calabresa, ovo, presunto, mussarela, tomate e alface.", preco: 38.00, categoria: "Lanches", img:"filex.jpg" },
+    { nome: "X-FILE TUDO", descricao: "Pão de hambúrguer, bife de carne, bacon, calabresa, ovo, presunto, mussarela, tomate e alface.", preco: 38.00, categoria: "Lanches", img:"filetudo.jpg" },
     { nome: "BAURU", descricao: "Pão francês, presunto, mussarela e tomate.", preco: 18.00, categoria: "Lanches",  },
     { nome: "MISTO", descricao: "Pão francês, presunto, mussarela.", preco: 18.00, categoria: "Lanches", },
     { nome: "PAULISTA", descricao: "Pão francês, bife de carne, mussarela e tomate.", preco: 35.00, categoria: "Lanches", },
