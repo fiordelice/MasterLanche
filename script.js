@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Bebidas
           { nome: "ABACAXI", descricao: "Suco de Abacaxi", volumes: [
             { tamanho: "500ml", preco: 13.00 },
-        ], categoria: "Bebidas", img:"abacaxi.jpg"  },
+        ], categoria: "Bebidas", img:"aa.png"  },
           { nome: "ABACAXI COM HORTELÃ", descricao: "Suco de Abacaxi", volumes: [
             { tamanho: "500ml", preco: 10.00 },
         ], categoria: "Bebidas", img:"abacaxi.jpg"  },
