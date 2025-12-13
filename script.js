@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { nome: "X-EGG", descricao: "Pão de hambúrguer, hambúrguer de carne, ovo, presunto, mussarela e tomate.", preco: 24.00, categoria: "Lanches",  img:"egg.jpg"},
     { nome: "X-FRANGO", descricao: "Pão de hambúrguer, filé de frango, mussarela, tomate e alface.", preco: 25.00, categoria: "Lanches",img:"frango.jpg" },
     { nome: "X-CALABRESA", descricao: "Pão de hambúrguer, hambúrguer de carne, calabresa, presunto, mussarela e tomate.", preco: 26.00, categoria: "Lanches",  img:"calabresa.jpg"},
-    { nome: "AMERICANO COM BACON", descricao: "Pão francês, bife de carne, bacon, presunto, mussarela, tomate e alface.", preco: 36.00, categoria: "Lanches",},
+    { nome: "AMERICANO COM BACON", descricao: "Pão francês, bife de carne, bacon, presunto, mussarela, tomate e alface.", preco: 38.00, categoria: "Lanches", img:"ameribacon.jpeg"},
     { nome: "X-FRANGO-CATUPIRY", descricao: "Pão de hambúrguer, filé de frango, catupiry, mussarela, tomate e alface.", preco: 28.00, categoria: "Lanches", },
     { nome: "X-FRANGO BACON", descricao: "Pão de hambúrguer, filé de frango, bacon, mussarela, tomate e alface.", preco: 28.00, categoria: "Lanches", },
     { nome: "X-FRANGO CALABRESA", descricao: "Pão de hambúrguer, filé de frango, calabresa, mussarela, tomate e alface.", preco: 28.00, categoria: "Lanches", },
@@ -17,14 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
     { nome: "X-FILE TUDO", descricao: "Pão de hambúrguer, bife de carne, bacon, calabresa, ovo, presunto, mussarela, tomate e alface.", preco: 38.00, categoria: "Lanches", img:"filetudo.jpg" },
     { nome: "BAURU", descricao: "Pão francês, presunto, mussarela e tomate.", preco: 18.00, categoria: "Lanches",  },
     { nome: "MISTO", descricao: "Pão francês, presunto, mussarela.", preco: 18.00, categoria: "Lanches", },
-    { nome: "PAULISTA", descricao: "Pão francês, bife de carne, mussarela e tomate.", preco: 35.00, categoria: "Lanches", },
-    { nome: "AMERICANO", descricao: "Pão francês, bife de carne, presunto, mussarela, tomate e alface.", preco: 37.00, categoria: "Lanches", },
+    { nome: "PAULISTA", descricao: "Pão francês, bife de carne, mussarela e tomate.", preco: 35.00, categoria: "Lanches", img:"paulista.jpeg"},
+    { nome: "PAULISTA COM BACON", descricao: "Pão francês, contra file, bacon, mussarela e tomate.", preco: 36.00, categoria: "Lanches", img:"paulbacon.jpeg" },
+    { nome: "AMERICANO", descricao: "Pão francês, bife de carne, presunto, mussarela, tomate e alface.", preco: 37.00, categoria: "Lanches", img:"americano.jpeg" },
     { nome: "X-SALADA", descricao: "Pão de hambúrguer, hambúrguer, presunto, mussarela, tomate e alface.", preco: 23.00, categoria: "Lanches", img:"salada.jpg" },
     { nome: "CEBOLA SUPREME", descricao: "pão de brioche com gergelim, bacon, smash burg 100g, molho caseiro, aneis de cebola, mussarela, cebola roxa, molho barbecue e tomate.", preco: 26.00, categoria: "Lanches",img:"supreme.jpg" },
 
 
         // Maiones
         { nome: "COMBO CASAL", descricao: "2x burguer, 2 batatas 150g, 2 sprite lata 350ml.", preco: 75.00, categoria: "Combo",img:"casal.jpg" },
+        { nome: "COMBO CASAL SALADA", descricao: "2x salada, 2 batatas 150g, 2 sprite lata 350ml. ", preco: 75.00, categoria: "Combo", },
         { nome: "COMBO TOP BACON", descricao: "1x bacon, 1 batata 150g, 1coca-coca lata 350ml.", preco: 40.00, categoria: "Combo", img:"topbacon.jpg"},
         { nome: "COMBO KIDS", descricao: "1xbuguer, pão com gergelin,hambrguer 120g,presunto,mussarela, 1 suco capo, 120g de batata e um sonho de valsa.", preco: 36.00, categoria: "Lanches", img:"Com kids.jpg" },
         { nome: "COMBO MASTER", descricao: "2 x-salada,batata com cheedar e bacon,nuggets e aneis de cebola.", preco: 85.00, categoria: "Lanches", },
@@ -85,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     descricao: "Batata Individual",
     preco: 10.00,
     categoria: "Porções Únicas",
-    img: "default.png"
+    img: "batataind.jpeg"
 },
 {
     nome: "BATATA INDIVIDUAL CHEDDAR E BACON",
@@ -106,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     descricao: "Batata 350g com Cheddar e Bacon",
     preco: 35.00,
     categoria: "Porções Únicas",
-    img: "default.png"
+    img: "baconched.jpeg"
 },
 
 
