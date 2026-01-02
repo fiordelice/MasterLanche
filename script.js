@@ -2,50 +2,50 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const cardapio = [
-    { nome: "X-BURGUER", descricao: "Pão de hambúrguer, hambúrguer de carne, presunto, mussarela e tomate.", preco: 23.00, categoria: "Lanches",img:"burguer.jpg" },
-    { nome: "X-BACON", descricao: "Pão de hambúrguer, hambúrguer de carne, bacon, presunto, mussarela e tomate.", preco: 26.00, categoria: "Lanches",img:"bbacon.jpg" },
-    { nome: "X-BACON-CHEEDAR", descricao: "Pão de hambúrguer, hambúrguer de carne, bacon, cheedar, presunto, mussarela e tomate.", preco: 28.00, categoria: "Lanches",img:"che.jpg" },
+    { nome: "X-BURGUER", descricao: "Pão de hambúrguer, hambúrguer de carne, presunto, mussarela e tomate.", preco: 25.00, categoria: "Lanches",img:"burguer.jpg" },
+    { nome: "X-BACON", descricao: "Pão de hambúrguer, hambúrguer de carne, bacon, presunto, mussarela e tomate.", preco: 29.00, categoria: "Lanches",img:"bbacon.jpg" },
+    { nome: "X-BACON-CHEEDAR", descricao: "Pão de hambúrguer, hambúrguer de carne, bacon, cheedar, presunto, mussarela e tomate.", preco: 30.00, categoria: "Lanches",img:"che.jpg" },
     { nome: "X-BACON-CALABRESA", descricao: "Pão de hambúrguer, hambúrguer de carne, calabresa, presunto, bacon, mussarela e tomate.", preco: 33.00, categoria: "Lanches",img:"calabresabacon.jpg"  },
-    { nome: "X-EGG", descricao: "Pão de hambúrguer, hambúrguer de carne, ovo, presunto, mussarela e tomate.", preco: 24.00, categoria: "Lanches",  img:"egg.jpg"},
+    { nome: "X-EGG", descricao: "Pão de hambúrguer, hambúrguer de carne, ovo, presunto, mussarela e tomate.", preco: 25.00, categoria: "Lanches",  img:"egg.jpg"},
     { nome: "X-FRANGO", descricao: "Pão de hambúrguer, filé de frango, mussarela, tomate e alface.", preco: 25.00, categoria: "Lanches",img:"frango.jpg" },
-    { nome: "X-CALABRESA", descricao: "Pão de hambúrguer, hambúrguer de carne, calabresa, presunto, mussarela e tomate.", preco: 26.00, categoria: "Lanches",  img:"calabresa.jpg"},
+    { nome: "X-CALABRESA", descricao: "Pão de hambúrguer, hambúrguer de carne, calabresa, presunto, mussarela e tomate.", preco: 27.00, categoria: "Lanches",  img:"calabresa.jpg"},
     { nome: "AMERICANO COM BACON", descricao: "Pão francês, bife de carne, bacon, presunto, mussarela, tomate e alface.", preco: 38.00, categoria: "Lanches", img:"ameribacon.jpeg"},
     { nome: "X-FRANGO-CATUPIRY", descricao: "Pão de hambúrguer, filé de frango, catupiry, mussarela, tomate e alface.", preco: 28.00, categoria: "Lanches", },
-    { nome: "X-FRANGO BACON", descricao: "Pão de hambúrguer, filé de frango, bacon, mussarela, tomate e alface.", preco: 28.00, categoria: "Lanches", },
-    { nome: "X-FRANGO CALABRESA", descricao: "Pão de hambúrguer, filé de frango, calabresa, mussarela, tomate e alface.", preco: 28.00, categoria: "Lanches", },
+    { nome: "X-FRANGO BACON", descricao: "Pão de hambúrguer, filé de frango, bacon, mussarela, tomate e alface.", preco: 30.00, categoria: "Lanches", },
+    { nome: "X-FRANGO CALABRESA", descricao: "Pão de hambúrguer, filé de frango, calabresa, mussarela, tomate e alface.", preco: 29.00, categoria: "Lanches", },
     { nome: "X-TUDO", descricao: "Pão de hambúrguer, hambúrguer de carne, bacon, calabresa, ovo, presunto, mussarela, tomate e alface.", preco: 35.00, categoria: "Lanches", img:"tudo.jpg" },
-    { nome: "X-FILE TUDO", descricao: "Pão de hambúrguer, bife de carne, bacon, calabresa, ovo, presunto, mussarela, tomate e alface.", preco: 38.00, categoria: "Lanches", img:"filetudo.jpg" },
-    { nome: "BAURU", descricao: "Pão francês, presunto, mussarela e tomate.", preco: 18.00, categoria: "Lanches",  },
-    { nome: "MISTO", descricao: "Pão francês, presunto, mussarela.", preco: 18.00, categoria: "Lanches", },
+    { nome: "X-FILE TUDO", descricao: "Pão de hambúrguer, bife de carne, bacon, calabresa, ovo, presunto, mussarela, tomate e alface.", preco: 40.00, categoria: "Lanches", img:"filetudo.jpg" },
+    { nome: "BAURU", descricao: "Pão francês, presunto, mussarela e tomate.", preco: 19.50, categoria: "Lanches",  },
+    { nome: "MISTO", descricao: "Pão francês, presunto, mussarela.", preco: 19.50, categoria: "Lanches", },
     { nome: "PAULISTA", descricao: "Pão francês, bife de carne, mussarela e tomate.", preco: 35.00, categoria: "Lanches", img:"paulista.jpeg"},
-    { nome: "PAULISTA COM BACON", descricao: "Pão francês, contra file, bacon, mussarela e tomate.", preco: 36.00, categoria: "Lanches", img:"paulbacon.jpeg" },
-    { nome: "AMERICANO", descricao: "Pão francês, bife de carne, presunto, mussarela, tomate e alface.", preco: 37.00, categoria: "Lanches", img:"americano.jpeg" },
-    { nome: "X-SALADA", descricao: "Pão de hambúrguer, hambúrguer, presunto, mussarela, tomate e alface.", preco: 23.00, categoria: "Lanches", img:"salada.jpg" },
-    { nome: "CEBOLA SUPREME", descricao: "pão de brioche com gergelim, bacon, smash burg 100g, molho caseiro, aneis de cebola, mussarela, cebola roxa, molho barbecue e tomate.", preco: 26.00, categoria: "Lanches",img:"supreme.jpg" },
+    { nome: "PAULISTA COM BACON", descricao: "Pão francês, contra file, bacon, mussarela e tomate.", preco: 40.00, categoria: "Lanches", img:"paulbacon.jpeg" },
+    { nome: "AMERICANO", descricao: "Pão francês, bife de carne, presunto, mussarela, tomate e alface.", preco: 38.00, categoria: "Lanches", img:"americano.jpeg" },
+    { nome: "X-SALADA", descricao: "Pão de hambúrguer, hambúrguer, presunto, mussarela, tomate e alface.", preco: 25.00, categoria: "Lanches", img:"salada.jpg" },
+    { nome: "CEBOLA SUPREME", descricao: "pão de brioche com gergelim, bacon, smash burg 140g, molho caseiro, aneis de cebola, mussarela, cebola roxa, molho barbecue e tomate.", preco: 30.00, categoria: "Lanches",img:"supreme.jpg" },
 
 
         // Maiones
         { nome: "COMBO CASAL", descricao: "2x burguer, 2 batatas 150g, 2 sprite lata 350ml.", preco: 75.00, categoria: "Combo",img:"casal.jpg" },
         { nome: "COMBO CASAL SALADA", descricao: "2x salada, 2 batatas 150g, 2 sprite lata 350ml. ", preco: 75.00, categoria: "Combo", },
-        { nome: "COMBO TOP BACON", descricao: "1x bacon, 1 batata 150g, 1coca-coca lata 350ml.", preco: 40.00, categoria: "Combo", img:"topbacon.jpg"},
+        { nome: "COMBO TOP BACON", descricao: "1x bacon, 1 batata 150g, 1coca-coca lata 350ml.", preco: 44.00, categoria: "Combo", img:"topbacon.jpg"},
         { nome: "COMBO KIDS", descricao: "1xbuguer, pão com gergelin,hambrguer 120g,presunto,mussarela, 1 suco capo, 120g de batata e um sonho de valsa.", preco: 36.00, categoria: "Lanches", img:"Com kids.jpg" },
-        { nome: "COMBO MASTER", descricao: "2 x-salada,batata com cheedar e bacon,nuggets e aneis de cebola.", preco: 85.00, categoria: "Lanches", },
+        { nome: "COMBO MASTER", descricao: "2 x-salada,batata com cheedar e bacon,nuggets e aneis de cebola.", preco: 90.00, categoria: "Lanches", },
         { nome: "COMBO FAMÍLIA", descricao: "3 x-salada,1 batata 350g, 6 nuggets mini chicken tradicional, 1 coca-cola 2l.", preco: 123.00, categoria: "Lanches", },
-        { nome: "COMBO CHICKEN", descricao: " 1 x-frango,1 batata150g, 1coca colca lata 350ml.", preco: 40.00, categoria: "Lanches", },
+        { nome: "COMBO CHICKEN", descricao: " 1 x-frango,1 batata150g, 1coca colca lata 350ml.", preco: 42.00, categoria: "Lanches", },
      
 
 {
     nome: "COMBO DO DIA ",
     descricao: "1 enrolado de presunto, mussarela, tomate e orégano + 1 refrigerante lata 350ml (Coca-Cola, Pepsi ou Sprite).",
-    preco: 13.00,
+    preco: 15.00,
     categoria: "Salgados",
     img:"combo dia.jpg"
 
 },
 {
-    nome: "MASTER LANCHE",
+    nome: "ENROLADO MASTER",
     descricao: "1 enrolado de presunto, mussarela, tomate e orégano.",
-    preco: 10.00,
+    preco: 12.00,
     categoria: "Salgados"
 },
 
@@ -71,14 +71,14 @@ document.addEventListener('DOMContentLoaded', () => {
 {
     nome: "ANEIS DE CEBOLA",
     descricao: "Porção de Anéis de Cebola",
-    preco: 10.00,
+    preco: 12.00,
     categoria: "Porções Únicas",
     img: "default.png"
 },
 {
     nome: "NUGGETS",
     descricao: "Porção de Nuggets",
-    preco: 14.00,
+    preco: 15.00,
     categoria: "Porções Únicas",
     img: "default.png"
 },
@@ -481,7 +481,7 @@ finalizarBtn.addEventListener('click', (e) => {
             detalhes.innerHTML = `
                 <p><strong>Total:</strong> R$ ${fmt(total)}</p>
                 <p>Copie a chave PIX:</p>
-                <input id="pixKeyPro" value="48283370839" readonly style="width:100%; padding:8px; margin-bottom:6px; border-radius:6px; border:1px solid #ddd; text-align:center;">
+                <input id="pixKeyPro" value="64160556000128" readonly style="width:100%; padding:8px; margin-bottom:6px; border-radius:6px; border:1px solid #ddd; text-align:center;">
             `;
             setNextEnabled(true);
         } else if (select.value === 'dinheiro') {
@@ -635,7 +635,6 @@ ${texto}
 Taxa de entrega: R$ ${taxa.toFixed(2)}
 *Total final: R$ ${totalFinal.toFixed(2)}*
 
-${infoPagamento}
 `;
 
     // SE FOR RETIRADA
