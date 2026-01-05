@@ -2,52 +2,52 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const cardapio = [
-    { nome: "X-BURGUER", descricao: "Pão de hambúrguer, hambúrguer de carne, presunto, mussarela e tomate.", preco: 25.00, categoria: "Lanches",img:"burguer.jpg" },
-    { nome: "X-BACON", descricao: "Pão de hambúrguer, hambúrguer de carne, bacon, presunto, mussarela e tomate.", preco: 29.00, categoria: "Lanches",img:"bbacon.jpg" },
-    { nome: "X-BACON-CHEEDAR", descricao: "Pão de hambúrguer, hambúrguer de carne, bacon, cheedar, presunto, mussarela e tomate.", preco: 30.00, categoria: "Lanches",img:"che.jpg" },
-    { nome: "X-BACON-CALABRESA", descricao: "Pão de hambúrguer, hambúrguer de carne, calabresa, presunto, bacon, mussarela e tomate.", preco: 33.00, categoria: "Lanches",img:"calabresabacon.jpg"  },
-    { nome: "X-EGG", descricao: "Pão de hambúrguer, hambúrguer de carne, ovo, presunto, mussarela e tomate.", preco: 25.00, categoria: "Lanches",  img:"egg.jpg"},
-    { nome: "X-FRANGO", descricao: "Pão de hambúrguer, filé de frango, mussarela, tomate e alface.", preco: 25.00, categoria: "Lanches",img:"frango.jpg" },
-    { nome: "X-CALABRESA", descricao: "Pão de hambúrguer, hambúrguer de carne, calabresa, presunto, mussarela e tomate.", preco: 27.00, categoria: "Lanches",  img:"calabresa.jpg"},
-    { nome: "AMERICANO COM BACON", descricao: "Pão francês, bife de carne, bacon, presunto, mussarela, tomate e alface.", preco: 38.00, categoria: "Lanches", img:"ameribacon.jpeg"},
-    { nome: "X-FRANGO-CATUPIRY", descricao: "Pão de hambúrguer, filé de frango, catupiry, mussarela, tomate e alface.", preco: 28.00, categoria: "Lanches", },
-    { nome: "X-FRANGO BACON", descricao: "Pão de hambúrguer, filé de frango, bacon, mussarela, tomate e alface.", preco: 30.00, categoria: "Lanches", },
-    { nome: "X-FRANGO CALABRESA", descricao: "Pão de hambúrguer, filé de frango, calabresa, mussarela, tomate e alface.", preco: 29.00, categoria: "Lanches", },
-    { nome: "X-TUDO", descricao: "Pão de hambúrguer, hambúrguer de carne, bacon, calabresa, ovo, presunto, mussarela, tomate e alface.", preco: 35.00, categoria: "Lanches", img:"tudo.jpg" },
-    { nome: "X-FILE TUDO", descricao: "Pão de hambúrguer, bife de carne, bacon, calabresa, ovo, presunto, mussarela, tomate e alface.", preco: 40.00, categoria: "Lanches", img:"filetudo.jpg" },
-    { nome: "BAURU", descricao: "Pão francês, presunto, mussarela e tomate.", preco: 19.50, categoria: "Lanches",  },
-    { nome: "MISTO", descricao: "Pão francês, presunto, mussarela.", preco: 19.50, categoria: "Lanches", },
-    { nome: "PAULISTA", descricao: "Pão francês, bife de carne, mussarela e tomate.", preco: 35.00, categoria: "Lanches", img:"paulista.jpeg"},
-    { nome: "PAULISTA COM BACON", descricao: "Pão francês, contra file, bacon, mussarela e tomate.", preco: 40.00, categoria: "Lanches", img:"paulbacon.jpeg" },
-    { nome: "AMERICANO", descricao: "Pão francês, bife de carne, presunto, mussarela, tomate e alface.", preco: 38.00, categoria: "Lanches", img:"americano.jpeg" },
-    { nome: "X-SALADA", descricao: "Pão de hambúrguer, hambúrguer, presunto, mussarela, tomate e alface.", preco: 25.00, categoria: "Lanches", img:"salada.jpg" },
-    { nome: "CEBOLA SUPREME", descricao: "pão de brioche com gergelim, bacon, smash burg 140g, molho caseiro, aneis de cebola, mussarela, cebola roxa, molho barbecue e tomate.", preco: 30.00, categoria: "Lanches",img:"supreme.jpg" },
+        { nome: "X-BURGUER", descricao: "Pão de hambúrguer, hambúrguer de carne, presunto, mussarela e tomate.", preco: 25.00, categoria: "Lanches", img: "burguer.jpg" },
+        { nome: "X-BACON", descricao: "Pão de hambúrguer, hambúrguer de carne, bacon, presunto, mussarela e tomate.", preco: 29.00, categoria: "Lanches", img: "bbacon.jpg" },
+        { nome: "X-BACON-CHEEDAR", descricao: "Pão de hambúrguer, hambúrguer de carne, bacon, cheedar, presunto, mussarela e tomate.", preco: 30.00, categoria: "Lanches", img: "che.jpg" },
+        { nome: "X-BACON-CALABRESA", descricao: "Pão de hambúrguer, hambúrguer de carne, calabresa, presunto, bacon, mussarela e tomate.", preco: 33.00, categoria: "Lanches", img: "calabresabacon.jpg" },
+        { nome: "X-EGG", descricao: "Pão de hambúrguer, hambúrguer de carne, ovo, presunto, mussarela e tomate.", preco: 25.00, categoria: "Lanches", img: "egg.jpg" },
+        { nome: "X-FRANGO", descricao: "Pão de hambúrguer, filé de frango, mussarela, tomate e alface.", preco: 25.00, categoria: "Lanches", img: "frango.jpg" },
+        { nome: "X-CALABRESA", descricao: "Pão de hambúrguer, hambúrguer de carne, calabresa, presunto, mussarela e tomate.", preco: 27.00, categoria: "Lanches", img: "calabresa.jpg" },
+        { nome: "AMERICANO COM BACON", descricao: "Pão francês, bife de carne, bacon, presunto, mussarela, tomate e alface.", preco: 38.00, categoria: "Lanches", img: "ameribacon.jpeg" },
+        { nome: "X-FRANGO-CATUPIRY", descricao: "Pão de hambúrguer, filé de frango, catupiry, mussarela, tomate e alface.", preco: 28.00, categoria: "Lanches", },
+        { nome: "X-FRANGO BACON", descricao: "Pão de hambúrguer, filé de frango, bacon, mussarela, tomate e alface.", preco: 30.00, categoria: "Lanches", },
+        { nome: "X-FRANGO CALABRESA", descricao: "Pão de hambúrguer, filé de frango, calabresa, mussarela, tomate e alface.", preco: 29.00, categoria: "Lanches", },
+        { nome: "X-TUDO", descricao: "Pão de hambúrguer, hambúrguer de carne, bacon, calabresa, ovo, presunto, mussarela, tomate e alface.", preco: 35.00, categoria: "Lanches", img: "tudo.jpg" },
+        { nome: "X-FILE TUDO", descricao: "Pão de hambúrguer, bife de carne, bacon, calabresa, ovo, presunto, mussarela, tomate e alface.", preco: 40.00, categoria: "Lanches", img: "filetudo.jpg" },
+        { nome: "BAURU", descricao: "Pão francês, presunto, mussarela e tomate.", preco: 19.50, categoria: "Lanches", },
+        { nome: "MISTO", descricao: "Pão francês, presunto, mussarela.", preco: 19.50, categoria: "Lanches", },
+        { nome: "PAULISTA", descricao: "Pão francês, bife de carne, mussarela e tomate.", preco: 35.00, categoria: "Lanches", img: "paulista.jpeg" },
+        { nome: "PAULISTA COM BACON", descricao: "Pão francês, contra file, bacon, mussarela e tomate.", preco: 40.00, categoria: "Lanches", img: "paulbacon.jpeg" },
+        { nome: "AMERICANO", descricao: "Pão francês, bife de carne, presunto, mussarela, tomate e alface.", preco: 38.00, categoria: "Lanches", img: "americano.jpeg" },
+        { nome: "X-SALADA", descricao: "Pão de hambúrguer, hambúrguer, presunto, mussarela, tomate e alface.", preco: 25.00, categoria: "Lanches", img: "salada.jpg" },
+        { nome: "CEBOLA SUPREME", descricao: "pão de brioche com gergelim, bacon, smash burg 140g, molho caseiro, aneis de cebola, mussarela, cebola roxa, molho barbecue e tomate.", preco: 30.00, categoria: "Lanches", img: "supreme.jpg" },
 
 
         // Maiones
-        { nome: "COMBO CASAL", descricao: "2x burguer, 2 batatas 150g, 2 sprite lata 350ml.", preco: 75.00, categoria: "Combo",img:"casal.jpg" },
+        { nome: "COMBO CASAL", descricao: "2x burguer, 2 batatas 150g, 2 sprite lata 350ml.", preco: 75.00, categoria: "Combo", img: "casal.jpg" },
         { nome: "COMBO CASAL SALADA", descricao: "2x salada, 2 batatas 150g, 2 sprite lata 350ml. ", preco: 75.00, categoria: "Combo", },
-        { nome: "COMBO TOP BACON", descricao: "1x bacon, 1 batata 150g, 1coca-coca lata 350ml.", preco: 44.00, categoria: "Combo", img:"topbacon.jpg"},
-        { nome: "COMBO KIDS", descricao: "1xbuguer, pão com gergelin,hambrguer 120g,presunto,mussarela, 1 suco capo, 120g de batata e um sonho de valsa.", preco: 36.00, categoria: "Lanches", img:"Com kids.jpg" },
+        { nome: "COMBO TOP BACON", descricao: "1x bacon, 1 batata 150g, 1coca-coca lata 350ml.", preco: 44.00, categoria: "Combo", img: "topbacon.jpg" },
+        { nome: "COMBO KIDS", descricao: "1xbuguer, pão com gergelin,hambrguer 120g,presunto,mussarela, 1 suco capo, 120g de batata e um sonho de valsa.", preco: 36.00, categoria: "Lanches", img: "Com kids.jpg" },
         { nome: "COMBO MASTER", descricao: "2 x-salada,batata com cheedar e bacon,nuggets e aneis de cebola.", preco: 90.00, categoria: "Lanches", },
         { nome: "COMBO FAMÍLIA", descricao: "3 x-salada,1 batata 350g, 6 nuggets mini chicken tradicional, 1 coca-cola 2l.", preco: 123.00, categoria: "Lanches", },
         { nome: "COMBO CHICKEN", descricao: " 1 x-frango,1 batata150g, 1coca colca lata 350ml.", preco: 42.00, categoria: "Lanches", },
-     
 
-{
-    nome: "COMBO DO DIA ",
-    descricao: "1 enrolado de presunto, mussarela, tomate e orégano + 1 refrigerante lata 350ml (Coca-Cola, Pepsi ou Sprite).",
-    preco: 15.00,
-    categoria: "Salgados",
-    img:"combo dia.jpg"
 
-},
-{
-    nome: "ENROLADO MASTER",
-    descricao: "1 enrolado de presunto, mussarela, tomate e orégano.",
-    preco: 12.00,
-    categoria: "Salgados"
-},
+        {
+            nome: "COMBO DO DIA ",
+            descricao: "1 enrolado de presunto, mussarela, tomate e orégano + 1 refrigerante lata 350ml (Coca-Cola, Pepsi ou Sprite).",
+            preco: 15.00,
+            categoria: "Salgados",
+            img: "combo dia.jpg"
+
+        },
+        {
+            nome: "ENROLADO MASTER",
+            descricao: "1 enrolado de presunto, mussarela, tomate e orégano.",
+            preco: 12.00,
+            categoria: "Salgados"
+        },
 
 
 
@@ -62,96 +62,118 @@ document.addEventListener('DOMContentLoaded', () => {
         { nome: "Batata palha", descricao: "Adicional de Batata palha", preco: 2.00, categoria: "Adicionais" },
         { nome: "MAIONESE VERDE", descricao: "Temperada com ervas frescas e um sabor especial que combina perfeitamente com nossos lanches.", preco: 3.00, categoria: "Adicionais" },
 
-  // Porções tradicionais (mantém meia e grande)
-{ nome: "CALABRESA", descricao: "Porção de Calabresa", precoMeia: 36.20, precoGrande: 48.20, categoria: "Porções", img:"porcale.webp" },
-{ nome: "FILÉ MIGNON", descricao: "Porção de Filé Mignon", precoMeia: 65.00, precoGrande: 97.50, categoria: "Porções", img:"file.jpg" },
-{ nome: "PICANHA", descricao: "Porção de Picanha", precoMeia: 65.00, precoGrande: 97.50, categoria: "Porções", img:"picanha.webp" },
+        // Porções tradicionais (mantém meia e grande)
+        { nome: "CALABRESA", descricao: "Porção de Calabresa", precoMeia: 36.20, precoGrande: 48.20, categoria: "Porções", img: "porcale.webp" },
+        { nome: "FILÉ MIGNON", descricao: "Porção de Filé Mignon", precoMeia: 65.00, precoGrande: 97.50, categoria: "Porções", img: "file.jpg" },
+        { nome: "PICANHA", descricao: "Porção de Picanha", precoMeia: 65.00, precoGrande: 97.50, categoria: "Porções", img: "picanha.webp" },
 
-// Porções PREÇO ÚNICO — nova categoria para não quebrar
-{
-    nome: "ANEIS DE CEBOLA",
-    descricao: "Porção de Anéis de Cebola",
-    preco: 12.00,
-    categoria: "Porções Únicas",
-    img: "default.png"
-},
-{
-    nome: "NUGGETS",
-    descricao: "Porção de Nuggets",
-    preco: 15.00,
-    categoria: "Porções Únicas",
-    img: "default.png"
-},
-{
-    nome: "BATATA INDIVIDUAL 150g",
-    descricao: "Batata Individual",
-    preco: 10.00,
-    categoria: "Porções Únicas",
-    img: "batataind.jpeg"
-},
-{
-    nome: "BATATA INDIVIDUAL CHEDDAR E BACON",
-    descricao: "Batata com Cheddar e Bacon",
-    preco: 22.00,
-    categoria: "Porções Únicas",
-    img: "default.png"
-},
-{
-    nome: "BATATA TRADICIONAL",
-    descricao: "Batata Frita",
-    preco: 25.00,
-    categoria: "Porções Únicas",
-    img: "default.png"
-},
-{
-    nome: "BATATA CHEDDAR E BACON 350g",
-    descricao: "Batata 350g com Cheddar e Bacon",
-    preco: 35.00,
-    categoria: "Porções Únicas",
-    img: "baconched.jpeg"
-},
+        // Porções PREÇO ÚNICO — nova categoria para não quebrar
+        {
+            nome: "ANEIS DE CEBOLA",
+            descricao: "Porção de Anéis de Cebola",
+            preco: 12.00,
+            categoria: "Porções Únicas",
+            img: "default.png"
+        },
+        {
+            nome: "NUGGETS",
+            descricao: "Porção de Nuggets",
+            preco: 15.00,
+            categoria: "Porções Únicas",
+            img: "default.png"
+        },
+        {
+            nome: "BATATA INDIVIDUAL 150g",
+            descricao: "Batata Individual",
+            preco: 10.00,
+            categoria: "Porções Únicas",
+            img: "batataind.jpeg"
+        },
+        {
+            nome: "BATATA INDIVIDUAL CHEDDAR E BACON",
+            descricao: "Batata com Cheddar e Bacon",
+            preco: 22.00,
+            categoria: "Porções Únicas",
+            img: "default.png"
+        },
+        {
+            nome: "BATATA TRADICIONAL",
+            descricao: "Batata Frita",
+            preco: 25.00,
+            categoria: "Porções Únicas",
+            img: "default.png"
+        },
+        {
+            nome: "BATATA CHEDDAR E BACON 350g",
+            descricao: "Batata 350g com Cheddar e Bacon",
+            preco: 35.00,
+            categoria: "Porções Únicas",
+            img: "baconched.jpeg"
+        },
 
 
         // Bebidas
-          { nome: "ABACAXI", descricao: "Suco de Abacaxi", volumes: [
-            { tamanho: "500ml", preco: 13.00 },
-        ], categoria: "Bebidas", img:"aa.png"  },
-          { nome: "ABACAXI COM HORTELÃ", descricao: "Suco de Abacaxi", volumes: [
-            { tamanho: "500ml", preco: 10.00 },
-        ], categoria: "Bebidas", img:"abacaxi.jpg"  },
-        { nome: "LARANJA", descricao: "Suco de Laranja", volumes: [
-            { tamanho: "500ml", preco: 15.00 },
-        ], categoria: "Bebidas", img:"laranja.webp"  },
-         { nome: "MARACUJÁ", descricao: "Suco de Maracujá", volumes: [
-            { tamanho: "500ml", preco: 15.00 },
-        ], categoria: "Bebidas", img:"maracuja.jpg"  },
-         { nome: "ACEROLA", descricao: "Suco de Acerola", volumes: [
-            { tamanho: "500ml", preco: 10.00 },
-        ], categoria: "Bebidas",  },
-        { nome: "ACEROLA C/ LARANJA", descricao: "Suco de Acerola com Laranja", volumes: [
-            { tamanho: "500ml", preco: 16.00 },
-        ], categoria: "Bebidas", img:"cella.jpg"  },
-      
+        {
+            nome: "ABACAXI", descricao: "Suco de Abacaxi", volumes: [
+                { tamanho: "500ml", preco: 13.00 },
+            ], categoria: "Bebidas", img: "aa.png"
+        },
+        {
+            nome: "ABACAXI COM HORTELÃ", descricao: "Suco de Abacaxi", volumes: [
+                { tamanho: "500ml", preco: 10.00 },
+            ], categoria: "Bebidas", img: "abacaxi.jpg"
+        },
+        {
+            nome: "LARANJA", descricao: "Suco de Laranja", volumes: [
+                { tamanho: "500ml", preco: 15.00 },
+            ], categoria: "Bebidas", img: "laranja.webp"
+        },
+        {
+            nome: "MARACUJÁ", descricao: "Suco de Maracujá", volumes: [
+                { tamanho: "500ml", preco: 15.00 },
+            ], categoria: "Bebidas", img: "maracuja.jpg"
+        },
+        {
+            nome: "ACEROLA", descricao: "Suco de Acerola", volumes: [
+                { tamanho: "500ml", preco: 10.00 },
+            ], categoria: "Bebidas",
+        },
+        {
+            nome: "ACEROLA C/ LARANJA", descricao: "Suco de Acerola com Laranja", volumes: [
+                { tamanho: "500ml", preco: 16.00 },
+            ], categoria: "Bebidas", img: "cella.jpg"
+        },
+
         // Refrigerantes
-        { nome: "COCA COLA", descricao: "Refrigerante Coca Cola", volumes: [
-            { tamanho: "350ml", preco: 6.00 },
-            { tamanho: "2 litros", preco: 16.00 }
-        ], categoria: "Bebidas", img: "coca.png" },
-        { nome: "FANTA", descricao: "Refrigerante Fanta", volumes: [
-            { tamanho: "2 litros", preco: 13.00 }
-        ], categoria: "Bebidas",  img: "fantal.png"},
-        { nome: "ANTÁRTICA", descricao: "Refrigerante Antártica", volumes: [
-            { tamanho: "2 litros", preco: 13.50 }
-        ], categoria: "Bebidas", img: "guarana.png" },
-         { nome: "PESPI", descricao: "Refrigerante Pespi", volumes: [
-            { tamanho: "350ml", preco: 6.00 },
-            { tamanho: "2 litros", preco: 13.00 }
-        ], categoria: "Bebidas", img: "pespi.jpeg" },
-        { nome: "SPRITE", descricao: "Refrigerante Sprite", volumes: [
-            { tamanho: "350ml", preco: 5.50 },
-            { tamanho: "2 litros", preco: 13.50 }
-        ], categoria: "Bebidas",img: "sprite.png" }
-        
+        {
+            nome: "COCA COLA", descricao: "Refrigerante Coca Cola", volumes: [
+                { tamanho: "350ml", preco: 6.00 },
+                { tamanho: "2 litros", preco: 16.00 }
+            ], categoria: "Bebidas", img: "coca.png"
+        },
+        {
+            nome: "FANTA", descricao: "Refrigerante Fanta", volumes: [
+                { tamanho: "2 litros", preco: 13.00 }
+            ], categoria: "Bebidas", img: "fantal.png"
+        },
+        {
+            nome: "ANTÁRTICA", descricao: "Refrigerante Antártica", volumes: [
+                { tamanho: "2 litros", preco: 13.50 }
+            ], categoria: "Bebidas", img: "guarana.png"
+        },
+        {
+            nome: "PESPI", descricao: "Refrigerante Pespi", volumes: [
+                { tamanho: "350ml", preco: 6.00 },
+                { tamanho: "2 litros", preco: 13.00 }
+            ], categoria: "Bebidas", img: "pespi.jpeg"
+        },
+        {
+            nome: "SPRITE", descricao: "Refrigerante Sprite", volumes: [
+                { tamanho: "350ml", preco: 5.50 },
+                { tamanho: "2 litros", preco: 13.50 }
+            ], categoria: "Bebidas", img: "sprite.png"
+        }
+
     ];
 
 
@@ -182,10 +204,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         filtrados.forEach(item => {
             const precoExibir = item.categoria === "Porções"
-    ? `Meia: R$ ${item.precoMeia.toFixed(2)} / Grande: R$ ${item.precoGrande.toFixed(2)}`
-    : item.volumes
-        ? item.volumes.map(v => `${v.tamanho}: R$ ${v.preco.toFixed(2)}`).join(' / ')
-        : `R$ ${item.preco.toFixed(2)}`;
+                ? `Meia: R$ ${item.precoMeia.toFixed(2)} / Grande: R$ ${item.precoGrande.toFixed(2)}`
+                : item.volumes
+                    ? item.volumes.map(v => `${v.tamanho}: R$ ${v.preco.toFixed(2)}`).join(' / ')
+                    : `R$ ${item.preco.toFixed(2)}`;
 
             const card = document.createElement('div');
             card.className = 'card';
@@ -199,73 +221,73 @@ document.addEventListener('DOMContentLoaded', () => {
             cardapioSection.appendChild(card);
         });
     }
-function abrirModalBebida(item) {
-    const modal = document.getElementById("modalBebidas");
-    const opcoes = document.getElementById("opcoesBebida");
+    function abrirModalBebida(item) {
+        const modal = document.getElementById("modalBebidas");
+        const opcoes = document.getElementById("opcoesBebida");
 
-    document.getElementById("nomeBebida").textContent = item.nome;
-    document.getElementById("descricaoBebida").textContent = item.descricao;
+        document.getElementById("nomeBebida").textContent = item.nome;
+        document.getElementById("descricaoBebida").textContent = item.descricao;
 
-    // Criar opções de volumes
-    opcoes.innerHTML = item.volumes.map((v, index) => `
+        // Criar opções de volumes
+        opcoes.innerHTML = item.volumes.map((v, index) => `
         <label>
             <input type="radio" name="volumeBebida" value="${index}" ${index === 0 ? 'checked' : ''}>
             ${v.tamanho} — R$ ${v.preco.toFixed(2)}
         </label>
     `).join('');
 
-    // Exibir preço inicial
-    document.getElementById("precoBebida").textContent = item.volumes[0].preco.toFixed(2);
+        // Exibir preço inicial
+        document.getElementById("precoBebida").textContent = item.volumes[0].preco.toFixed(2);
 
-    // Atualizar preço ao mudar de volume
-    document.querySelectorAll('input[name="volumeBebida"]').forEach(input => {
-        input.addEventListener('change', () => {
-            const selected = item.volumes[input.value];
-            document.getElementById("precoBebida").textContent = selected.preco.toFixed(2);
+        // Atualizar preço ao mudar de volume
+        document.querySelectorAll('input[name="volumeBebida"]').forEach(input => {
+            input.addEventListener('change', () => {
+                const selected = item.volumes[input.value];
+                document.getElementById("precoBebida").textContent = selected.preco.toFixed(2);
+            });
         });
+
+        modal.style.display = "flex";
+    }
+
+    // Confirmar
+    document.getElementById("confirmarBebida").addEventListener("click", () => {
+        const modal = document.getElementById("modalBebidas");
+        const item = cardapio.find(i => i.nome === document.getElementById("nomeBebida").textContent);
+        const selectedIndex = document.querySelector('input[name="volumeBebida"]:checked').value;
+        const volumeSelecionado = item.volumes[selectedIndex];
+
+        carrinho.push({ nome: `${item.nome} (${volumeSelecionado.tamanho})`, preco: volumeSelecionado.preco });
+        atualizarCarrinho();
+        mostrarAlerta('Bebida adicionada ao carrinho!', 'add');
+        mostrarAlerta('Bebida adicionada ao carrinho!', 'add'); mostrarAlerta
+
+        modal.style.display = "none";
     });
 
-    modal.style.display = "flex";
-}
-
-// Confirmar
-document.getElementById("confirmarBebida").addEventListener("click", () => {
-    const modal = document.getElementById("modalBebidas");
-    const item = cardapio.find(i => i.nome === document.getElementById("nomeBebida").textContent);
-    const selectedIndex = document.querySelector('input[name="volumeBebida"]:checked').value;
-    const volumeSelecionado = item.volumes[selectedIndex];
-
-    carrinho.push({ nome: `${item.nome} (${volumeSelecionado.tamanho})`, preco: volumeSelecionado.preco });
-    atualizarCarrinho();
-    mostrarAlerta('Bebida adicionada ao carrinho!', 'add');
-    mostrarAlerta('Bebida adicionada ao carrinho!', 'add');  mostrarAlerta
-
-    modal.style.display = "none";
-});
-
     // Cancelar adicionais
-document.getElementById("cancelarAdicionais").addEventListener("click", () => {
-    fecharModal("modalAdicionais");
-});
+    document.getElementById("cancelarAdicionais").addEventListener("click", () => {
+        fecharModal("modalAdicionais");
+    });
 
-// Cancelar porções
-document.getElementById("cancelarPorcao").addEventListener("click", () => {
-    fecharModal("modalPorcoes");
-});
-// Cancelar bebidas
-document.getElementById("cancelarBebida").addEventListener("click", () => {
-    document.getElementById("modalBebidas").style.display = "none";
-});
+    // Cancelar porções
+    document.getElementById("cancelarPorcao").addEventListener("click", () => {
+        fecharModal("modalPorcoes");
+    });
+    // Cancelar bebidas
+    document.getElementById("cancelarBebida").addEventListener("click", () => {
+        document.getElementById("modalBebidas").style.display = "none";
+    });
 
 
-const opcoes = document.getElementById("opcoesBebida");
-opcoes.addEventListener("change", (e) => {
-    if (e.target.name === "volumeBebida") {
-        const index = e.target.value;
-        const item = cardapio.find(i => i.nome === document.getElementById("nomeBebida").textContent);
-        document.getElementById("precoBebida").textContent = item.volumes[index].preco.toFixed(2);
-    }
-});
+    const opcoes = document.getElementById("opcoesBebida");
+    opcoes.addEventListener("change", (e) => {
+        if (e.target.name === "volumeBebida") {
+            const index = e.target.value;
+            const item = cardapio.find(i => i.nome === document.getElementById("nomeBebida").textContent);
+            document.getElementById("precoBebida").textContent = item.volumes[index].preco.toFixed(2);
+        }
+    });
 
 
     // Função para abrir modal de lanches com adicionais
@@ -311,22 +333,22 @@ opcoes.addEventListener("change", (e) => {
     }
 
     // Adicionar ao carrinho
-  window.adicionarCarrinho = function (nome, categoria) {
-    const item = cardapio.find(i => i.nome === nome);
+    window.adicionarCarrinho = function (nome, categoria) {
+        const item = cardapio.find(i => i.nome === nome);
 
-    if (categoria === "Lanches") {
-        lancheSelecionado = item;
-        abrirModalAdicionais();
-    } else if (categoria === "Porções") {
-        abrirModalPorcoes(item);
-    } else if (categoria === "Bebidas") {
-        abrirModalBebida(item);
-    } else {
-        carrinho.push({ nome: item.nome, preco: item.preco });
-        atualizarCarrinho();
-        mostrarAlerta('Item adicionado!', 'add');
-    }
-};
+        if (categoria === "Lanches") {
+            lancheSelecionado = item;
+            abrirModalAdicionais();
+        } else if (categoria === "Porções") {
+            abrirModalPorcoes(item);
+        } else if (categoria === "Bebidas") {
+            abrirModalBebida(item);
+        } else {
+            carrinho.push({ nome: item.nome, preco: item.preco });
+            atualizarCarrinho();
+            mostrarAlerta('Item adicionado!', 'add');
+        }
+    };
 
     // Confirmar adicionais
     document.getElementById("confirmarAdicionais").addEventListener("click", () => {
@@ -361,30 +383,30 @@ opcoes.addEventListener("change", (e) => {
     });
 
     // Atualizar carrinho
-function atualizarCarrinho() {
-    listaCarrinho.innerHTML = '';
-    let total = 0;
+    function atualizarCarrinho() {
+        listaCarrinho.innerHTML = '';
+        let total = 0;
 
-    carrinho.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
+        carrinho.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
 
-        const removerBtn = document.createElement('button');
-        removerBtn.textContent = 'Remover';
+            const removerBtn = document.createElement('button');
+            removerBtn.textContent = 'Remover';
 
-        removerBtn.onclick = () => {
-            carrinho = carrinho.filter(i => i !== item);
-            atualizarCarrinho();
-            mostrarAlerta(`${item.nome} removido do carrinho`, 'remove');
-        };
+            removerBtn.onclick = () => {
+                carrinho = carrinho.filter(i => i !== item);
+                atualizarCarrinho();
+                mostrarAlerta(`${item.nome} removido do carrinho`, 'remove');
+            };
 
-        li.appendChild(removerBtn);
-        listaCarrinho.appendChild(li);
-        total += item.preco;
-    });
+            li.appendChild(removerBtn);
+            listaCarrinho.appendChild(li);
+            total += item.preco;
+        });
 
-    totalSpan.textContent = `Total: R$ ${total.toFixed(2)}`;
-}
+        totalSpan.textContent = `Total: R$ ${total.toFixed(2)}`;
+    }
 
 
     // Alertas
@@ -394,10 +416,10 @@ function atualizarCarrinho() {
         setTimeout(() => alerta.className = 'mensagem-alerta', 3000);
     }
 
-  // Modal de pagamento
-const modalPagamento = document.createElement("div");
-modalPagamento.className = "modal";
-modalPagamento.innerHTML = `
+    // Modal de pagamento
+    const modalPagamento = document.createElement("div");
+    modalPagamento.className = "modal";
+    modalPagamento.innerHTML = `
   <div class="modal-content">
     <h3>Forma de Pagamento</h3>
     <form id="formPagamento">
@@ -412,30 +434,30 @@ modalPagamento.innerHTML = `
     </div>
   </div>
 `;
-document.body.appendChild(modalPagamento);
+    document.body.appendChild(modalPagamento);
 
-// Cancelar pagamento
-document.getElementById("cancelarPagamento").addEventListener("click", () => {
-  modalPagamento.style.display = "none";
-});
+    // Cancelar pagamento
+    document.getElementById("cancelarPagamento").addEventListener("click", () => {
+        modalPagamento.style.display = "none";
+    });
 
-// Abrir modal ao clicar em finalizar
-finalizarBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (!carrinho || carrinho.length === 0) {
-        return mostrarAlerta("Adicione itens ao carrinho primeiro!", "alert");
-    }
+    // Abrir modal ao clicar em finalizar
+    finalizarBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (!carrinho || carrinho.length === 0) {
+            return mostrarAlerta("Adicione itens ao carrinho primeiro!", "alert");
+        }
 
-    // Remove modal anterior
-    const existing = document.getElementById('modalPagamentoPro');
-    if (existing) existing.remove();
+        // Remove modal anterior
+        const existing = document.getElementById('modalPagamentoPro');
+        if (existing) existing.remove();
 
-    // --- Modal Forma de Pagamento ---
-    const modal = document.createElement('div');
-    modal.id = 'modalPagamentoPro';
-    modal.className = 'modal';
-    modal.style.display = 'flex';
-    modal.innerHTML = `
+        // --- Modal Forma de Pagamento ---
+        const modal = document.createElement('div');
+        modal.id = 'modalPagamentoPro';
+        modal.className = 'modal';
+        modal.style.display = 'flex';
+        modal.innerHTML = `
       <div class="modal-content" role="dialog" aria-modal="true" style="max-width:500px; width:95%; padding:18px; border-radius:10px;">
         <h3>Forma de Pagamento</h3>
         <select id="selectPagamentoPro" style="width:100%; padding:8px; margin-bottom:12px; border-radius:6px;">
@@ -455,37 +477,37 @@ finalizarBtn.addEventListener('click', (e) => {
         </div>
       </div>
     `;
-    document.body.appendChild(modal);
+        document.body.appendChild(modal);
 
-    const select = document.getElementById('selectPagamentoPro');
-    const detalhes = document.getElementById('detalhesPagamentoPro');
-    const btnNext = document.getElementById('confirmarPagamentoPro');
-    const btnCancel = document.getElementById('cancelarPagamentoPro');
-    const total = carrinho.reduce((acc, item) => acc + item.preco, 0);
+        const select = document.getElementById('selectPagamentoPro');
+        const detalhes = document.getElementById('detalhesPagamentoPro');
+        const btnNext = document.getElementById('confirmarPagamentoPro');
+        const btnCancel = document.getElementById('cancelarPagamentoPro');
+        const total = carrinho.reduce((acc, item) => acc + item.preco, 0);
 
-    function fmt(num) {
-        return Number(num).toFixed(2).replace('.', ',');
-    }
+        function fmt(num) {
+            return Number(num).toFixed(2).replace('.', ',');
+        }
 
-    function setNextEnabled(enabled) {
-        btnNext.disabled = !enabled;
-        btnNext.style.background = enabled ? '#25d366' : '#b5b5b5';
-        btnNext.style.cursor = enabled ? 'pointer' : 'not-allowed';
-    }
+        function setNextEnabled(enabled) {
+            btnNext.disabled = !enabled;
+            btnNext.style.background = enabled ? '#25d366' : '#b5b5b5';
+            btnNext.style.cursor = enabled ? 'pointer' : 'not-allowed';
+        }
 
-    select.addEventListener('change', () => {
-        detalhes.innerHTML = '';
-        setNextEnabled(false);
+        select.addEventListener('change', () => {
+            detalhes.innerHTML = '';
+            setNextEnabled(false);
 
-        if (select.value === 'pix') {
-            detalhes.innerHTML = `
+            if (select.value === 'pix') {
+                detalhes.innerHTML = `
                 <p><strong>Total:</strong> R$ ${fmt(total)}</p>
                 <p>Copie a chave PIX:</p>
                 <input id="pixKeyPro" value="64160556000128" readonly style="width:100%; padding:8px; margin-bottom:6px; border-radius:6px; border:1px solid #ddd; text-align:center;">
             `;
-            setNextEnabled(true);
-        } else if (select.value === 'dinheiro') {
-            detalhes.innerHTML = `
+                setNextEnabled(true);
+            } else if (select.value === 'dinheiro') {
+                detalhes.innerHTML = `
                 <p><strong>Total:</strong> R$ ${fmt(total)}</p>
                 <label><input type="radio" name="trocoPrecisaPro" value="nao" checked> Não preciso de troco</label>
                 <label><input type="radio" name="trocoPrecisaPro" value="sim"> Preciso de troco</label>
@@ -494,14 +516,14 @@ finalizarBtn.addEventListener('click', (e) => {
                     <input id="trocoValorPro" type="text" placeholder="Ex: 50.00" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ddd;">
                 </div>
             `;
-            const radios = detalhes.querySelectorAll('input[name="trocoPrecisaPro"]');
-            const trocoArea = document.getElementById('trocoAreaPro');
-            radios.forEach(r => r.addEventListener('change', () => {
-                trocoArea.style.display = r.value === 'sim' ? 'block' : 'none';
-            }));
-            setNextEnabled(true);
-        } else if (select.value === 'cartao') {
-            detalhes.innerHTML = `
+                const radios = detalhes.querySelectorAll('input[name="trocoPrecisaPro"]');
+                const trocoArea = document.getElementById('trocoAreaPro');
+                radios.forEach(r => r.addEventListener('change', () => {
+                    trocoArea.style.display = r.value === 'sim' ? 'block' : 'none';
+                }));
+                setNextEnabled(true);
+            } else if (select.value === 'cartao') {
+                detalhes.innerHTML = `
                 <p><strong>Total:</strong> R$ ${fmt(total)}</p>
                 <label>Tipo de cartão:</label>
                 <select id="tipoCartaoPro" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ddd;">
@@ -510,31 +532,31 @@ finalizarBtn.addEventListener('click', (e) => {
                   <option value="Débito">Débito</option>
                 </select>
             `;
-            setNextEnabled(false);
-            const tipo = document.getElementById('tipoCartaoPro');
-            tipo.addEventListener('change', () => setNextEnabled(tipo.value !== ''));
-        }
-    });
+                setNextEnabled(false);
+                const tipo = document.getElementById('tipoCartaoPro');
+                tipo.addEventListener('change', () => setNextEnabled(tipo.value !== ''));
+            }
+        });
 
-    btnCancel.addEventListener('click', () => modal.remove());
+        btnCancel.addEventListener('click', () => modal.remove());
 
-    btnNext.addEventListener('click', () => {
-        const forma = select.value;
-        let infoPagamento = `Forma de pagamento: ${forma.charAt(0).toUpperCase() + forma.slice(1)}`;
-        if (forma === 'pix') infoPagamento += `\nValor: R$ ${fmt(total)}\nChave Pix: 18991604747`;
-        if (forma === 'dinheiro') {
-            const trocoRadio = document.querySelector('input[name="trocoPrecisaPro"]:checked').value;
-            if (trocoRadio === 'sim') {
-                const raw = document.getElementById('trocoValorPro').value.trim().replace(',', '.');
-                const num = parseFloat(raw);
-                if (isNaN(num) || num <= 0) return mostrarAlerta("Informe o valor do troco corretamente", "alert");
-                infoPagamento += `\nTroco para: R$ ${fmt(num)}`;
-            } else infoPagamento += `\nSem troco`;
-        }
-        if (forma === 'cartao') infoPagamento += ` (${document.getElementById('tipoCartaoPro').value})`;
+        btnNext.addEventListener('click', () => {
+            const forma = select.value;
+            let infoPagamento = `Forma de pagamento: ${forma.charAt(0).toUpperCase() + forma.slice(1)}`;
+            if (forma === 'pix') infoPagamento += `\nValor: R$ ${fmt(total)}\nChave Pix: 18991604747`;
+            if (forma === 'dinheiro') {
+                const trocoRadio = document.querySelector('input[name="trocoPrecisaPro"]:checked').value;
+                if (trocoRadio === 'sim') {
+                    const raw = document.getElementById('trocoValorPro').value.trim().replace(',', '.');
+                    const num = parseFloat(raw);
+                    if (isNaN(num) || num <= 0) return mostrarAlerta("Informe o valor do troco corretamente", "alert");
+                    infoPagamento += `\nTroco para: R$ ${fmt(num)}`;
+                } else infoPagamento += `\nSem troco`;
+            }
+            if (forma === 'cartao') infoPagamento += ` (${document.getElementById('tipoCartaoPro').value})`;
 
-        // --- Modal Endereço ---
-     modal.innerHTML = `
+            // --- Modal Endereço ---
+            modal.innerHTML = `
   <div class="modal-content" style="max-width:500px; width:95%; padding:18px; border-radius:10px;">
     <h3>Entrega ou Retirada</h3>
 
@@ -582,86 +604,88 @@ finalizarBtn.addEventListener('click', (e) => {
     </div>
   </div>
 `;
-const radiosEntrega = document.querySelectorAll('input[name="tipoEntrega"]');
-const camposEndereco = document.getElementById('camposEndereco');
-const enderecoRetirada = document.getElementById('enderecoRetirada');
+            const radiosEntrega = document.querySelectorAll('input[name="tipoEntrega"]');
+            const camposEndereco = document.getElementById('camposEndereco');
+            const enderecoRetirada = document.getElementById('enderecoRetirada');
 
-radiosEntrega.forEach(r => {
-  r.addEventListener('change', () => {
+            radiosEntrega.forEach(r => {
+                r.addEventListener('change', () => {
 
-    if (r.value === "entrega") {
-      camposEndereco.style.display = "block";
-      enderecoRetirada.style.display = "none";
-    } else {
-      camposEndereco.style.display = "none";
-      enderecoRetirada.style.display = "block";
-    }
+                    if (r.value === "entrega") {
+                        camposEndereco.style.display = "block";
+                        enderecoRetirada.style.display = "none";
+                    } else {
+                        camposEndereco.style.display = "none";
+                        enderecoRetirada.style.display = "block";
+                    }
 
-  });
-});
+                });
+            });
 
 
-        document.getElementById('cancelarEndereco').addEventListener('click', () => modal.remove());
-       document.getElementById('confirmarEndereco').addEventListener('click', () => {
-    const tipoEntrega = document.querySelector('input[name="tipoEntrega"]:checked').value;
+            document.getElementById('cancelarEndereco').addEventListener('click', () => modal.remove());
+            document.getElementById('confirmarEndereco').addEventListener('click', () => {
+                const tipoEntrega = document.querySelector('input[name="tipoEntrega"]:checked').value;
 
-    let rua = "";
-    let bairro = "";
-    let numero = "";
-    let taxa = 0;
-    let totalFinal = total;
+                let rua = "";
+                let bairro = "";
+                let numero = "";
+                let taxa = 0;
+                let totalFinal = total;
 
-    // ENTREGA
-    if (tipoEntrega === "entrega") {
-        rua = document.getElementById('ruaEntrega').value.trim();
-        bairro = document.getElementById('bairroEntrega').value.trim();
-        numero = document.getElementById('numeroEntrega').value.trim();
+                // ENTREGA
+                if (tipoEntrega === "entrega") {
+                    rua = document.getElementById('ruaEntrega').value.trim();
+                    bairro = document.getElementById('bairroEntrega').value.trim();
+                    numero = document.getElementById('numeroEntrega').value.trim();
 
-        if (!rua || !bairro || !numero) {
-            return mostrarAlerta("Preencha todos os campos do endereço", "alert");
-        }
+                    if (!rua || !bairro || !numero) {
+                        return mostrarAlerta("Preencha todos os campos do endereço", "alert");
+                    }
 
-        taxa = 5;
-        totalFinal += taxa;
-    }
+                    taxa = 5;
+                    totalFinal += taxa;
+                }
 
-    // TEXTO DO PEDIDO
-    const texto = carrinho.map(item =>
-        `- ${item.nome}: R$ ${Number(item.preco).toFixed(2)}`
-    ).join('\n');
 
-    let mensagem = `Olá! Gostaria de fazer um pedido:
+// TEXTO DO PEDIDO
+const texto = carrinho.map(item => 
+    `- ${item.nome}: R$ ${Number(item.preco).toFixed(2)}`
+).join('\n');
+
+let mensagem = `Olá! Gostaria de fazer um pedido:
 ${texto}
+
 Taxa de entrega: R$ ${taxa.toFixed(2)}
 *Total final: R$ ${totalFinal.toFixed(2)}*
 
-`;
+${infoPagamento}`;
 
-    // SE FOR RETIRADA
-    if (tipoEntrega === "retirada") {
-        mensagem += `
-Retirada no local:
-Rua Boeing, 756`;
-    }
-
-    // SE FOR ENTREGA
-    else {
-        mensagem += `
-Endereço para entrega:
+// SE FOR RETIRADA
+if (tipoEntrega === "retirada") {
+    mensagem += `\n\nRetirada no local:\nRua Boeing, 756`;
+} 
+// SE FOR ENTREGA
+else {
+    mensagem += `\n\nEndereço para entrega:
 Rua: ${rua}
 Bairro: ${bairro}
 Número: ${numero}`;
-    }
+}
 
-    const numeroLoja = "18991604747";
-    const url = `https://wa.me/${numeroLoja}?text=${encodeURIComponent(mensagem)}`;
-    window.open(url, "_blank");
+const numeroLoja = "18991604747";
+const url = `https://wa.me/${numeroLoja}?text=${encodeURIComponent(mensagem)}`;
 
-    mostrarAlerta("Pedido finalizado! Obrigado 😊", "add");
-    carrinho = [];
-    atualizarCarrinho();
-    modal.remove();
-});
+window.open(url, "_blank");
+
+mostrarAlerta("Pedido finalizado! Obrigado 😊", "add");
+
+// Limpeza do carrinho e interface
+carrinho = [];
+atualizarCarrinho();
+modal.remove();
+
+        });
     });
 });
 
@@ -672,8 +696,8 @@ const cancelar = document.getElementById('cancelarPorcao');
 
 // Abrir o modal
 function abrirModalPorcao(nome) {
-  document.getElementById('nomePorcao').textContent = nome;
-  modal.style.display = 'flex';
+    document.getElementById('nomePorcao').textContent = nome;
+    modal.style.display = 'flex';
 }
 
 // Fechar modal
@@ -682,15 +706,15 @@ cancelar.onclick = () => modal.style.display = 'none';
 
 // Fechar clicando fora
 window.onclick = (e) => {
-  if (e.target === modal) modal.style.display = 'none';
+    if (e.target === modal) modal.style.display = 'none';
 };
 
 
 // Modificar a função adicionarCarrinho
 
-    // Eventos
-    buscaInput.addEventListener('input', exibirCardapio);
-    categoriaSelect.addEventListener('change', exibirCardapio);
+// Eventos
+buscaInput.addEventListener('input', exibirCardapio);
+categoriaSelect.addEventListener('change', exibirCardapio);
 
-    exibirCardapio();
+exibirCardapio();
 });
