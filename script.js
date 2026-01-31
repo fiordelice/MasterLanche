@@ -22,6 +22,37 @@ document.addEventListener('DOMContentLoaded', () => {
         { nome: "AMERICANO", descricao: "Pão francês, bife de carne, presunto, mussarela, tomate e alface.", preco: 38.00, categoria: "Lanches", img: "americano.jpeg" },
         { nome: "X-SALADA", descricao: "Pão de hambúrguer, hambúrguer, presunto, mussarela, tomate e alface.", preco: 25.00, categoria: "Lanches", img: "salada.jpg" },
         { nome: "CEBOLA SUPREME", descricao: "pão de brioche com gergelim, bacon, smash burg 140g, molho caseiro, aneis de cebola, mussarela, cebola roxa, molho barbecue e tomate.", preco: 30.00, categoria: "Lanches", img: "supreme.jpg" },
+        {
+            nome: "HOT SIMPLES",
+            descricao: "Pão de hot dog, 1 salsicha, maionese, ketchup, mostarda, alface, milho e batata palha.",
+            preco: 15.00,
+            categoria: "Lanches",
+            img: "hotsimples.jpg"
+        },
+
+        {
+            nome: "HOT DUPLO",
+            descricao: "Pão de hot dog, 2 salsichas, maionese, ketchup, mostarda, alface, milho e batata palha.",
+            preco: 16.00,
+            categoria: "Lanches",
+            img: "hotduplo.jpg"
+        },
+
+        {
+            nome: "HOT CHEDDAR E BACON",
+            descricao: "Pão de hot dog, 1 salsicha, maionese, ketchup, mostarda, bacon, cheddar, alface, milho e batata palha.",
+            preco: 18.00,
+            categoria: "Lanches",
+            img: "hotcheddarbacon.jpg"
+        },
+
+        {
+            nome: "HOT AO MOLHO",
+            descricao: "Pão de hot dog, 1 salsicha, vinagrete, maionese, ketchup, mostarda, alface, batata palha e bacon.",
+            preco: 20.00,
+            categoria: "Lanches",
+            img: "hotaomolho.jpg"
+        },
 
 
         // Maiones
@@ -31,6 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
         { nome: "COMBO KIDS", descricao: "1xbuguer, pão com gergelin,hambrguer 120g,presunto,mussarela, 1 suco capo, 120g de batata e um sonho de valsa.", preco: 36.00, categoria: "Lanches", img: "Com kids.jpg" },
         { nome: "COMBO MASTER", descricao: "2 x-salada,batata com cheedar e bacon,nuggets e aneis de cebola.", preco: 90.00, categoria: "Lanches", },
         { nome: "COMBO FAMÍLIA", descricao: "3 x-salada,1 batata 350g, 6 nuggets mini chicken tradicional, 1 coca-cola 2l.", preco: 123.00, categoria: "Lanches", },
+        {
+  nome: "COMBO TOP BURGUER",
+  descricao: "1x burguer, 1 batata 150g e 1 Coca-Cola lata 350ml.",
+  preco: 38.00,
+  categoria: "Combo",
+  img: "topburguer.jpg"
+},
         { nome: "COMBO CHICKEN", descricao: " 1 x-frango,1 batata150g, 1coca colca lata 350ml.", preco: 42.00, categoria: "Lanches", },
 
 
@@ -648,12 +686,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
 
-// TEXTO DO PEDIDO
-const texto = carrinho.map(item => 
-    `- ${item.nome}: R$ ${Number(item.preco).toFixed(2)}`
-).join('\n');
+                // TEXTO DO PEDIDO
+                const texto = carrinho.map(item =>
+                    `- ${item.nome}: R$ ${Number(item.preco).toFixed(2)}`
+                ).join('\n');
 
-let mensagem = `Olá! Gostaria de fazer um pedido:
+                let mensagem = `Olá! Gostaria de fazer um pedido:
 ${texto}
 
 Taxa de entrega: R$ ${taxa.toFixed(2)}
@@ -661,60 +699,60 @@ Taxa de entrega: R$ ${taxa.toFixed(2)}
 
 ${infoPagamento}`;
 
-// SE FOR RETIRADA
-if (tipoEntrega === "retirada") {
-    mensagem += `\n\nRetirada no local:\nRua Boeing, 756`;
-} 
-// SE FOR ENTREGA
-else {
-    mensagem += `\n\nEndereço para entrega:
+                // SE FOR RETIRADA
+                if (tipoEntrega === "retirada") {
+                    mensagem += `\n\nRetirada no local:\nRua Boeing, 756`;
+                }
+                // SE FOR ENTREGA
+                else {
+                    mensagem += `\n\nEndereço para entrega:
 Rua: ${rua}
 Bairro: ${bairro}
 Número: ${numero}`;
-}
+                }
 
-const numeroLoja = "18991604747";
-const url = `https://wa.me/${numeroLoja}?text=${encodeURIComponent(mensagem)}`;
+                const numeroLoja = "18991604747";
+                const url = `https://wa.me/${numeroLoja}?text=${encodeURIComponent(mensagem)}`;
 
-window.open(url, "_blank");
+                window.open(url, "_blank");
 
-mostrarAlerta("Pedido finalizado! Obrigado 😊", "add");
+                mostrarAlerta("Pedido finalizado! Obrigado 😊", "add");
 
-// Limpeza do carrinho e interface
-carrinho = [];
-atualizarCarrinho();
-modal.remove();
+                // Limpeza do carrinho e interface
+                carrinho = [];
+                atualizarCarrinho();
+                modal.remove();
 
+            });
         });
     });
-});
 
 
-const modal = document.getElementById('modalPorcoes');
-const closeBtn = document.querySelector('.close');
-const cancelar = document.getElementById('cancelarPorcao');
+    const modal = document.getElementById('modalPorcoes');
+    const closeBtn = document.querySelector('.close');
+    const cancelar = document.getElementById('cancelarPorcao');
 
-// Abrir o modal
-function abrirModalPorcao(nome) {
-    document.getElementById('nomePorcao').textContent = nome;
-    modal.style.display = 'flex';
-}
+    // Abrir o modal
+    function abrirModalPorcao(nome) {
+        document.getElementById('nomePorcao').textContent = nome;
+        modal.style.display = 'flex';
+    }
 
-// Fechar modal
-closeBtn.onclick = () => modal.style.display = 'none';
-cancelar.onclick = () => modal.style.display = 'none';
+    // Fechar modal
+    closeBtn.onclick = () => modal.style.display = 'none';
+    cancelar.onclick = () => modal.style.display = 'none';
 
-// Fechar clicando fora
-window.onclick = (e) => {
-    if (e.target === modal) modal.style.display = 'none';
-};
+    // Fechar clicando fora
+    window.onclick = (e) => {
+        if (e.target === modal) modal.style.display = 'none';
+    };
 
 
-// Modificar a função adicionarCarrinho
+    // Modificar a função adicionarCarrinho
 
-// Eventos
-buscaInput.addEventListener('input', exibirCardapio);
-categoriaSelect.addEventListener('change', exibirCardapio);
+    // Eventos
+    buscaInput.addEventListener('input', exibirCardapio);
+    categoriaSelect.addEventListener('change', exibirCardapio);
 
-exibirCardapio();
+    exibirCardapio();
 });
